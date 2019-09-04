@@ -10,7 +10,7 @@ module.exports = {
         nav: [
             { text: '首页', link: '/' },
             { text: '商户后台', link: 'http://localhost:9528' },
-            { text: 'More', link: 'https://hai-fen.com/' },
+            { text: 'More', link: 'https://baidu.com/' },
         ],
         sidebar: [
             ['/', '首页'],
