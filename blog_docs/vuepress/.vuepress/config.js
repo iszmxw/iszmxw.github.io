@@ -15,7 +15,11 @@ module.exports = {
       sidebar: [
           ['/', '首页'],
           ['/login', '登录'],
-          ['/dashboard', '系统首页']
+          ['/dashboard', '系统首页'],
+          ['/system/config', '系统设置'],
+          ['/system/view_log', '访客记录'],
+          ['/category/category_list', '栏目列表'],
+          ['/category/navbar_list', '导航列表']
       ]
   }
 }
