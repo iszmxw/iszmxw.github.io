@@ -168,3 +168,13 @@ phpize
 make LDFLAGS=-lbcm # 按照动态库安装
 make install
 ```
+
+> 3、修改PHP配置文件，加载安装的扩展
+
+```c
+[root@izwz92vqrxu3bz3edk0mytz iszmxw]# php --ini
+Configuration File (php.ini) Path: /www/server/php/72/etc
+Loaded Configuration File:         /www/server/php/72/etc/php.ini
+[root@izwz92vqrxu3bz3edk0mytz iszmxw]# vim /www/server/php/72/etc/php.ini # 修改配置文件
+[root@izwz92vqrxu3bz3edk0mytz iszmxw]# /etc/init.d/php-fpm-72 restart # 重启php
+```
