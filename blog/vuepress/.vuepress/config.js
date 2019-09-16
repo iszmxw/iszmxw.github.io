@@ -1,7 +1,7 @@
 module.exports = {
   title: '开发文档',  // 设置网站标题
-  dest: './blog_docs',    // 设置输出目录
-  base: '/blog_docs/', // 设置站点根路径
+  dest: '../docs',    // 设置输出目录
+  base: '/blog/docs/', // 设置站点根路径
   repo: 'https://iszmxw.github.io/', // 添加 github 链接
   head: [
       ['link', { rel: 'icon', href: '/logo.png' }]
