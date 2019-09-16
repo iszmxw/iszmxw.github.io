@@ -3,16 +3,22 @@
 ## 对接前准备
 
 ::: tip 条件
-需要准备编译后的so文件libbcm.so，下面是准备好了的文件点击下载即可
+1、需要准备编译后的so文件libbcm.so，下面是准备好了的文件点击下载即可
+2、linux服务器一台，我这里用的是阿里云服务器
+3、PHP运行环境准备一个，我这里用的是PHP7.2版本
 :::
 
-**文件地址**
-> [http://iszmxw.github.io/bcm/so/bcm.so.zip](http://iszmxw.github.io/bcm/so/bcm.so.zip)
+**文件地址.**
+> [http://iszmxw.github.io/bcm/file/so/bcm.so.zip](http://iszmxw.github.io/bcm/file/so/bcm.so.zip)
 
-**请求方式.**
-> post | get
+**安装PHP运行环境所需要的软件.**
+> 这里我们所使用的是宝塔面板 `BT-Panel 5.2.0` </br>
+> Nginx使用的是`Nginx 1.12`, PHP安装的`PHP7.2`</br>
+> 安装好后，我们创建一个站点，运用`phpinfo()`检测php的扩展以及一些基本参数
 
-**请求参数.**
+**效果如下.**
+
+![GitHub](https://avatars2.githubusercontent.com/u/3265208?v=3&s=100 "GitHub,Social Coding")
 
 | 字段名 | 变量名 | 必填 | 类型 | 默认值 | 实例值 | 描述 |
 | --- | --- | --- | --- | --- | --- | --- |
