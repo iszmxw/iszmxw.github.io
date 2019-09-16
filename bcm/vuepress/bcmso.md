@@ -178,3 +178,20 @@ Loaded Configuration File:         /www/server/php/72/etc/php.ini
 [root@izwz92vqrxu3bz3edk0mytz iszmxw]# vim /www/server/php/72/etc/php.ini # 修改配置文件
 [root@izwz92vqrxu3bz3edk0mytz iszmxw]# /etc/init.d/php-fpm-72 restart # 重启php
 ```
+
+**最后编辑网站中的PHP文件使用该方法，尝一下，看是否可以运行。**
+
+```c
+[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]# vim /www/wwwroot/119.23.59.129/index.php 
+
+<?php
+echo "bcm_cal=". bcm_cal(36,1,168.5, 63.5, 600)."<br>";
+```
+
+> 然后退出保存，查看运行结果，php /www/wwwroot/119.23.59.129/index.php
+
+```c
+[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]# php /www/wwwroot/119.23.59.129/index.php
+in so ：TBW = resistance = 600.000000
+bcm_cal=600<br>[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]#
+```
