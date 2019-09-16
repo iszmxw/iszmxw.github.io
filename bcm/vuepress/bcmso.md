@@ -17,8 +17,7 @@
 > 安装好后，我们创建一个站点，运用`phpinfo()`检测php的扩展以及一些基本参数
 
 **效果如下.**
-
-![GitHub](https://avatars2.githubusercontent.com/u/3265208?v=3&s=100 "GitHub,Social Coding")
+![GitHub](http://iszmxw.github.io/bcm/file/QQ截图20190916164805.png "GitHub,Social Coding")
 
 | 字段名 | 变量名 | 必填 | 类型 | 默认值 | 实例值 | 描述 |
 | --- | --- | --- | --- | --- | --- | --- |
