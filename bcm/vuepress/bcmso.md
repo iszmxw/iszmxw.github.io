@@ -21,110 +21,150 @@
 ![iszmxw](http://iszmxw.github.io/bcm/file/images/QQ截图20190916164805.png "QQ截图20190916164805.png")
 ![iszmxw](http://iszmxw.github.io/bcm/file/images/QQ截图20190916170144.png "QQ截图20190916170144.png")
 
-**请求实例：：**
+**根据动态库创建PHP扩展：**
 
-```json
-{
-  "device_uuid":"3e3add4a720c11e9ab2100163e0488d6",
-  "develop_appid":"jbh200453e0488d6",
-  "timestamp":1557200022,
-  "nonce":"jbh12345",
-  "sign":"e06416850b0439ec3bf57443b6db92fd",
-  "lng":"",
-  "lat":"",
-  "sex": 0,
-  "ad_num": 12
-}
+```powershell
+# cd到PHP安装包的目录
+cd /www/server/php/72/src/ext/
+# 新增一个扩展初始结构目录
+./ext_skel --extname=iszmxw
+# 进入到新增的扩展目录
+cd iszmxw/
+# 查看扩展目录所在位置
+pwd
+/www/server/php/72/src/ext/iszmxw
+# 下面上传动态库文件到服务器中，使用xftp即可上传，这里不再赘述了。（上传到自己建立的一个目录即可）
+
 ```
 
-**响应参数：**
+**生成动态库的lib库.**
+> 我这里将文件上传到了新建的网站目录中
 
-|字段名|变量名|类型|实例值|描述|
-|---|---|---|---|---|
-|返回码            | code           | int     | 200                              | 接口返回状态     |
-|返回码含义        | message        | varchar | OK                               | 接口返回状态说明 |
-|返回数据          | data           | array   |                                  | 接口返回的数据 |
-|开发者appid       | appid          | string  | ad1f5d4bc06f19b                  | 开发者传入的appid |
-|开发者appkey      | appkey         | string  | a9404de85f62c037360e1be873134a00 | 开发者传入的appkey |
-|请求数据的签名     | sign           | string  | 74df3901db4d71c8a7146ef4cfcce5a4 | 开发者传入的sign |
-|广告信息          | adinfo          | array  |                                   | 接口返回的广告信息 |
-|广告id          | ad_id          | int  |             7                      | 广告id |
-|上报地址          | track_url          | string  | http://ad.10wan.ren/open/ads/track/a93349874847c1d3da6.vue | 广告上报地址，播放完了即可上报 |
-|广告类型          | type          | string  | IMAGE | IMAGE、VIDEO返回的广告类型，只有视频和图片 |
-|广告宽          | width          | string  | 544 | 广告的宽 |
-|广告高          | height          | string  | 352 | 广告的高 |
-|过期时间 |   expire_time| int | 300 | 广告的过期时间 |
-|广告地址 |   url| string | http://files.fensiwansui.com/images/15673929631589.jpg | 广告播放地址 |
-| 文件hash |   hash| string | d8d647dbd71fc6c1c35e8ea982117d51 | 文件hash |
+```powershell
+# 将文件755
+[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]# chmod 755 *
+[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]# ll -a
+total 24
+drwxr-xr-x 2 www  www  4096 Sep 16 17:16 .
+drwxr-xr-x 4 root root 4096 Sep 16 16:45 ..
+-rwxr-xr-x 1 root root  262 Sep 16 17:16 Cal.h
+-rwxr-xr-x 1 root root   17 Sep 16 16:46 index.php
+-rwxr-xr-x 1 root root 7904 Sep 16 17:16 libbcm.so
+# 将so文件放到系统中
+[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]# su
+[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]# echo /usr/local/lib > /etc/ld.so.conf.d/local.conf
+[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]# cp libbcm.so /usr/local/lib
+[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]# /sbin/ldconfig
+```
 
-**响应实例：：**
+**下面开始准备更改php扩展.**
+> 使用php扩展调用动态库，由于上一步的操作，将bcm动态链接到lib库，即可方便的调用了
 
-```json
+```powershell
+# cd到扩展目录
+cd /www/server/php/72/src/ext/iszmxw
+# 查看扩展目录下有如下默认文件以及目录
+[root@izwz92vqrxu3bz3edk0mytz iszmxw]# ll -a
+total 44
+drwxr-xr-x  3 root root 4096 Sep 16 17:08 .
+drwxrwxr-x 77 root root 4096 Sep 16 17:08 ..
+-rw-r--r--  1 root root 2824 Sep 16 17:08 config.m4
+-rw-r--r--  1 root root  352 Sep 16 17:08 config.w32
+-rw-r--r--  1 root root    7 Sep 16 17:08 CREDITS
+-rw-r--r--  1 root root    0 Sep 16 17:08 EXPERIMENTAL
+-rw-r--r--  1 root root  392 Sep 16 17:08 .gitignore
+-rw-r--r--  1 root root 5152 Sep 16 17:08 iszmxw.c
+-rw-r--r--  1 root root  502 Sep 16 17:08 iszmxw.php
+-rw-r--r--  1 root root 2315 Sep 16 17:08 php_iszmxw.h
+drwxr-xr-x  2 root root 4096 Sep 16 17:08 tests
+```
+
+**首先编辑 `config.m4` 文件，去掉第16行和第18行的注释（注释符号为 dnl 。）.**
+> 修改后的结果如下
+
+```c
+PHP_ARG_ENABLE(iszmxw, whether to enable iszmxw support,
+dnl Make sure that the comment is aligned:
+[  --enable-iszmxw           Enable iszmxw support])
+```
+
+**然后打开 php_iszmxw.h，在 `PHP_FUNCTION(confirm_iszmxw_compiled);` 之下加入函数声明：**
+
+```c
+PHP_FUNCTION(confirm_iszmxw_compiled);   /* For testing, remove later. */
+PHP_FUNCTION(bcm_cal);
+```
+
+**打开 iszmxw.c，在 `PHP_FE(confirm_iszmxw_compiled, NULL)` 下方加入以下内容。**
+
+```c
+const zend_function_entry iszmxw_functions[] = {
+        PHP_FE(confirm_iszmxw_compiled, NULL)           /* For testing, remove later. */
+        PHP_FE(bcm_cal,   NULL)       /* For testing, remove later. */
+        PHP_FE_END      /* Must be the last line in iszmxw_functions[] */
+};
+```
+
+**然后在 iszmxw.c 的最末尾书写`bcm_cal`函数的内容：**
+
+```c
+Infor infor;
+/**
+ * 返回传入的年龄
+ */
+PHP_FUNCTION(bcm_cal)
 {
-    "code": 0,
-    "message": "OK",
-    "data": {
-        "appid": "ad1f5d4bc06f19b",
-        "appkey": "a9404de85f62c037360e1be873134a00",
-        "sign": "74df3901db4d71c8a7146ef4cfcce5a4",
-        "adinfo": [
-            {
-                "ad_id": 7,
-                "track_url": "http://ad.10wan.ren/open/ads/track/a9334987ece78b6fe8bf130ef00b74847c1d3da6.vue",
-                "width": 544,
-                "height": 352,
-                "expire_time": 300,
-                "type": "IMAGE",
-                "hash": "d8d647dbd71fc6c1c35e8ea982117d51",
-                "url": "http://files.fensiwansui.com/images/15673929631589.jpg"
-            },
-            {
-                "ad_id": 8,
-                "track_url": "http://ad.10wan.ren/open/ads/track/b7eb6c689c037217079766fdb77c3bac3e51cb4c.vue",
-                "width": 1280,
-                "height": 740,
-                "expire_time": 300,
-                "type": "IMAGE",
-                "hash": "d382cbcbdc060f944256228c9a2033b2",
-                "url": "http://files.fensiwansui.com/images/15675600195032.jpg"
-            }
-            ......
-        ]
+    int isage;
+    int isgender;
+    double isheight;
+    double isweight;
+    double isresistance;
+    int result;
+
+    if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "llddd", &isage, &isgender, &isheight, &isweight, &isresistance) == FAILURE)
+    {
+        return;
     }
+
+    infor.age = isage;
+    infor.height = isheight;
+    infor.weight = isweight;
+    infor.resistance = isresistance;
+
+    if (isgender == 1)
+    {
+        infor.gender = male;
+    }
+    else
+    {
+        infor.gender = female;
+    }
+
+    BCM_Cal(&infor);
+    result = infor.TBW;
+    RETURN_DOUBLE(result);
 }
 ```
 
----
+> 由于引入了`Infor infor;`,则需要在`iszmxw.c`顶部引用下面代码
 
-## 广告上报
+```c
+#include "Cal.h"
+```
 
-::: tip 接口描述
-广告上报，获取广告播放完广告进行广告上报，证明已经播放完成了
-:::
+> 最后将`Cal.h`传入到扩展的目录下面
 
-**URL.**
-> 此地址仅供参考，请以实际返回的地址为准
->
-> 接口地址：http://ad.10wan.ren/open/ads/track/a93349874847c1d3da6.vue
+**最后进行PHP扩展的编译和安装了。**
+> 1、首先执行 `phpize` 程序，生成configure脚本：
 
-**请求方式.**
-> post | get
+```powershell
+phpize
+```
 
-**请求参数.**
-> 无需携带参数，直接请求即可
+> 2、然后进行编译和安装
 
-**响应参数：**
-
-|字段名|变量名|类型|实例值|描述|
-|---|---|---|---|---|
-|返回码            | code           | int     | 200                              | 接口返回状态     |
-|返回码含义        | message        | varchar | OK                               | 接口返回状态说明 |
-
-**响应实例：：**
-
-```json
-{
-    "code": 200,
-    "message": "上报成功"
-}
+```c
+./configure --with-php-config=/www/server/php/72/bin/php-config
+make LDFLAGS=-lbcm # 按照动态库安装
+make install
 ```
