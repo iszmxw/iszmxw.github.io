@@ -7,7 +7,7 @@
 :::
 
 **文件地址**
-> [http://iszmxw.github.io/bcm/docs/so/bcm.so.zip](http://iszmxw.github.io/bcm/docs/so/bcm.so.zip)
+> [http://iszmxw.github.io/bcm/so/bcm.so.zip](http://iszmxw.github.io/bcm/so/bcm.so.zip)
 
 **请求方式.**
 > post | get
