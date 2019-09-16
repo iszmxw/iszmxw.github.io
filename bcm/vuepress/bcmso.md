@@ -17,18 +17,9 @@
 > 安装好后，我们创建一个站点，运用`phpinfo()`检测php的扩展以及一些基本参数
 
 **效果如下.**
-![GitHub](http://iszmxw.github.io/bcm/file/images/QQ截图20190916164805.png "GitHub,Social Coding")
 
-| 字段名 | 变量名 | 必填 | 类型 | 默认值 | 实例值 | 描述 |
-| --- | --- | --- | --- | --- | --- | --- |
-| 设备UUID    | device_uuid   | 是 | string  | 无 | 3e3add4a720c11e9ab2100163e0488d6  | 设备的对应UUID |
-| 开发者APPID | develop_appid | 是 | string  | 无 | jbh200453e0488d6                  | 合作商开发者的appid |
-| 时间戳      | timestamp     | 是 | number  | 无 | 1557200022                        | 用于签名的时间戳 |
-| 随机字符串  | nonce         | 是 | string  | 无 | 123456                            | 用于签名的随机字符串 |
-| 签名        | sign          | 是 | string  | 无 | e06416850b0439ec3bf57443b6db92fd  | 签名后的字符串，获取方式详见接口权限文档 |
-| lng        | lng           | 是 | varchar | 无 | oleiaYv6i50I7ADTlmIGN4WO-2RGM     | 设备的lng |
-| lat        | lat           | 是 | varchar | 无 |                                   | 设备的lat |
-| ad_num     | ad_num        | 是 | int     | 无 | 12                                | 请求广告的数量 |
+![iszmxw](http://iszmxw.github.io/bcm/file/images/QQ截图20190916164805.png "QQ截图20190916164805.png")
+![iszmxw](http://iszmxw.github.io/bcm/file/imsges/QQ截图20190916170144.png "QQ截图20190916170144.png")
 
 **请求实例：：**
 
