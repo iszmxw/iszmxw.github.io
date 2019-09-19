@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>对接动态so库</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.dd0d74e3.css" as="style"><link rel="preload" href="/assets/js/app.becbfcc8.js" as="script"><link rel="preload" href="/assets/js/2.3738927e.js" as="script"><link rel="preload" href="/assets/js/12.a0632e7d.js" as="script"><link rel="prefetch" href="/assets/js/10.44cf1c26.js"><link rel="prefetch" href="/assets/js/11.564b29b2.js"><link rel="prefetch" href="/assets/js/13.70dd7e50.js"><link rel="prefetch" href="/assets/js/14.1f6a90a6.js"><link rel="prefetch" href="/assets/js/15.ff0a3dc7.js"><link rel="prefetch" href="/assets/js/16.c946b0e0.js"><link rel="prefetch" href="/assets/js/17.a8ff2a0d.js"><link rel="prefetch" href="/assets/js/18.0636089a.js"><link rel="prefetch" href="/assets/js/19.c866d9c9.js"><link rel="prefetch" href="/assets/js/20.16cddc4b.js"><link rel="prefetch" href="/assets/js/21.9ec0a5bd.js"><link rel="prefetch" href="/assets/js/22.1fb75b15.js"><link rel="prefetch" href="/assets/js/23.680b417a.js"><link rel="prefetch" href="/assets/js/3.b7e3ed9b.js"><link rel="prefetch" href="/assets/js/4.a9fabb22.js"><link rel="prefetch" href="/assets/js/5.76ffc0bd.js"><link rel="prefetch" href="/assets/js/6.eb2a1856.js"><link rel="prefetch" href="/assets/js/7.990392b7.js"><link rel="prefetch" href="/assets/js/8.268c6b09.js"><link rel="prefetch" href="/assets/js/9.df36befd.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.dd0d74e3.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="对接动态so库"><a href="#对接动态so库" aria-hidden="true" class="header-anchor">#</a> 对接动态so库</h1> <h2 id="对接前准备"><a href="#对接前准备" aria-hidden="true" class="header-anchor">#</a> 对接前准备</h2> <div class="tip custom-block"><p class="custom-block-title">条件</p> <p>1、需要准备编译后的so文件libbcm.so，下面是准备好了的文件点击下载即可
+2、linux服务器一台，我这里用的是阿里云服务器
+3、PHP运行环境准备一个，我这里用的是PHP7.2版本</p></div> <p><strong>文件地址.</strong></p> <blockquote><p><a href="http://iszmxw.github.io/bcm/file/so/bcm.so.zip" target="_blank" rel="noopener noreferrer">http://iszmxw.github.io/bcm/file/so/bcm.so.zip<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></blockquote> <p><strong>安装PHP运行环境所需要的软件.</strong></p> <blockquote><p>这里我们所使用的是宝塔面板 <code>BT-Panel 5.2.0</code> <br>
+Nginx使用的是<code>Nginx 1.12</code>, PHP安装的<code>PHP7.2</code><br>
+安装好后，我们创建一个站点，运用<code>phpinfo()</code>以及<code>php -m</code>检测php的扩展以及一些基本参数</p></blockquote> <p><strong>效果如下.</strong></p> <p><img src="http://iszmxw.github.io/bcm/file/images/QQ%E6%88%AA%E5%9B%BE20190916164805.png" alt="iszmxw" title="QQ截图20190916164805.png"> <img src="http://iszmxw.github.io/bcm/file/images/QQ%E6%88%AA%E5%9B%BE20190916170144.png" alt="iszmxw" title="QQ截图20190916170144.png"></p> <p><strong>根据动态库创建PHP扩展：</strong></p> <div class="language-powershell extra-class"><pre class="language-powershell"><code><span class="token comment"># cd到PHP安装包的目录</span>
+cd <span class="token operator">/</span>www<span class="token operator">/</span>server<span class="token operator">/</span>php<span class="token operator">/</span>72<span class="token operator">/</span>src<span class="token operator">/</span>ext<span class="token operator">/</span>
+<span class="token comment"># 新增一个扩展初始结构目录</span>
+<span class="token punctuation">.</span><span class="token operator">/</span>ext_skel <span class="token operator">--</span>extname=iszmxw
+<span class="token comment"># 进入到新增的扩展目录</span>
+cd iszmxw<span class="token operator">/</span>
+<span class="token comment"># 查看扩展目录所在位置</span>
+<span class="token function">pwd</span>
+<span class="token operator">/</span>www<span class="token operator">/</span>server<span class="token operator">/</span>php<span class="token operator">/</span>72<span class="token operator">/</span>src<span class="token operator">/</span>ext<span class="token operator">/</span>iszmxw
+<span class="token comment"># 下面上传动态库文件到服务器中，使用xftp即可上传，这里不再赘述了。（上传到自己建立的一个目录即可）</span>
+
+</code></pre></div><p><strong>生成动态库的lib库.</strong></p> <blockquote><p>我这里将文件上传到了新建的网站目录中</p></blockquote> <div class="language-powershell extra-class"><pre class="language-powershell"><code><span class="token comment"># 将文件755</span>
+<span class="token namespace">[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]</span><span class="token comment"># chmod 755 *</span>
+<span class="token namespace">[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]</span><span class="token comment"># ll -a</span>
+total 24
+drwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x 2 www  www  4096 Sep 16 17:16 <span class="token punctuation">.</span>
+drwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x 4 root root 4096 Sep 16 16:45 <span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">-</span>rwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x 1 root root  262 Sep 16 17:16 Cal<span class="token punctuation">.</span>h
+<span class="token operator">-</span>rwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x 1 root root   17 Sep 16 16:46 index<span class="token punctuation">.</span>php
+<span class="token operator">-</span>rwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x 1 root root 7904 Sep 16 17:16 libbcm<span class="token punctuation">.</span>so
+<span class="token comment"># 将so文件放到系统中</span>
+<span class="token namespace">[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]</span><span class="token comment"># su</span>
+<span class="token namespace">[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]</span><span class="token comment"># echo /usr/local/lib &gt; /etc/ld.so.conf.d/local.conf</span>
+<span class="token namespace">[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]</span><span class="token comment"># cp libbcm.so /usr/local/lib</span>
+<span class="token namespace">[root@izwz92vqrxu3bz3edk0mytz 119.23.59.129]</span><span class="token comment"># /sbin/ldconfig</span>
+</code></pre></div><p><strong>下面开始准备更改php扩展.</strong></p> <blockquote><p>使用php扩展调用动态库，由于上一步的操作，将bcm动态链接到lib库，即可方便的调用了</p></blockquote> <div class="language-powershell extra-class"><pre class="language-powershell"><code><span class="token comment"># cd到扩展目录</span>
+cd <span class="token operator">/</span>www<span class="token operator">/</span>server<span class="token operator">/</span>php<span class="token operator">/</span>72<span class="token operator">/</span>src<span class="token operator">/</span>ext<span class="token operator">/</span>iszmxw
+<span class="token comment"># 查看扩展目录下有如下默认文件以及目录</span>
+<span class="token namespace">[root@izwz92vqrxu3bz3edk0mytz iszmxw]</span><span class="token comment"># ll -a</span>
+total 44
+drwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x  3 root root 4096 Sep 16 17:08 <span class="token punctuation">.</span>
+drwxrwxr<span class="token operator">-</span>x 77 root root 4096 Sep 16 17:08 <span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">-</span>rw<span class="token operator">-</span>r-<span class="token operator">-</span>r-<span class="token operator">-</span>  1 root root 2824 Sep 16 17:08 config<span class="token punctuation">.</span>m4
+<span class="token operator">-</span>rw<span class="token operator">-</span>r-<span class="token operator">-</span>r-<span class="token operator">-</span>  1 root root  352 Sep 16 17:08 config<span class="token punctuation">.</span>w32
+<span class="token operator">-</span>rw<span class="token operator">-</span>r-<span class="token operator">-</span>r-<span class="token operator">-</span>  1 root root    7 Sep 16 17:08 CREDITS
+<span class="token operator">-</span>rw<span class="token operator">-</span>r-<span class="token operator">-</span>r-<span class="token operator">-</span>  1 root root    0 Sep 16 17:08 EXPERIMENTAL
+<span class="token operator">-</span>rw<span class="token operator">-</span>r-<span class="token operator">-</span>r-<span class="token operator">-</span>  1 root root  392 Sep 16 17:08 <span class="token punctuation">.</span>gitignore
+<span class="token operator">-</span>rw<span class="token operator">-</span>r-<span class="token operator">-</span>r-<span class="token operator">-</span>  1 root root 5152 Sep 16 17:08 iszmxw<span class="token punctuation">.</span>c
+<span class="token operator">-</span>rw<span class="token operator">-</span>r-<span class="token operator">-</span>r-<span class="token operator">-</span>  1 root root  502 Sep 16 17:08 iszmxw<span class="token punctuation">.</span>php
+<span class="token operator">-</span>rw<span class="token operator">-</span>r-<span class="token operator">-</span>r-<span class="token operator">-</span>  1 root root 2315 Sep 16 17:08 php_iszmxw<span class="token punctuation">.</span>h
+drwxr<span class="token operator">-</span>xr<span class="token operator">-</span>x  2 root root 4096 Sep 16 17:08 tests
+</code></pre></div><p><strong>首先编辑 <code>config.m4</code> 文件，去掉第16行和第18行的注释（注释符号为 dnl 。）.</strong></p> <blockquote><p>修改后的结果如下</p></blockquote> <div class="language-c extra-class"><pre class="language-c"><code><span class="token function">PHP_ARG_ENABLE</span><span class="token punctuation">(</span>iszmxw<span class="token punctuation">,</span> whether to enable iszmxw support<span class="token punctuation">,</span>
+dnl Make sure that the comment is aligned<span class="token operator">:</span>
+<span class="token punctuation">[</span>  <span class="token operator">--</span>enable<span class="token operator">-</span>iszmxw           Enable iszmxw support<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>然后打开 php_iszmxw.h，在 <code>PHP_FUNCTION(confirm_iszmxw_compiled);</code> 之下加入函数声明：</strong></p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token function">PHP_FUNCTION</span><span class="token punctuation">(</span>confirm_iszmxw_compiled<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">/* For testing, remove later. */</span>
+<span class="token function">PHP_FUNCTION</span><span class="token punctuation">(</span>bcm_cal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>打开 iszmxw.c，在 <code>PHP_FE(confirm_iszmxw_compiled, NULL)</code> 下方加入以下内容。</strong></p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token keyword">const</span> zend_function_entry iszmxw_functions<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token function">PHP_FE</span><span class="token punctuation">(</span>confirm_iszmxw_compiled<span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>           <span class="token comment">/* For testing, remove later. */</span>
+        <span class="token function">PHP_FE</span><span class="token punctuation">(</span>bcm_cal<span class="token punctuation">,</span>   <span class="token constant">NULL</span><span class="token punctuation">)</span>       <span class="token comment">/* For testing, remove later. */</span>
+        PHP_FE_END      <span class="token comment">/* Must be the last line in iszmxw_functions[] */</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p><strong>然后在 iszmxw.c 的最末尾书写<code>bcm_cal</code>函数的内容：</strong></p> <div class="language-c extra-class"><pre class="language-c"><code>Infor infor<span class="token punctuation">;</span>
+<span class="token comment">/**
+ * 返回传入的年龄
+ */</span>
+<span class="token function">PHP_FUNCTION</span><span class="token punctuation">(</span>bcm_cal<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> isage<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> isgender<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> isheight<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> isweight<span class="token punctuation">;</span>
+    <span class="token keyword">double</span> isresistance<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> result<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">zend_parse_parameters</span><span class="token punctuation">(</span><span class="token function">ZEND_NUM_ARGS</span><span class="token punctuation">(</span><span class="token punctuation">)</span> TSRMLS_CC<span class="token punctuation">,</span> <span class="token string">&quot;llddd&quot;</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>isage<span class="token punctuation">,</span> <span class="token operator">&amp;</span>isgender<span class="token punctuation">,</span> <span class="token operator">&amp;</span>isheight<span class="token punctuation">,</span> <span class="token operator">&amp;</span>isweight<span class="token punctuation">,</span> <span class="token operator">&amp;</span>isresistance<span class="token punctuation">)</span> <span class="token operator">==</span> FAILURE<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    infor<span class="token punctuation">.</span>age <span class="token operator">=</span> isage<span class="token punctuation">;</span>
+    infor<span class="token punctuation">.</span>height <span class="token operator">=</span> isheight<span class="token punctuation">;</span>
+    infor<span class="token punctuation">.</span>weight <span class="token operator">=</span> isweight<span class="token punctuation">;</span>
+    infor<span class="token punctuation">.</span>resistance <span class="token operator">=</span> isresistance<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>isgender <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        infor<span class="token punctuation">.</span>gender <span class="token operator">=</span> male<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span>
+    <span class="token punctuation">{</span>
+        infor<span class="token punctuation">.</span>gender <span class="token operator">=</span> female<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token function">BCM_Cal</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>infor<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    result <span class="token operator">=</span> infor<span class="token punctuation">.</span>TBW<span class="token punctuation">;</span>
+    <span class="token function">RETURN_DOUBLE</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>由于引入了<code>Infor infor;</code>,则需要在<code>iszmxw.c</code>顶部引用下面代码</p></blockquote> <div class="language-c extra-class"><pre class="language-c"><code><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&quot;Cal.h&quot;</span></span>
+</code></pre></div><blockquote><p>最后将<code>Cal.h</code>传入到扩展的目录下面</p></blockquote> <p><strong>最后进行PHP扩展的编译和安装了。</strong></p> <blockquote><p>1、首先执行 <code>phpize</code> 程序，生成configure脚本：</p></blockquote> <div class="language-powershell extra-class"><pre class="language-powershell"><code>phpize
+</code></pre></div><blockquote><p>2、然后进行编译和安装</p></blockquote> <div class="language-c extra-class"><pre class="language-c"><code><span class="token punctuation">.</span><span class="token operator">/</span>configure <span class="token operator">--</span>with<span class="token operator">-</span>php<span class="token operator">-</span>config<span class="token operator">=</span><span class="token operator">/</span>www<span class="token operator">/</span>server<span class="token operator">/</span>php<span class="token operator">/</span><span class="token number">72</span><span class="token operator">/</span>bin<span class="token operator">/</span>php<span class="token operator">-</span>config
+make LDFLAGS<span class="token operator">=</span><span class="token operator">-</span>lbcm # 按照动态库安装
+make install
+</code></pre></div><blockquote><p>3、修改PHP配置文件，加载安装的扩展</p></blockquote> <div class="language-c extra-class"><pre class="language-c"><code><span class="token punctuation">[</span>root@izwz92vqrxu3bz3edk0mytz iszmxw<span class="token punctuation">]</span># php <span class="token operator">--</span>ini
+Configuration File <span class="token punctuation">(</span>php<span class="token punctuation">.</span>ini<span class="token punctuation">)</span> Path<span class="token operator">:</span> <span class="token operator">/</span>www<span class="token operator">/</span>server<span class="token operator">/</span>php<span class="token operator">/</span><span class="token number">72</span><span class="token operator">/</span>etc
+Loaded Configuration File<span class="token operator">:</span>         <span class="token operator">/</span>www<span class="token operator">/</span>server<span class="token operator">/</span>php<span class="token operator">/</span><span class="token number">72</span><span class="token operator">/</span>etc<span class="token operator">/</span>php<span class="token punctuation">.</span>ini
+<span class="token punctuation">[</span>root@izwz92vqrxu3bz3edk0mytz iszmxw<span class="token punctuation">]</span># vim <span class="token operator">/</span>www<span class="token operator">/</span>server<span class="token operator">/</span>php<span class="token operator">/</span><span class="token number">72</span><span class="token operator">/</span>etc<span class="token operator">/</span>php<span class="token punctuation">.</span>ini # 修改配置文件
+<span class="token punctuation">[</span>root@izwz92vqrxu3bz3edk0mytz iszmxw<span class="token punctuation">]</span># <span class="token operator">/</span>etc<span class="token operator">/</span>init<span class="token punctuation">.</span>d<span class="token operator">/</span>php<span class="token operator">-</span>fpm<span class="token operator">-</span><span class="token number">72</span> restart # 重启php
+</code></pre></div><p><strong>最后编辑网站中的PHP文件使用该方法，尝一下，看是否可以运行。</strong></p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token punctuation">[</span>root@izwz92vqrxu3bz3edk0mytz <span class="token number">119.23</span><span class="token number">.59</span><span class="token number">.129</span><span class="token punctuation">]</span># vim <span class="token operator">/</span>www<span class="token operator">/</span>wwwroot<span class="token operator">/</span><span class="token number">119.23</span><span class="token number">.59</span><span class="token number">.129</span><span class="token operator">/</span>index<span class="token punctuation">.</span>php 
+
+<span class="token operator">&lt;</span><span class="token operator">?</span>php
+echo <span class="token string">&quot;bcm_cal=&quot;</span><span class="token punctuation">.</span> <span class="token function">bcm_cal</span><span class="token punctuation">(</span><span class="token number">36</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">168.5</span><span class="token punctuation">,</span> <span class="token number">63.5</span><span class="token punctuation">,</span> <span class="token number">600</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token string">&quot;&lt;br&gt;&quot;</span><span class="token punctuation">;</span>
+</code></pre></div><blockquote><p>然后退出保存，查看运行结果，php /www/wwwroot/119.23.59.129/index.php</p></blockquote> <div class="language-c extra-class"><pre class="language-c"><code><span class="token punctuation">[</span>root@izwz92vqrxu3bz3edk0mytz <span class="token number">119.23</span><span class="token number">.59</span><span class="token number">.129</span><span class="token punctuation">]</span># php <span class="token operator">/</span>www<span class="token operator">/</span>wwwroot<span class="token operator">/</span><span class="token number">119.23</span><span class="token number">.59</span><span class="token number">.129</span><span class="token operator">/</span>index<span class="token punctuation">.</span>php
+in so ：TBW <span class="token operator">=</span> resistance <span class="token operator">=</span> <span class="token number">600.000000</span>
+bcm_cal<span class="token operator">=</span><span class="token number">600</span><span class="token operator">&lt;</span>br<span class="token operator">&gt;</span><span class="token punctuation">[</span>root@izwz92vqrxu3bz3edk0mytz <span class="token number">119.23</span><span class="token number">.59</span><span class="token number">.129</span><span class="token punctuation">]</span>#
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.becbfcc8.js" defer></script><script src="/assets/js/2.3738927e.js" defer></script><script src="/assets/js/12.a0632e7d.js" defer></script>
+  </body>
+</html>
