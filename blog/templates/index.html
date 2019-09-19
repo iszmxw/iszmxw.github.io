@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>页面站点标题</title>
+    <meta name="keywords" content="#(SEO_KEYWORDS ??)">
+    <meta name="description" content="#(SEO_DESCRIPTION ??)">
+    <meta name="template" content="Perfree-Simple">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <!-- 引入资源文件 -->
+    <!-- ico -->
+    <link rel="icon" type="image/ico" href="#option('perfree_logo' ??)">
+    <link rel="stylesheet" href="static/plugin/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="static/plugin/font-awesome/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="static/css/style.css" media="all">
+    <link rel="stylesheet" href="static/theme/white.css" media="all">
+    <!-- 代码样式 -->
+    <link rel="stylesheet" href="static/plugin/highlight/styles/#option('page_code_style','vs').css" media="all">
+    <script src="static/plugin/jquery/jquery-3.2.1.min.js"></script>
+    <script src="static/plugin/layer/layer.js"></script>
+    <script src="static/plugin/layui/layui.js"></script>
+    <script src="static/plugin/pjax/pjax.js"></script>
+    <script src="static/js/perfree.js"></script>
+    <!-- 如后台配置了音乐播放器，则引入播放器文件 -->
+    <link rel="stylesheet" href="static/plugin/music/APlayer.min.css">
+    <script src="static/plugin/music/APlayer.min.js"></script>
+    <script src="static/plugin/music/Meting.min.js"></script>
+    <!-- 自定义网页头部代码 -->
+    <!-- #option('page_head_code' ??) -->
+    <!-- 自定义css代码 -->
+    <!-- #option('page_css_code' ??) -->
+</head>
+
+<body id="web-body">
+    <!-- #if(option('page_background_color') != null) -->
+    <script>$("#web-body").css("background-color", "#option('page_background_color')");</script>
+    <!-- #end -->
+    <!-- #if(option('page_bacground-img') != null) -->
+    <script>$("#web-body").css("background-image", "url(#option('page_bacground-img'))");</script>
+    <!-- #end -->
+    <div style="overflow-x: hidden;min-height: 100%;">
+        <!-- 引入顶部导航栏 -->
+        <!-- 导航栏部分 -->
+        <div class="header layui-bg-cyan pc-header">
+            <div class="layui-container">
+
+                <!-- 导航栏logo及文字start -->
+                <a class="logo-box pjax" href="/">
+                    <i class="fa fa-#option('page_logo_icon' ??) fa-lg"></i>
+                    <span>追梦小窝的博客</span>
+                </a>
+                <!-- 导航栏logo及文字end -->
+
+                <!-- 导航栏菜单start -->
+                <ul class="layui-nav layui-bg-cyan" lay-filter="">
+                    <li class="layui-nav-item" lay-unselect=""> <a href="/" class="pjax" data-pjax-state=""><i
+                                class="fa fa-home"></i> 首页</a> </li>
+                    <li class="layui-nav-item" lay-unselect=""> <a href="/history" class="pjax" data-pjax-state=""><i
+                                class="fa fa-history"></i> 历史</a> </li>
+                    <li class="layui-nav-item" lay-unselect=""> <a href="javascript:;" class="pjax"
+                            data-pjax-state=""><i class="fa fa-header"></i> 前端<span class="layui-nav-more"></span></a>
+                        <dl class="layui-nav-child layui-anim layui-anim-upbit">
+                            <dd lay-unselect="">
+                                <a href="/article/category/javascript" class="pjax" data-pjax-state=""> JavaScript</a>
+                            </dd>
+                            <dd lay-unselect="">
+                                <a href="/article/category/css" class="pjax" data-pjax-state=""> Css</a>
+                            </dd>
+                            <dd lay-unselect="">
+                                <a href="/article/category/jquery" class="pjax" data-pjax-state=""> JQuery</a>
+                            </dd>
+                            <dd lay-unselect="">
+                                <a href="/article/category/html" class="pjax" data-pjax-state=""> Html</a>
+                            </dd>
+                            <dd lay-unselect="">
+                                <a href="/article/category/react" class="pjax" data-pjax-state=""> React</a>
+                            </dd>
+                        </dl>
+                    </li>
+                    <!-- <li class="layui-nav-item login-box" lay-unselect>
+                        <a href="#(WEB_DOMAIN ??)/user/login" class="login-btn pjax"> 登录</a>|
+                        <a href="#(WEB_DOMAIN ??)/user/register" class="register-btn pjax"> 注册</a>
+                    </li> -->
+                    <li class="layui-nav-item">
+                        <a><img src="https://p3.music.126.net/iHnW3xv1f5okiykcB1RDwg==/109951164075964369.jpg?param=300y300"
+                                class="layui-nav-img">追梦小窝</a>
+                        <dl class="layui-nav-child">
+                            <dd lay-unselect>
+                                <a href="/ucenter" target="_blank">个人中心</a>
+                            </dd>
+                            <dd lay-unselect>
+                                <a href="/ucenter/pwd" target="_blank">修改密码</a>
+                            </dd>
+                            <dd class="header-logout" lay-unselect>
+                                <a href="#(WEB_DOMAIN ??)/ucenter/doLogout?csrf_token=#(CSRF_TOKEN)"> 退出登录 </a>
+                            </dd>
+                        </dl>
+                    </li>
+                    #end
+                </ul>
+                <!-- 导航栏菜单end -->
+            </div>
+        </div>
+        <!--移动端header-->
+        <div class="phone-header layui-bg-cyan">
+            <a href="javascript:;" class="phone-open-nav-btn">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </a>
+            <!-- 导航栏logo及文字start -->
+            <a class="logo-box pjax" href="/">
+                <i class="fa fa-#option('page_logo_icon' ??) fa-lg"></i>
+                <span> #(WEB_NAME ??)</span>
+            </a>
+            <!-- 导航栏logo及文字end -->
+
+            <a class="phone-setting-btn">
+                <i class="fa fa-cog" aria-hidden="true"></i>
+            </a>
+            <!--移动端设置容器-->
+            <div class="phone-setting-box">
+                <div class="phone-search-form">
+                    <form action="/article/search">
+                        <input type="text" name="keyword" required placeholder="请输入关键字" autocomplete="off">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="phone-my-message-box">
+                    #if(USER == null)
+                    <a href="#(WEB_DOMAIN ??)/user/login" class="login-btn"> 登录</a>
+                    <span class="my-message-tarde">|</span>
+                    <a href="#(WEB_DOMAIN ??)/user/register" class="register-btn"> 注册</a>
+                    #else
+                    <a href="#(WEB_DOMAIN ??)/ucenter" class="my-name-img"><img src="#(USER.avatar??)"
+                            class="layui-nav-img">#(USER.nickname??)</a>
+                    #end
+                </div>
+            </div>
+        </div>
+        <!--移动端菜单-->
+        <div class="phone-nav-box">
+            <ul class="layui-nav layui-nav-tree layui-nav-side layui-bg-cyan" lay-filter="">
+                #for(menu : MENUS)
+                <li class="layui-nav-item" lay-unselect>
+                    #if(menu.hasChild())
+                    <a href="#(menu.url == null ? 'javascript:;':menu.url)" class="pjax"><i
+                            class="fa fa-#(menu.icon ??)"></i> #(menu.text ??)</a>
+                    #else
+                    <a href="#(menu.url == null ? 'javascript:;':menu.url)" class="pjax nav-link"><i
+                            class="fa fa-#(menu.icon ??)"></i> #(menu.text ??)</a>
+                    #end
+                    #if(menu.hasChild())
+                    <dl class="layui-nav-child">
+                        #for(childMenu : menu.getChilds())
+                        <dd lay-unselect><a href="#(WEB_DOMAIN ??)#(childMenu.url ??)" class="pjax nav-link">
+                                #(childMenu.text ??)</a></dd>
+                        #end
+                    </dl>
+                    #end
+                </li>
+                #end
+            </ul>
+        </div>
+
+        <!-- 内容部分start -->
+        <div class="layui-container perfree-content layui-anim-up">
+            <!-- 一言组件手机端，电脑端不展示start -->
+            <div class="layui-card phone-yiyan-box">
+                <div class="layui-card-body page-title-body">
+                    <h2>#(WEB_NAME ??)</h2>
+                    <div>
+                        <script type="text/javascript"
+                            src="https://api.lwl12.com/hitokoto/v1?encode=js&charset=utf-8"></script>
+                        <span id="lwlhitokoto">
+                            <script>lwlhitokoto()</script>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- 一言组件手机端，电脑端不展示end -->
+            <!-- 引入内容 -->
+
+            <div class="layui-col-xs12 layui-col-sm7 layui-col-md8 perfree-content-left">
+                <div class="article-box">
+                    <div class="layui-card list-article-box">
+                        <div class="layui-card-body" style="padding:10px 20px 10px 20px;">
+                            <i class="fa fa-bullhorn fa-lg"></i>
+                            <span class="notice"
+                                style="font-size: 1.1em;margin-left: 5px;">欢迎来到追梦小窝的博客，现在博客全新改版！欢迎大家来吐槽！</span>
+                        </div>
+                    </div>
+                    <!-- 置顶文章start -->
+                    <div class="layui-card list-article-box">
+                        <div class="layui-card-body">
+                            <a class="article-img pjax" href="#(WEB_DOMAIN ??)#(article.url ??)">
+                                <img src="https://www.jpress.yinpengfei.com/attachment/20190603/429ac173b205465ba3e3a1410bd38e88.jpg"
+                                    alt="#(article.title ??)" width="100%" height="300px" />
+                            </a>
+                            <!-- <a class="article-img pjax" href="#(WEB_DOMAIN ??)#(article.url ??)">
+                                <img src="https://www.jpress.yinpengfei.com/attachment/20190508/81d2350c430a462a83b0b31018b6c991.jpg" alt="#(article.title ??)" width="100%"
+                                    height="300px" />
+                            </a> -->
+                            <div class="article-box-content">
+                                <h2 class="article-title">
+                                    <span class="top-tip">置顶</span><a href="#(WEB_DOMAIN ??)#(article.url ??)"
+                                        class="pjax">文章标题</a>
+                                </h2>
+                                <p class="article-content">文章描述截取100个字符串展示</p>
+                                <hr class="layui-bg-gray">
+                                <span class="article-msg">
+                                    <i class="fa fa-user-o"></i> 作者昵称&nbsp;
+                                    <i class="fa fa-eye"></i> 浏览次数100&nbsp;
+                                    <i class="fa fa-comment-o"></i> 评论次数188&nbsp;
+                                    <i class="fa fa-clock-o"></i> 2019-09-19
+                                </span>
+                                <a class="read-all-btn pjax" href="#(WEB_DOMAIN ??)#(article.url ??)">阅读全文</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 置顶文章end -->
+
+                    <!-- 文章列表start -->
+                    <div class="layui-card">
+                        <div class="layui-card-body">
+                            <div class="no-article">
+                                <i class="fa fa-bug" aria-hidden="true"></i> 这家伙很懒，还没发表文章~
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 文章列表end -->
+                    <div class="layui-card">
+                        <div class="layui-card-body">
+                            <div class="perfree-page-box">
+                                <a class="page-item #(page.style) pjax" href="#(WEB_DOMAIN ??)#(page.url ??)">下一页</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 引入右侧边栏 -->
+            <div class="layui-col-sm5 layui-col-md4 perfree-content-right">
+                <!-- 一言组件 -->
+                <div class="layui-card yiyan-box">
+                    <div class="layui-card-body page-title-body">
+                        <h2 class="right-name-title">追梦小窝</h2>
+                        <div>
+                            <script type="text/javascript"
+                                src="https://api.lwl12.com/hitokoto/v1?encode=js&charset=utf-8"></script>
+                            <span id="lwlhitokoto">
+                                <script>lwlhitokoto()</script>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 一言组件 -->
+
+                <!-- 搜索start -->
+                <div class="layui-card search-box">
+                    <div class="layui-card-header">
+                        <i class="fa fa-search"></i>
+                        <span style="margin-left: 3px;">搜索</span>
+                    </div>
+                    <div class="layui-card-body search-body">
+                        <form class="layui-form" action="/article/search">
+                            <div class="layui-form-item">
+                                <input type="text" name="keyword" required lay-verify="required" placeholder="请输入关键字"
+                                    autocomplete="off" class="layui-input search-input">
+                                <button class="layui-btn layui-btn-normal search-btn" type="submit"><i
+                                        class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- 搜索end -->
+                <!-- 音乐start -->
+                <div class="layui-card music-card">
+                    <div class="layui-card-header">
+                        <i class="fa fa-music"></i>
+                        <span style="margin-left: 3px;">音乐推荐</span>
+                    </div>
+                    <div class="layui-card-body music-body">
+                        <meting-js server="#option('music_server' ??)" type="#option('music_type' ??)"
+                            id="#option('music_id' ??)" list-max-height="240px" list-folded="true"></meting-js>
+                    </div>
+                </div>
+                <!-- 音乐end -->
+
+                <!-- 热门start -->
+                <div class="layui-card right-hot-article-box">
+                    <div class="layui-card-header">
+                        <i class="fa fa-fire"></i>
+                        <span style="margin-left: 3px;">热门文章</span>
+                    </div>
+                    <div class="layui-card-body hot-article-body">
+                        <a class="hot-article-box pjax" href="#(WEB_DOMAIN ??)#(article.url)">
+                            <img src="https://www.hhxxblog.com/templates/jpress-perfree-simple/static/img/3.jpg"
+                                width="20%" height="50px" class="hot-article-img" />
+                            <span class="hot-article-title">centos7下载及安装mysql</span><br>
+                            <span class="hot-article-msg"><i class="fa fa-clock-o"></i> 2019-03-17&nbsp;&nbsp;<i
+                                    class="fa fa-eye"></i> 508</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- 热门end -->
+
+                <!-- 标签start -->
+                <div class="layui-card right-hot-tag">
+                    <div class="layui-card-header">
+                        <i class="fa fa-tags"></i>
+                        <span style="margin-left: 3px;">热门标签</span>
+                    </div>
+                    <div class="layui-card-body tag-body">
+                        <a href="#(WEB_DOMAIN ??)#(tag.url)" class="layui-btn layui-btn-normal tag pjax"
+                            title="共#(tag.count ??)篇文章">Linux</a>
+
+                        <a href="#(WEB_DOMAIN ??)#(tag.url)" class="layui-btn layui-btn-normal tag pjax"
+                            title="共#(tag.count ??)篇文章">PHP</a>
+
+                        <a href="#(WEB_DOMAIN ??)#(tag.url)" class="layui-btn layui-btn-normal tag pjax"
+                            title="共#(tag.count ??)篇文章">Mysql</a>
+                    </div>
+                </div>
+                <!-- 标签end -->
+
+                <!-- 广告start -->
+                <div class="layui-card #if(option('page_ad_code') == null) perfree-hide #end"
+                    style="margin-bottom: 20px;">
+                    <div class="layui-card-header">
+                        <i class="fa fa-bullhorn"></i>
+                        <span style="margin-left: 3px;">广告</span>
+                    </div>
+                    <div class="layui-card-body tag-body">
+                        #option('page_ad_code' ??)
+                    </div>
+                </div>
+                <!-- 广告end -->
+            </div>
+        </div>
+        <!-- 引入底栏 -->
+        <!--网页底部-->
+        <div class="layui-footer">
+            <div class="layui-container">
+                <!-- 网页底部左侧信息start -->
+                <div class="footer-left">
+                    <span>Copyright © 2019 HHXXBlog</span>
+                </div>
+                <!-- 网页底部左侧信息end -->
+
+                <!-- 网页底部右侧信息start -->
+                <div class="footer-right">
+                    Powered
+                    by<a href="http://jpress.io" style="font-size: 12px;color: #657180;">Jpress</a> | Theme
+                    by<a href="https://github.com/perfree/jpress-perfree-simple"
+                        style="font-size: 12px;color: #657180;">Perfree</a>
+                        苏ICP备 19013175号
+                </div>
+                <!-- 网页底部右侧信息end -->
+            </div>
+        </div>
+    </div>
+    <!-- 内容部分end -->
+    <!-- 遮罩start -->
+    <div class="mask"></div>
+    <!-- 遮罩end -->
+    <script id="load-js-code">
+        //初始化layui,返回顶部按钮
+        layui.use(['util', 'element'], function () {
+            var util = layui.util, element = layui.element;;
+            util.fixbar({});
+        });
+        $('.tag').each(function () {
+            $(this).css("background-color", getRandomColor());
+        })
+        function getRandomColor() {
+            return '#' + (Math.random() * 0xffffff << 0).toString(16);
+        }
+    </script>
+    <!-- #if(option('page_pjax') == null || option('page_pjax') == true) -->
+    <script>
+        //设置pjax
+        var pjax = new Pjax({
+            elements: ".pjax,form",
+            cacheBust: false,
+            debug: false,
+            selectors: [
+                "title",
+                "meta[name=description]",
+                "meta[name=keywords]",
+                ".loadJs",
+                ".perfree-content-left",
+                ".right-hot-article-box",
+                ".right-hot-tag",
+                ".layui-footer",
+                ".header-logout",
+                "#load-js-code"
+            ]
+        })
+        var index;
+        document.addEventListener('pjax:send', function () {
+            index = layer.load();
+        });
+        document.addEventListener('pjax:success', function () {
+            layer.close(index);
+        });
+        document.addEventListener('pjax:error', function () {
+            layer.msg("系统出现问题,请刷新网页");
+        });
+    </script>
+    <!-- #end -->
+    <!-- 自定义js代码 -->
+    <!-- #option('page_js_code' ??) -->
+</body>
+
+</html>
