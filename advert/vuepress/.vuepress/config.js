@@ -9,7 +9,7 @@ module.exports = {
     themeConfig: {
         nav: [
             { text: '首页', link: '/' },
-            { text: '商户后台', link: 'http://localhost:9528' },
+            { text: '商户后台', link: 'http://ad.10wan.ren/open' },
             { text: 'More', link: 'https://baidu.com/' },
         ],
         sidebar: [
