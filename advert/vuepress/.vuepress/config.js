@@ -14,6 +14,7 @@ module.exports = {
         ],
         sidebar: [
             ['/', '首页'],
+            ['/device', '设备接入'],
             ['/singe', '签名'],
             ['/advert', '广告对接']
         ]
