@@ -6,11 +6,11 @@
 获取广告接口，通过此接口可以获取到广告数据，需要传入一些字段 </br>
 测试服请求地址： `http://ad.10wan.ren`</br>
 正式服请求地址： `http://www.12345.live`</br>
-业务请求时，请替换localhost为真实地址即可
+业务请求时，请替换127.0.0.1为真实地址即可
 :::
 
 **URL.**
-> 接口地址：http://localhost/api/open/advert/get_advert
+> 接口地址：http://127.0.0.1/api/open/advert/get_advert
 
 **请求方式.**
 > post | get
@@ -55,7 +55,7 @@
 | 请求数据的签名 | sign        | string  | 74df3901db4d71c8a7146ef4cfcce5a4                            | 开发者传入的sign                           |
 | 广告信息       | adinfo      | array   |                                                             | 接口返回的广告信息                         |
 | 广告id         | ad_id       | int     | 7                                                           | 广告id                                     |
-| 上报地址       | track_url   | string  | http://localhost/api/open/advert/track/a93349874847c1d3da6.vue | 广告上报地址，播放完了即可上报             |
+| 上报地址       | track_url   | string  | http://127.0.0.1/api/open/advert/track/a93349874847c1d3da6.vue | 广告上报地址，播放完了即可上报             |
 | 广告类型       | type        | string  | IMAGE                                                       | IMAGE、VIDEO返回的广告类型，只有视频和图片 |
 | 广告宽         | width       | string  | 544                                                         | 广告的宽                                   |
 | 广告高         | height      | string  | 352                                                         | 广告的高                                   |
@@ -76,7 +76,7 @@
         "adinfo": [
             {
                 "ad_id": 7,
-                "track_url": "http://localhost/api/open/advert/track/a9334987ece78b6fe8bf130ef00b74847c1d3da6.vue",
+                "track_url": "http://127.0.0.1/api/open/advert/track/a9334987ece78b6fe8bf130ef00b74847c1d3da6.vue",
                 "width": 544,
                 "height": 352,
                 "expire_time": 300,
@@ -86,7 +86,7 @@
             },
             {
                 "ad_id": 8,
-                "track_url": "http://localhost/api/open/advert/track/b7eb6c689c037217079766fdb77c3bac3e51cb4c.vue",
+                "track_url": "http://127.0.0.1/api/open/advert/track/b7eb6c689c037217079766fdb77c3bac3e51cb4c.vue",
                 "width": 1280,
                 "height": 740,
                 "expire_time": 300,
@@ -111,7 +111,7 @@
 **URL.**
 > 此地址仅供参考，请以实际返回的地址为准
 >
-> 接口地址：http://localhost/api/open/advert/track/a93349874847c1d3da6.vue
+> 接口地址：http://127.0.0.1/api/open/advert/track/a93349874847c1d3da6.vue
 
 **请求方式.**
 > post | get
