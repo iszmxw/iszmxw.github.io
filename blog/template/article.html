@@ -1,221 +1,948 @@
-#include("./_inc/_layout.html")
-#@layout()
-#define content()
-<div class="layui-col-xs12 layui-col-sm7 layui-col-md8 perfree-content-left">
-	<link rel="stylesheet" href="static/plugin/vue-markdown/vue.css" media="all">
-	<link rel="stylesheet" href="static/css/article.css" media="all">
-	<script src="static/js/article.js"></script>
-	<!-- 文章start -->
-	<div class="layui-card">
-		<div class="layui-card-header article-title">
-			<h2>#(article.title ??)</h2>
-			<p>
-				<i class="fa fa-user-o"></i> #(article.user.nickname ??)&nbsp;
-				<i class="fa fa-eye"></i> #(article.view_count ??)浏览&nbsp;
-				<i class="fa fa-comment-o"></i> #(article.comment_count ??)评论&nbsp;
-				<i class="fa fa-clock-o"></i> #date(article.created, "yyyy-MM-dd")
-			</p>
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="UTF-8">
+	<title>页面站点标题</title>
+	<meta name="keywords" content="#(SEO_KEYWORDS ??)">
+	<meta name="description" content="#(SEO_DESCRIPTION ??)">
+	<meta name="template" content="Perfree-Simple">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<!-- 引入资源文件 -->
+	<!-- ico -->
+	<link rel="icon" type="image/ico" href="#option('perfree_logo' ??)">
+	<link rel="stylesheet" href="static/plugin/layui/css/layui.css" media="all">
+	<link rel="stylesheet" href="static/plugin/font-awesome/css/font-awesome.min.css" media="all">
+	<link rel="stylesheet" href="static/css/style.css" media="all">
+	<link rel="stylesheet" href="static/theme/white.css" media="all">
+	<!-- 代码样式 -->
+	<link rel="stylesheet" href="static/plugin/highlight/styles/#option('page_code_style','vs').css" media="all">
+	<script src="static/plugin/jquery/jquery-3.2.1.min.js"></script>
+	<script src="static/plugin/layer/layer.js"></script>
+	<script src="static/plugin/layui/layui.js"></script>
+	<script src="static/plugin/pjax/pjax.js"></script>
+	<script src="static/js/perfree.js"></script>
+	<!-- 如后台配置了音乐播放器，则引入播放器文件 -->
+	<link rel="stylesheet" href="static/plugin/music/APlayer.min.css">
+	<script src="static/plugin/music/APlayer.min.js"></script>
+	<script src="static/plugin/music/Meting.min.js"></script>
+	<!-- 自定义网页头部代码 -->
+	<!-- #option('page_head_code' ??) -->
+	<!-- 自定义css代码 -->
+	<!-- #option('page_css_code' ??) -->
+</head>
+
+<body id="web-body">
+	<!-- #if(option('page_background_color') != null) -->
+	<script>$("#web-body").css("background-color", "#option('page_background_color')");</script>
+	<!-- #end -->
+	<!-- #if(option('page_bacground-img') != null) -->
+	<script>$("#web-body").css("background-image", "url(#option('page_bacground-img'))");</script>
+	<!-- #end -->
+	<div style="overflow-x: hidden;min-height: 100%;">
+		<!-- 引入顶部导航栏 -->
+		<!-- 导航栏部分 -->
+		<div class="header layui-bg-cyan pc-header">
+			<div class="layui-container">
+
+				<!-- 导航栏logo及文字start -->
+				<a class="logo-box pjax" href="/">
+					<i class="fa fa-#option('page_logo_icon' ??) fa-lg"></i>
+					<span>追梦小窝的博客</span>
+				</a>
+				<!-- 导航栏logo及文字end -->
+
+				<!-- 导航栏菜单start -->
+				<ul class="layui-nav layui-bg-cyan" lay-filter="">
+					<li class="layui-nav-item" lay-unselect=""> <a href="/" class="pjax" data-pjax-state=""><i
+								class="fa fa-home"></i> 首页</a> </li>
+					<li class="layui-nav-item" lay-unselect=""> <a href="/history" class="pjax" data-pjax-state=""><i
+								class="fa fa-history"></i> 历史</a> </li>
+					<li class="layui-nav-item" lay-unselect=""> <a href="javascript:;" class="pjax" data-pjax-state=""><i
+								class="fa fa-header"></i> 前端<span class="layui-nav-more"></span></a>
+						<dl class="layui-nav-child layui-anim layui-anim-upbit">
+							<dd lay-unselect="">
+								<a href="/article/category/javascript" class="pjax" data-pjax-state=""> JavaScript</a>
+							</dd>
+							<dd lay-unselect="">
+								<a href="/article/category/css" class="pjax" data-pjax-state=""> Css</a>
+							</dd>
+							<dd lay-unselect="">
+								<a href="/article/category/jquery" class="pjax" data-pjax-state=""> JQuery</a>
+							</dd>
+							<dd lay-unselect="">
+								<a href="/article/category/html" class="pjax" data-pjax-state=""> Html</a>
+							</dd>
+							<dd lay-unselect="">
+								<a href="/article/category/react" class="pjax" data-pjax-state=""> React</a>
+							</dd>
+						</dl>
+					</li>
+					<!-- <li class="layui-nav-item login-box" lay-unselect>
+                        <a href="#(WEB_DOMAIN ??)/user/login" class="login-btn pjax"> 登录</a>|
+                        <a href="#(WEB_DOMAIN ??)/user/register" class="register-btn pjax"> 注册</a>
+                    </li> -->
+					<li class="layui-nav-item">
+						<a><img src="https://p3.music.126.net/iHnW3xv1f5okiykcB1RDwg==/109951164075964369.jpg?param=300y300"
+								class="layui-nav-img">追梦小窝</a>
+						<dl class="layui-nav-child">
+							<dd lay-unselect>
+								<a href="/ucenter" target="_blank">个人中心</a>
+							</dd>
+							<dd lay-unselect>
+								<a href="/ucenter/pwd" target="_blank">修改密码</a>
+							</dd>
+							<dd class="header-logout" lay-unselect>
+								<a href="#(WEB_DOMAIN ??)/ucenter/doLogout?csrf_token=#(CSRF_TOKEN)"> 退出登录 </a>
+							</dd>
+						</dl>
+					</li>
+					#end
+				</ul>
+				<!-- 导航栏菜单end -->
+			</div>
 		</div>
-		<div class="layui-card-body article-body">
-			<span id="edit-model" style="display: none">#(article.edit_mode)</span>
-			<div class="perfree-article-content">
-				#(article.content ??)
-			</div>
-			<div class="article-content-bottom">
-				<span class="article-content-bottom-left"><i class="fa fa-clock-o"></i> 最后修改于 #date(article.created, "yyyy-MM-dd HH:mm:ss")</span>
-			</div>
-			#if(option('page_appreciate') == null || option('page_appreciate') == true)
-			<div class="appreciate-box">
-				<button class="layui-btn layui-btn-radius layui-btn-normal" onclick="appreciate();">
-					<i class="layui-icon">&#xe65e;</i>赞赏
-				</button>
-				<span class="appreciate-tip">如果觉得我的文章对你有用，请随意赞赏</span>
-			</div>
-			<div id="appreciate-content">
-				<div class="appreciate-content-tip">扫一扫支付</div>
-				<img src="#option('perfree_alipay' ??)" id="appreciate-content-aLiImg">
-				<img src="#option('perfree_wechat' ??)" id="appreciate-content-wechatImg">
-				<div class="appreciate-content-btn-box">
-					<button class="layui-btn layui-btn-normal" onclick="changeImg(1);">支付宝支付</button>
-					<button class="layui-btn" onclick="changeImg(2);">微信支付</button>
+		<!--移动端header-->
+		<div class="phone-header layui-bg-cyan">
+			<a href="javascript:;" class="phone-open-nav-btn">
+				<i class="fa fa-bars" aria-hidden="true"></i>
+			</a>
+			<!-- 导航栏logo及文字start -->
+			<a class="logo-box pjax" href="/">
+				<i class="fa fa-#option('page_logo_icon' ??) fa-lg"></i>
+				<span> #(WEB_NAME ??)</span>
+			</a>
+			<!-- 导航栏logo及文字end -->
+
+			<a class="phone-setting-btn">
+				<i class="fa fa-cog" aria-hidden="true"></i>
+			</a>
+			<!--移动端设置容器-->
+			<div class="phone-setting-box">
+				<div class="phone-search-form">
+					<form action="/article/search">
+						<input type="text" name="keyword" required placeholder="请输入关键字" autocomplete="off">
+						<button type="submit"><i class="fa fa-search"></i></button>
+					</form>
+				</div>
+				<div class="phone-my-message-box">
+					#if(USER == null)
+					<a href="#(WEB_DOMAIN ??)/user/login" class="login-btn"> 登录</a>
+					<span class="my-message-tarde">|</span>
+					<a href="#(WEB_DOMAIN ??)/user/register" class="register-btn"> 注册</a>
+					#else
+					<a href="#(WEB_DOMAIN ??)/ucenter" class="my-name-img"><img src="#(USER.avatar??)"
+							class="layui-nav-img">#(USER.nickname??)</a>
+					#end
 				</div>
 			</div>
-			#end
-			<div class="switch-article">
-				#previousArticle()
-				<a href="#(WEB_DOMAIN ??)#(previous.url)" title="#(previous.title)" class="pre-article pjax">
-					<i class="fa fa-angle-double-left" aria-hidden="true"></i> 上一篇
-				</a>
-				#end
-				#nextArticle()
-				<a href="#(WEB_DOMAIN ??)#(next.url)" title="#(next.title)" class="next-article pjax">
-					下一篇 <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-				</a>
-				#end
-			</div>
 		</div>
-	</div>
-	<!-- 文章end -->
-	#relevantArticles(article)
-		<div class="layui-card">
-			<div class="layui-card-header" style="padding: 0 20px;">推荐文章</div>
-			<div class="layui-card-body relevant-body">
-				#for(article :relevantArticles)
-					<a href="#(WEB_DOMAIN ??)#(article.url)" title="#(article.title)" class="relevant-box">
-						#if(article.showImage == null)
-							<img src="static/img/#(for.count).jpg" class="relevant-img">
-						#else
-							<img src="#(article.showImage)" class="relevant-img">
-						#end
-						<div class="relevant-right">
-							<h2 class="relevant-title">#(article.title)</h2>
-							<span class="relevant-article-msg"><i class="fa fa-clock-o"></i> #date(article.created, "yyyy-MM-dd")&nbsp;&nbsp;<i class="fa fa-eye"></i> #(article.view_count ??)</span>
-						</div>
-					</a>
-				#end
-			</div>
-		</div>
-	#end
-
-	<div class="layui-card">
-		<div class="layui-card-header" style="padding: 0 20px;">发表评论</div>
-		<div class="layui-card-body revert-body">
-			<!-- 评论框start -->
-			<div class="revert-box">
-				<form class="layui-form" action="#(CPATH)/article/postComment" id="commentForm" method="post">
-					<input type="hidden" name="articleId" value="#(article.id)" id="articleId">
-					<input type="hidden" name="pid" id="pid">
-					<textarea id="revert" style="display: none;" name="content" lay-verify="content"></textarea>
-					#if(option('article_comment_vcode_enable'))
-						<img src="/commons/captcha" style="height: 25px" onclick="this.src='#(CPATH)/commons/captcha?d='+Math.random();" class="comment-verify">
-						<input placeholder="请输入验证码" autocomplete="off" required class="layui-input captcha" name="captcha" type="text" lay-verify="required">
-					#end
-					<button class="layui-btn layui-btn-normal revert-submit" lay-submit lay-filter="comment">发表评论</button>
-				</form>
-			</div>
-			<!-- 评论框end -->
-			<!-- 评论列表start -->
-			<div class="revert-list" id="allComment">
-				#commentPage(pageSize=5)
-					#for(comment : commentPage.list)
-					<div class="revert-content-box">
-						<div class="revert-user">
-							<img src="#(comment.user.avatar ?? 'static/img/avatar.png')" width="40px" height="40px"/>
-							<span class="revert-user-msg">
-								<span class="revert-user-name">#(comment.author ?? '匿名用户')</span>
-								<br>
-								<span class="revert-user-time">#date(comment.created, "yyyy-MM-dd HH:mm:ss")</span>
-							</span>
-						</div>
-						<div class="revert-content">
-							#(comment.text ??)
-						</div>
-						#if(comment.parent)
-						<div class="revert-comment-content-box">
-							<div class="revert-user">
-								<img src="#(comment.parent.user.avatar ?? 'static/img/avatar.png')" width="40px" height="40px"/>
-								<span class="revert-user-msg">
-									<span class="revert-user-name">#(comment.parent.author ?? '匿名用户')</span>
-									<br>
-									<span class="revert-user-time">#date(comment.parent.created, "yyyy-MM-dd HH:mm:ss")</span>
-								</span>
-							</div>
-							<div class="revert-content">
-								#(comment.parent.text ??)
-							</div>
-						</div>
-						#end
-						<a class="toReply" href="javascript:;" data-cid="#(comment.id)" data-author="#(comment.author ?? '匿名用户')">回复</a>
-					</div>
-					<hr class="layui-bg-gray">
+		<!--移动端菜单-->
+		<div class="phone-nav-box">
+			<ul class="layui-nav layui-nav-tree layui-nav-side layui-bg-cyan" lay-filter="">
+				#for(menu : MENUS)
+				<li class="layui-nav-item" lay-unselect>
+					#if(menu.hasChild())
+					<a href="#(menu.url == null ? 'javascript:;':menu.url)" class="pjax"><i class="fa fa-#(menu.icon ??)"></i>
+						#(menu.text ??)</a>
 					#else
-						<div class="no-comment">
-							<i class="fa fa-volume-up" aria-hidden="true"></i> 还没有人评论哦~赶快抢占沙发吧~
-						</div>
+					<a href="#(menu.url == null ? 'javascript:;':menu.url)" class="pjax nav-link"><i
+							class="fa fa-#(menu.icon ??)"></i> #(menu.text ??)</a>
 					#end
-					#commentPaginate(anchor="allComment")
-						<div class="layui-card">
-							<div class="layui-card-body">
-								<div class="perfree-page-box">
-									#for(page : pages)
-									<a class="page-item #(page.style)" href="#(WEB_DOMAIN ??)#(page.url ??)">#(page.text ??)</a>
-									#end
+					#if(menu.hasChild())
+					<dl class="layui-nav-child">
+						#for(childMenu : menu.getChilds())
+						<dd lay-unselect><a href="#(WEB_DOMAIN ??)#(childMenu.url ??)" class="pjax nav-link">
+								#(childMenu.text ??)</a></dd>
+						#end
+					</dl>
+					#end
+				</li>
+				#end
+			</ul>
+		</div>
+
+		<!-- 内容部分start -->
+		<div class="layui-container perfree-content layui-anim-up">
+			<div class="layui-col-xs12 layui-col-sm7 layui-col-md8 perfree-content-left">
+				<link rel="stylesheet" href="static/plugin/vue-markdown/vue.css" media="all">
+				<link rel="stylesheet" href="static/css/article.css" media="all">
+				<script src="static/js/article.js"></script>
+				<!-- 文章start -->
+				<div class="layui-card">
+					<div class="layui-card-header article-title">
+						<h2>真正努力和不努力的人</h2>
+						<p>
+							<i class="fa fa-user-o"></i> 追梦小窝&nbsp;
+							<i class="fa fa-eye"></i> 188浏览&nbsp;
+							<i class="fa fa-comment-o"></i> 88评论&nbsp;
+							<i class="fa fa-clock-o"></i> 2019-09-23
+						</p>
+					</div>
+					<div class="layui-card-body article-body">
+						<span id="edit-model" style="display: none">编辑</span>
+						<div class="perfree-article-content">
+							01
+
+							▼
+
+							那个经常在朋友圈“晒加班”的人
+
+							被辞退了
+
+
+
+
+
+							最近一个HR朋友告诉我，老板给了她一个新要求：那些总是在朋友圈里“晒加班”的人，我们不招。
+
+
+
+							问其原因。原来是他们公司有位员工，隔三差五就在朋友圈发深夜加班的动态，是同事们口中的“劳模典范”。
+
+
+
+							前几天他又发了个动态：凌晨2点还在公司做项目，掉头发也不是没有原因的...
+
+
+
+							老板那天看了他的策划，内容繁琐，条理不清晰，还不及一个实习生的作品，完全不能用。
+
+
+
+							其实经常看他晒加班，老板早就留意他了，但真正用心工作的人不会屡次犯下同类低级错误。
+
+
+
+							明明没做出什么好成绩，却一直抱怨工作太苦太累，这样的员工其实一直在内耗。
+
+
+
+							我们身边常有这种把“言不符实的努力”晒到朋友圈的人。
+
+
+
+							晒深夜加班，晒早起苦读，晒应酬喝酒...看似踌躇满志、风风火火，实际上并没有获得什么成绩，更像是感动自己地瞎忙活。
+
+
+
+							这种晒出来的努力，并不一定是真的努力。
+
+
+
+
+
+
+
+							不知从什么时候起，“努力”成为一种炫耀的资本。
+
+
+
+							许多人都陷入“表面勤奋”的恶性循环中。对外宣告自己有多艰难多刻苦，却从未意识到自己的能力是否配得上这份“辛苦”。
+
+
+
+							就好比近几年选秀节目里流行起来的“卖惨人设”。上来5个人，其中4个都稀里哗啦地哭诉自己千篇一律的“悲惨经历”。
+
+
+
+							这种卖惨式的营销全靠大家的“同情心”支撑。且不说其中故事的真实性，仔细想想，哪个普通人的追梦之路不是坎坎坷坷，困难重重？
+
+
+
+							这并不是一个可以拿来在节目里获得特权的资本。
+
+
+
+							我从不否认任何人的努力，每一个靠自己努力的人都是值得尊重的，但“努力”从来都不是给别人看的。
+
+
+
+							有时间来浪费做这些形式主义，不如好好沉淀下来，靠实力让大家记住自己。
+
+
+
+
+
+							02
+
+							▼
+
+							别用表面的努力
+
+							掩盖内心的懒惰
+
+
+
+
+
+							心理学上有一个词叫做“条件自尊”，是指依赖他人的肯定和表扬而产生的自尊。
+
+
+
+							有条件的自尊者往往并不了解自我的需要，而是通过他人的眼光来看待自己。
+
+
+
+							在社交更广泛和简约的趋势下，这种潜在的思维模式导致我们总是被他人的目光所束缚。
+
+
+
+							一旦别人不再肯定自己的时候，就会开始自我怀疑，产生无能感、羞耻感。
+
+
+
+
+
+
+
+							或许是因为无法忍受努力过程中的孤寂和酸楚，或许只是想要单纯地炫耀一下自己也在为了生活奔波劳苦，找找存在感。
+
+
+
+							在许多人看来，拍一张挑灯夜战的照片发到朋友圈寻求慰藉和肯定，比独自一人日日夜夜地默默付出来的更有价值感。
+
+
+
+							喜欢“晒”、喜欢分享没有错，但如果你的动机是想靠“晒努力”来自我安慰或获得别人的认可，希望看到朋友、同事或者上司在评论下面回复“你真棒”，是完全没必要的。
+
+
+
+							还不如用结果来证明自己，更有说服力。
+
+
+
+							毕竟，时间不会因为看到这些零零散散的努力就寄予你同情；老板也不会因为你的“无效加班”而给你升职加薪。
+
+
+
+							“小晒怡情，大晒伤神”，习惯性地“晒努力”，会悄然拖慢你实现目标的进度。
+
+
+
+							有一则TED的演讲主题说道：不要将你真正的个人目标告诉别人，许多测试已证明：
+
+
+
+							在你体验向别人兴致勃勃介绍目标的快感时，你的自我感觉良好，在现实中反而使你不太容易实现目标。
+
+
+
+
+
+
+
+							因为这一时的满足，会让你弱化行动上的勤奋。
+
+
+
+							除非你把“自我激励”当做分享的动机。
+
+
+
+							当对方肯定你的目标后，你会感到压力，意识到自己离目标还很遥远，于是想办法尽快实现它，并邀请朋友监督，以激励自己。
+
+
+
+							正如演讲中的例子所说：
+
+
+
+							“我的确想要跑马拉松， 所以我需要每周训练5次， 如果我做不到，就踢我的屁股吧？”
+
+
+
+
+
+
+
+							晒“努力”的高级智慧是，把每一次的分享都当做实现目标的“助推器”，而不是一味地标榜自己的努力，自欺欺人地沉浸在社交满足中，从不认真做事。
+
+
+
+
+
+							03
+
+							▼
+
+							越无能的人越喜欢强调自己的努力
+
+
+
+
+
+							没有谁的生活是容易的，努力本就是人生常态。
+
+
+
+							身边每次来大姨妈都一边忍痛一边工作的女孩子比比皆是；
+
+
+
+							上学时勤工俭学，前天晚上上夜班到凌晨，第二天仍早起上课的同学也不少......
+
+
+
+							说努力很辛苦，谁不知道呢？
+
+
+
+							但所有的选择和努力都是为了自己，只要得到的比失去的多，那就是值得的。
+
+
+
+							平庸的人，总是强调自己在努力，然后碌碌无为；成功的人则是默默耕耘，最后用结果说话。
+
+
+
+							翟天临和喻恩泰，就是很典型的例子。一个是伪学霸打肿脸充胖子；一个是真学霸，默默努力，大器晚成。
+
+
+
+							喻恩泰在《声临其境》中，以标准的英伦口音、过硬的专业配音和演技征服了所有观众。
+
+
+
+
+
+
+
+							十年来，他一直低调谦逊，坚持自己的演艺梦想。尽管当时已经红遍全国，但他并没有走“流量小生”的道路，而是攻读博士学位，一口气推掉10部大热影视剧。
+
+
+
+							据统计，他先后读了电视编辑、表演、导演三个专业，在读期间很多学科都是第一名，还获得了牛津全奖交换名额。
+
+
+
+							现在，他再次出现在大众眼前，大家才意识到原来当初《武林外传》里的吕秀才，现实生活中也是名副其实的有才华、有能力的人。
+
+
+
+
+
+
+
+							喻恩泰是聪明的，普通人也好，公众人物也罢，我们的努力从不需要向任何人证明。
+
+
+
+							你的努力，是为了更好的自己。
+
+
+
+
+
+							04
+
+							▼
+
+							“晒成绩”才是最酷的！
+
+
+
+
+
+							成年人的世界里，人们更喜欢看结果，很少去真正在乎你经历了什么。
+
+
+
+							过程是难熬的，但调整好心态，采用正确的方式来实行计划，其实也没那么痛苦。
+
+
+
+							如何让自己的努力变得更有价值？这些建议，或许对你有所帮助。
+
+
+
+							▌1、耐得住寂寞，摒弃形式主义
+
+
+
+							不要到处宣扬自己的内心，也不要到处宣泄自己的痛苦。
+
+
+
+							耐得住寂寞才是一个人成熟的标志。
+
+
+
+							看了那么多成功的故事案例，每个人都会经历一段孤军奋战的黑暗时刻，只有熬过去了，才会见到黎明的曙光。
+
+
+
+							寂寞的时候，我们也能更好的看清自己。走出时代的骗局，静下心来倾听自己的内心的声音吧。
+
+
+
+							别盲目跟风，让自己陷入“形式主义”的无效努力之中，而应根据自身的情况，找到对应的问题和适合自己的方法。
+
+
+
+
+
+
+
+							▌2、思考配合行动，形成认知差异
+
+
+
+							努力分为“思维努力”和“肢体努力”。单有肢体努力是远远不够的，需要二者配合。
+
+
+
+							当你确定目标之后，首先要做的就是制定计划。
+
+
+
+							将一件事做到最好，你需要：边行动边思考，然后改进，再持续行动。只有在行动中思考，才可以慢慢形成认知差异，提升自己的认知高度和深度。
+
+
+
+							看似简单，做到却很难。这需要集中全部注意力，广泛学习，养成一套属于自己的思维方式。
+
+
+
+							不仅仅是独自工作时，还有在与领导日常的工作交流或集体会议中，找机会表达自己的想法，提出比较有建设性的意见，让他人感觉到你的努力，从而由衷地欣赏你。
+
+
+
+							▌ 3、树立“时间成本意识”
+
+
+
+							人生最大的成本是“时间”，最容易浪费和遗忘的也是“时间”。真正努力的人是没时间“晒努力”的，他们都有很强的“时间观念”。
+
+
+
+							当你正在刷无聊的短视频、玩手机游戏时，还有很多人正在为美好的未来奋斗着。
+
+
+
+							中国不缺勤奋的人，时间也从不为任何人留情，很多时候，一个人的核心竞争力有多大，就看你的时间成本意识有多高。
+
+
+
+							▌ 4、坚持自己的节奏
+
+
+
+							我们的人生各有千秋，每个人都有自己的节奏。
+
+
+
+							没有人规定什么时候一定要怎样，当付出与回报无法成正比时，不妨思考一下，这一切的不如意，是否都来自对自己节奏的把握不当，和对别人的盲目模仿？
+
+
+
+							成功永远不嫌晚，每一份小小的努力都有它发生的价值。
+
+
+
+							JK罗琳也是在被拒绝12次后，32岁才出版了哈利波特；
+
+
+
+							Ortega到39岁才创立了ZARA，马云35岁才建立了阿里巴巴；
+
+
+
+							褚时健也是70多岁才开始种橙......
+
+
+
+							正如冯唐所说的“九字真言”：不要脸，不害怕，不着急。
+
+
+
+							一个人无论成功与否，只要尽力之后，能够勇敢地面对自己、对他人、对宇宙说：“我有足够的耐心和定力，面对任何结果和舆论”。
+
+
+
+							他就是优秀的。
+
+
+
+
+
+
+
+							保持自己的节奏，扎扎实实地努力，成功与幸运才会按照约定纷至沓来。
+
+
+
+							真正对自己未来负责的人都在不动声色的努力着，等到完成后用结果一鸣惊人，这样的做法，才是最酷的。
+						</div>
+						<div class="article-content-bottom">
+							<span class="article-content-bottom-left"><i class="fa fa-clock-o"></i> 最后修改于 2019-03-26 21:26:27</span>
+						</div>
+						<!-- 赞赏部分开始 -->
+						<div class="appreciate-box">
+							<button class="layui-btn layui-btn-radius layui-btn-normal" onclick="appreciate();">
+								<i class="layui-icon">&#xe65e;</i>赞赏
+							</button>
+							<span class="appreciate-tip">如果觉得我的文章对你有用，请随意赞赏</span>
+						</div>
+						<div id="appreciate-content">
+							<div class="appreciate-content-tip">扫一扫支付</div>
+							<img src="#option('perfree_alipay' ??)" id="appreciate-content-aLiImg">
+							<img src="#option('perfree_wechat' ??)" id="appreciate-content-wechatImg">
+							<div class="appreciate-content-btn-box">
+								<button class="layui-btn layui-btn-normal" onclick="changeImg(1);">支付宝支付</button>
+								<button class="layui-btn" onclick="changeImg(2);">微信支付</button>
+							</div>
+						</div>
+						<!-- 赞赏部分结束 -->
+						<div class="switch-article">
+							<!-- 上一篇 -->
+							<a href="#(WEB_DOMAIN ??)#(previous.url)" title="#(previous.title)" class="pre-article pjax">
+								<i class="fa fa-angle-double-left" aria-hidden="true"></i> 上一篇
+							</a>
+							<!-- 下一篇 -->
+							<a href="#(WEB_DOMAIN ??)#(next.url)" title="#(next.title)" class="next-article pjax">
+								下一篇 <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<!-- 文章end -->
+
+				<div class="layui-card">
+					<div class="layui-card-header" style="padding: 0 20px;">推荐文章</div>
+					<div class="layui-card-body relevant-body">
+						<!-- #for(article :relevantArticles) -->
+						<a href="#(WEB_DOMAIN ??)#(article.url)" title="#(article.title)" class="relevant-box">
+							<!-- #if(article.showImage == null) 不存在显示默认图片 -->
+							<!-- <img src="https://www.hhxxblog.com/templates/jpress-perfree-simple/static/img/3.jpg" class="relevant-img"> -->
+							<!-- #else -->
+							<img src="https://www.hhxxblog.com/templates/jpress-perfree-simple/static/img/3.jpg" class="relevant-img">
+							<!-- #end -->
+							<div class="relevant-right">
+								<h2 class="relevant-title">推荐相关文章标题</h2>
+								<span class="relevant-article-msg"><i class="fa fa-clock-o"></i> 2019-09-23 19:29:00&nbsp;&nbsp;<i class="fa fa-eye"></i> 30</span>
+							</div>
+						</a>
+						<!-- #end -->
+					</div>
+				</div>
+
+				<div class="layui-card">
+					<div class="layui-card-header" style="padding: 0 20px;">发表评论</div>
+					<div class="layui-card-body revert-body">
+						<!-- 评论框start -->
+						<div class="revert-box">
+							<form class="layui-form" action="#(CPATH)/article/postComment" id="commentForm" method="post">
+								<input type="hidden" name="articleId" value="#(article.id)" id="articleId">
+								<input type="hidden" name="pid" id="pid">
+								<textarea id="revert" style="display: none;" name="content" lay-verify="content"></textarea>
+								<!-- #开启验证码回复 -->
+								<!-- <img src="/commons/captcha" style="height: 25px"
+									onclick="this.src='#(CPATH)/commons/captcha?d='+Math.random();" class="comment-verify">
+								<input placeholder="请输入验证码" autocomplete="off" required class="layui-input captcha" name="captcha"
+									type="text" lay-verify="required"> -->
+								<!-- #end -->
+								<button class="layui-btn layui-btn-normal revert-submit" lay-submit lay-filter="comment">发表评论</button>
+							</form>
+						</div>
+						<!-- 评论框end -->
+						<!-- 评论列表start -->
+						<div class="revert-list" id="allComment">
+							<!-- #commentPage(pageSize=5) -->
+							<!-- #for(comment : commentPage.list) -->
+							<div class="revert-content-box">
+								<div class="revert-user">
+									<img src="https://p3.music.126.net/iHnW3xv1f5okiykcB1RDwg==/109951164075964369.jpg?param=300y300" width="40px" height="40px" />
+									<span class="revert-user-msg">
+										<span class="revert-user-name">匿名用户</span>
+										<br>
+										<span class="revert-user-time">2019-09-23 19:33</span>
+									</span>
+								</div>
+								<div class="revert-content">
+									评论内容
+								</div>
+								<!-- #if(comment.parent) -->
+								<div class="revert-comment-content-box">
+									<div class="revert-user">
+										<img src="https://p3.music.126.net/iHnW3xv1f5okiykcB1RDwg==/109951164075964369.jpg?param=300y300" width="40px" height="40px" />
+										<span class="revert-user-msg">
+											<span class="revert-user-name">追梦小窝</span>
+											<br>
+											<span class="revert-user-time">2019-09-23 19:33</span>
+										</span>
+									</div>
+									<div class="revert-content">
+										评论一下
+									</div>
+								</div>
+								<!-- #end -->
+								<a class="toReply" href="javascript:;" data-cid="#(comment.id)"
+									data-author="#(comment.author ?? '匿名用户')">回复</a>
+							</div>
+							<hr class="layui-bg-gray">
+							<!-- #else -->
+							<div class="no-comment">
+								<i class="fa fa-volume-up" aria-hidden="true"></i> 还没有人评论哦~赶快抢占沙发吧~
+							</div>
+							<!-- #end -->
+							<!-- #commentPaginate(anchor="allComment") -->
+							<div class="layui-card">
+								<div class="layui-card-body">
+									<div class="perfree-page-box">
+										<!-- #for(page : pages) -->
+										<a class="page-item #(page.style)" href="#(WEB_DOMAIN ??)#(page.url ??)">下一页</a>
+										<!-- #end -->
+									</div>
 								</div>
 							</div>
+							<!-- #end -->
+							<!-- #end -->
 						</div>
-					#end
-				#end
+						<!-- 评论列表end -->
+					</div>
+				</div>
+				<script>
+					layer.photos({
+						photos: '.perfree-article-content',
+						anim: 5
+					});
+					$(document).on("mousewheel DOMMouseScroll", ".layui-layer-phimg img", function (e) {
+						var delta = (e.originalEvent.wheelDelta && (e.originalEvent.wheelDelta > 0 ? 1 : -1)) || // chrome & ie
+							(e.originalEvent.detail && (e.originalEvent.detail > 0 ? -1 : 1)); // firefox
+						var imagep = $(".layui-layer-phimg").parent().parent();
+						var image = $(".layui-layer-phimg").parent();
+						var h = image.height();
+						var w = image.width();
+						if (delta > 0) {
+							if (h < (window.innerHeight)) {
+								h = h * 1.05;
+								w = w * 1.05;
+							}
+						} else if (delta < 0) {
+							if (h > 100) {
+								h = h * 0.95;
+								w = w * 0.95;
+							}
+						}
+						imagep.css("top", (window.innerHeight - h) / 2);
+						imagep.css("left", (window.innerWidth - w) / 2);
+						image.height(h);
+						image.width(w);
+						imagep.height(h);
+						imagep.width(w);
+					});
+					function appreciate() {
+						layer.open({
+							type: 1,
+							title: '赞赏作者',
+							shade: 0.6,
+							shadeClose: true,
+							content: $('#appreciate-content')
+						});
+					}
+					function changeImg(type) {
+						if (type == 1) {
+							$(".layui-layer-wrap > #appreciate-content-wechatImg").hide();
+							$(".layui-layer-wrap > #appreciate-content-aLiImg").show();
+						} else {
+							$(".layui-layer-wrap > #appreciate-content-aLiImg").hide();
+							$(".layui-layer-wrap > #appreciate-content-wechatImg").show();
+						}
+					}
+				</script>
+				<!-- #if(option('page_code_line') == null || option('page_code_line') != '不开启') -->
+				<script>
+					$('pre code').each(function () {
+						var edit = $("#edit-model").text();
+						var lines = $(this).text().split('\n').length - 1;
+						if (edit == 'html') {
+							lines = $(this).text().split('\n').length;
+						}
+						var $numbering = $('<ul/>').addClass('pre-numbering hljs');
+						$(this)
+							.addClass('has-numbering')
+							.parent()
+							.append($numbering);
+						for (i = 1; i <= lines; i++) {
+							$numbering.append($('<li/>').text(i + "."));
+						}
+					});
+				</script>
+				<!-- #end -->
 			</div>
-			<!-- 评论列表end -->
+
+
+			<!-- 引入右侧边栏 -->
+			<div class="layui-col-sm5 layui-col-md4 perfree-content-right">
+				<!-- 一言组件 -->
+				<div class="layui-card yiyan-box">
+					<div class="layui-card-body page-title-body">
+						<h2 class="right-name-title">追梦小窝</h2>
+						<div>
+							<script type="text/javascript" src="https://api.lwl12.com/hitokoto/v1?encode=js&charset=utf-8"></script>
+							<span id="lwlhitokoto">
+								<script>lwlhitokoto()</script>
+							</span>
+						</div>
+					</div>
+				</div>
+				<!-- 一言组件 -->
+
+				<!-- 搜索start -->
+				<div class="layui-card search-box">
+					<div class="layui-card-header">
+						<i class="fa fa-search"></i>
+						<span style="margin-left: 3px;">搜索</span>
+					</div>
+					<div class="layui-card-body search-body">
+						<form class="layui-form" action="/article/search">
+							<div class="layui-form-item">
+								<input type="text" name="keyword" required lay-verify="required" placeholder="请输入关键字" autocomplete="off"
+									class="layui-input search-input">
+								<button class="layui-btn layui-btn-normal search-btn" type="submit"><i
+										class="fa fa-search"></i></button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- 搜索end -->
+				<!-- 音乐start -->
+				<div class="layui-card music-card">
+					<div class="layui-card-header">
+						<i class="fa fa-music"></i>
+						<span style="margin-left: 3px;">音乐推荐</span>
+					</div>
+					<div class="layui-card-body music-body">
+						<meting-js server="#option('music_server' ??)" type="#option('music_type' ??)" id="#option('music_id' ??)"
+							list-max-height="240px" list-folded="true"></meting-js>
+					</div>
+				</div>
+				<!-- 音乐end -->
+
+				<!-- 热门start -->
+				<div class="layui-card right-hot-article-box">
+					<div class="layui-card-header">
+						<i class="fa fa-fire"></i>
+						<span style="margin-left: 3px;">热门文章</span>
+					</div>
+					<div class="layui-card-body hot-article-body">
+						<a class="hot-article-box pjax" href="#(WEB_DOMAIN ??)#(article.url)">
+							<img src="https://www.hhxxblog.com/templates/jpress-perfree-simple/static/img/3.jpg" width="20%"
+								height="50px" class="hot-article-img" />
+							<span class="hot-article-title">centos7下载及安装mysql</span><br>
+							<span class="hot-article-msg"><i class="fa fa-clock-o"></i> 2019-03-17&nbsp;&nbsp;<i
+									class="fa fa-eye"></i> 508</span>
+						</a>
+					</div>
+				</div>
+				<!-- 热门end -->
+
+				<!-- 标签start -->
+				<div class="layui-card right-hot-tag">
+					<div class="layui-card-header">
+						<i class="fa fa-tags"></i>
+						<span style="margin-left: 3px;">热门标签</span>
+					</div>
+					<div class="layui-card-body tag-body">
+						<a href="#(WEB_DOMAIN ??)#(tag.url)" class="layui-btn layui-btn-normal tag pjax"
+							title="共#(tag.count ??)篇文章">Linux</a>
+
+						<a href="#(WEB_DOMAIN ??)#(tag.url)" class="layui-btn layui-btn-normal tag pjax"
+							title="共#(tag.count ??)篇文章">PHP</a>
+
+						<a href="#(WEB_DOMAIN ??)#(tag.url)" class="layui-btn layui-btn-normal tag pjax"
+							title="共#(tag.count ??)篇文章">Mysql</a>
+					</div>
+				</div>
+				<!-- 标签end -->
+
+				<!-- 广告start -->
+				<div class="layui-card #if(option('page_ad_code') == null) perfree-hide #end" style="margin-bottom: 20px;">
+					<div class="layui-card-header">
+						<i class="fa fa-bullhorn"></i>
+						<span style="margin-left: 3px;">广告</span>
+					</div>
+					<div class="layui-card-body tag-body">
+						#option('page_ad_code' ??)
+					</div>
+				</div>
+				<!-- 广告end -->
+			</div>
+		</div>
+		<!-- 引入底栏 -->
+		<!--网页底部-->
+		<div class="layui-footer">
+			<div class="layui-container">
+				<!-- 网页底部左侧信息start -->
+				<div class="footer-left">
+					<span>Copyright © 2019 HHXXBlog</span>
+				</div>
+				<!-- 网页底部左侧信息end -->
+
+				<!-- 网页底部右侧信息start -->
+				<div class="footer-right">
+					Powered
+					by<a href="http://jpress.io" style="font-size: 12px;color: #657180;">Jpress</a> | Theme
+					by<a href="https://github.com/perfree/jpress-perfree-simple"
+						style="font-size: 12px;color: #657180;">Perfree</a>
+					苏ICP备 19013175号
+				</div>
+				<!-- 网页底部右侧信息end -->
+			</div>
 		</div>
 	</div>
-	<script>
-		layer.photos({
-			photos: '.perfree-article-content',
-			anim: 5
+	<!-- 内容部分end -->
+	<!-- 遮罩start -->
+	<div class="mask"></div>
+	<!-- 遮罩end -->
+	<script id="load-js-code">
+		//初始化layui,返回顶部按钮
+		layui.use(['util', 'element'], function () {
+			var util = layui.util, element = layui.element;;
+			util.fixbar({});
 		});
-		$(document).on("mousewheel DOMMouseScroll", ".layui-layer-phimg img", function(e) {
-			var delta = (e.originalEvent.wheelDelta && (e.originalEvent.wheelDelta > 0 ? 1 : -1)) || // chrome & ie
-					(e.originalEvent.detail && (e.originalEvent.detail > 0 ? -1 : 1)); // firefox
-			var imagep = $(".layui-layer-phimg").parent().parent();
-			var image = $(".layui-layer-phimg").parent();
-			var h = image.height();
-			var w = image.width();
-			if(delta > 0) {
-				if(h < (window.innerHeight)) {
-					h = h * 1.05;
-					w = w * 1.05;
-				}
-			} else if(delta < 0) {
-				if(h > 100) {
-					h = h * 0.95;
-					w = w * 0.95;
-				}
-			}
-			imagep.css("top", (window.innerHeight - h) / 2);
-			imagep.css("left", (window.innerWidth - w) / 2);
-			image.height(h);
-			image.width(w);
-			imagep.height(h);
-			imagep.width(w);
-		});
-		function appreciate() {
-			layer.open({
-				type: 1,
-				title:'赞赏作者',
-				shade: 0.6,
-				shadeClose:true,
-				content: $('#appreciate-content')
-			});
-		}
-		function changeImg(type) {
-			if(type == 1){
-				$(".layui-layer-wrap > #appreciate-content-wechatImg").hide();
-				$(".layui-layer-wrap > #appreciate-content-aLiImg").show();
-			}else{
-				$(".layui-layer-wrap > #appreciate-content-aLiImg").hide();
-				$(".layui-layer-wrap > #appreciate-content-wechatImg").show();
-			}
+		$('.tag').each(function () {
+			$(this).css("background-color", getRandomColor());
+		})
+		function getRandomColor() {
+			return '#' + (Math.random() * 0xffffff << 0).toString(16);
 		}
 	</script>
-	#if(option('page_code_line') == null || option('page_code_line') != '不开启')
+	<!-- #if(option('page_pjax') == null || option('page_pjax') == true) -->
 	<script>
-		$('pre code').each(function(){
-			var edit = $("#edit-model").text();
-			var lines = $(this).text().split('\n').length-1;
-			if(edit == 'html'){
-				lines = $(this).text().split('\n').length;
-			}
-			var $numbering = $('<ul/>').addClass('pre-numbering hljs');
-			$(this)
-					.addClass('has-numbering')
-					.parent()
-					.append($numbering);
-			for(i=1;i<=lines;i++){
-				$numbering.append($('<li/>').text(i+"."));
-			}
+		//设置pjax
+		var pjax = new Pjax({
+			elements: ".pjax,form",
+			cacheBust: false,
+			debug: false,
+			selectors: [
+				"title",
+				"meta[name=description]",
+				"meta[name=keywords]",
+				".loadJs",
+				".perfree-content-left",
+				".right-hot-article-box",
+				".right-hot-tag",
+				".layui-footer",
+				".header-logout",
+				"#load-js-code"
+			]
+		})
+		var index;
+		document.addEventListener('pjax:send', function () {
+			index = layer.load();
+		});
+		document.addEventListener('pjax:success', function () {
+			layer.close(index);
+		});
+		document.addEventListener('pjax:error', function () {
+			layer.msg("系统出现问题,请刷新网页");
 		});
 	</script>
-	#end
-</div>
-#end
+	<!-- #end -->
+	<!-- 自定义js代码 -->
+	<!-- #option('page_js_code' ??) -->
+</body>
+
+</html>
