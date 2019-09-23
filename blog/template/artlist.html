@@ -181,43 +181,109 @@
             <!-- 引入内容 -->
             <div class="layui-col-xs12 layui-col-sm7 layui-col-md8 perfree-content-left">
                 <div class="article-box">
-                    #articlePage(pageSize=6)
-                    #for(article : articlePage.list)
+                    <!-- #articlePage(pageSize=6) -->
+                    <!-- #for(article : articlePage.list) -->
                     <div class="layui-card">
                         <div class="layui-card-body">
-                            #if(option('page_article_thumbnail') == null || option('page_article_thumbnail') ==
-                            '手动上传缩略图')
-                            #if(article.thumbnail != null)
+                            <!-- #if(option('page_article_thumbnail') == null || option('page_article_thumbnail') == -->
+                            <!-- '手动上传缩略图') -->
+                            <!-- #if(article.thumbnail != null) -->
                             <a class="article-img pjax" href="#(WEB_DOMAIN ??)#(article.url ??)">
-                                <img src="#(article.thumbnail ??)" alt="#(article.title ??)" width="100%"
-                                    height="300px" />
+                                <img src="https://www.jpress.yinpengfei.com/attachment/20190603/429ac173b205465ba3e3a1410bd38e88.jpg"
+                                    alt="#(article.title ??)" width="100%" height="300px" />
                             </a>
-                            #end
-                            #else
-                            #if(article.showImage != null)
-                            <a class="article-img pjax" href="#(WEB_DOMAIN ??)#(article.url ??)">
-                                <img src="#(article.showImage ??)" alt="#(article.title ??)" width="100%"
-                                    height="300px" />
-                            </a>
-                            #end
-                            #end
+                            <!-- #end -->
+                            <!-- #else -->
+                            <!-- #if(article.showImage != null) -->
+                            <!-- <a class="article-img pjax" href="#(WEB_DOMAIN ??)#(article.url ??)">
+                                    <img src="https://www.jpress.yinpengfei.com/attachment/20190603/429ac173b205465ba3e3a1410bd38e88.jpg" alt="#(article.title ??)" width="100%"
+                                        height="300px" />
+                                </a> -->
+                            <!-- #end -->
+                            <!-- #end -->
                             <div class="article-box-content">
                                 <h2 class="article-title">
-                                    <a href="#(WEB_DOMAIN ??)#(article.url ??)" class="pjax">#(article.title ??)</a>
+                                    <a href="#(WEB_DOMAIN ??)#(article.url ??)" class="pjax">HttpClient 4.53
+                                        发送POST、GET请求</a>
                                 </h2>
-                                <p class="article-content">#maxLength(article.text,100)</p>
+                                <p class="article-content">POST方式： public static JSONObject HttpClientPost(String url,
+                                    Map<String, Object> paramMap) {</p>
                                 <hr class="layui-bg-gray">
                                 <span class="article-msg">
-                                    <i class="fa fa-user-o"></i> #(article.user.nickname ??)&nbsp;
-                                    <i class="fa fa-eye"></i> #(article.view_count ??)&nbsp;
-                                    <i class="fa fa-comment-o"></i> #(article.comment_count ??)&nbsp;
-                                    <i class="fa fa-clock-o"></i> #date(article.created, "yyyy-MM-dd")
+                                    <i class="fa fa-user-o"></i> 追梦小窝&nbsp;
+                                    <i class="fa fa-eye"></i> 166&nbsp;
+                                    <i class="fa fa-comment-o"></i> 58&nbsp;
+                                    <i class="fa fa-clock-o"></i> 2019-09-23 19:55
                                 </span>
                                 <a class="read-all-btn pjax" href="#(WEB_DOMAIN ??)#(article.url ??)">阅读全文</a>
                             </div>
                         </div>
                     </div>
-                    #else
+                    <div class="layui-card">
+                        <div class="layui-card-body">
+                            <!-- #if(option('page_article_thumbnail') == null || option('page_article_thumbnail') == -->
+                            <!-- '手动上传缩略图') -->
+                            <!-- #if(article.thumbnail != null) -->
+                            <!-- #end -->
+                            <!-- #else -->
+                            <!-- #if(article.showImage != null) -->
+                            <!-- <a class="article-img pjax" href="#(WEB_DOMAIN ??)#(article.url ??)">
+                                        <img src="https://www.jpress.yinpengfei.com/attachment/20190603/429ac173b205465ba3e3a1410bd38e88.jpg" alt="#(article.title ??)" width="100%"
+                                            height="300px" />
+                                    </a> -->
+                            <!-- #end -->
+                            <!-- #end -->
+                            <div class="article-box-content">
+                                <h2 class="article-title">
+                                    <a href="#(WEB_DOMAIN ??)#(article.url ??)" class="pjax">HttpClient 4.53
+                                        发送POST、GET请求</a>
+                                </h2>
+                                <p class="article-content">POST方式： public static JSONObject HttpClientPost(String url,
+                                    Map<String, Object> paramMap) {</p>
+                                <hr class="layui-bg-gray">
+                                <span class="article-msg">
+                                    <i class="fa fa-user-o"></i> 追梦小窝&nbsp;
+                                    <i class="fa fa-eye"></i> 166&nbsp;
+                                    <i class="fa fa-comment-o"></i> 58&nbsp;
+                                    <i class="fa fa-clock-o"></i> 2019-09-23 19:55
+                                </span>
+                                <a class="read-all-btn pjax" href="#(WEB_DOMAIN ??)#(article.url ??)">阅读全文</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-card">
+                        <div class="layui-card-body">
+                            <!-- #if(option('page_article_thumbnail') == null || option('page_article_thumbnail') == -->
+                            <!-- '手动上传缩略图') -->
+                            <!-- #if(article.thumbnail != null) -->
+                            <!-- #end -->
+                            <!-- #else -->
+                            <!-- #if(article.showImage != null) -->
+                            <!-- <a class="article-img pjax" href="#(WEB_DOMAIN ??)#(article.url ??)">
+                                            <img src="https://www.jpress.yinpengfei.com/attachment/20190603/429ac173b205465ba3e3a1410bd38e88.jpg" alt="#(article.title ??)" width="100%"
+                                                height="300px" />
+                                        </a> -->
+                            <!-- #end -->
+                            <!-- #end -->
+                            <div class="article-box-content">
+                                <h2 class="article-title">
+                                    <a href="#(WEB_DOMAIN ??)#(article.url ??)" class="pjax">HttpClient 4.53
+                                        发送POST、GET请求</a>
+                                </h2>
+                                <p class="article-content">POST方式： public static JSONObject HttpClientPost(String url,
+                                    Map<String, Object> paramMap) {</p>
+                                <hr class="layui-bg-gray">
+                                <span class="article-msg">
+                                    <i class="fa fa-user-o"></i> 追梦小窝&nbsp;
+                                    <i class="fa fa-eye"></i> 166&nbsp;
+                                    <i class="fa fa-comment-o"></i> 58&nbsp;
+                                    <i class="fa fa-clock-o"></i> 2019-09-23 19:55
+                                </span>
+                                <a class="read-all-btn pjax" href="#(WEB_DOMAIN ??)#(article.url ??)">阅读全文</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- #else -->
                     <div class="layui-card">
                         <div class="layui-card-body">
                             <div class="no-article">
@@ -225,20 +291,19 @@
                             </div>
                         </div>
                     </div>
-                    #end
-                    #articlePaginate(firstGotoIndex=true)
+                    <!-- #end -->
+                    <!-- #articlePaginate(firstGotoIndex=true) -->
                     <div class="layui-card">
                         <div class="layui-card-body">
                             <div class="perfree-page-box">
-                                #for(page : pages)
-                                <a class="page-item #(page.style) pjax"
-                                    href="#(WEB_DOMAIN ??)#(page.url ??)">#(page.text ??)</a>
-                                #end
+                                <!-- #for(page : pages) -->
+                                <a class="page-item #(page.style) pjax" href="#(WEB_DOMAIN ??)#(page.url ??)">下一页</a>
+                                <!-- #end -->
                             </div>
                         </div>
                     </div>
-                    #end
-                    #end
+                    <!-- #end -->
+                    <!-- #end -->
                 </div>
             </div>
             <!-- 引入右侧边栏 -->
