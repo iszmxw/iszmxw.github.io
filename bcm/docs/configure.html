@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <link rel="icon" href="/bcm/docs/logo.png">
     
-    <link rel="preload" href="/bcm/docs/assets/css/0.styles.003a6a79.css" as="style"><link rel="preload" href="/bcm/docs/assets/js/app.3501d8a2.js" as="script"><link rel="preload" href="/bcm/docs/assets/js/2.3738927e.js" as="script"><link rel="preload" href="/bcm/docs/assets/js/7.fdffdec2.js" as="script"><link rel="prefetch" href="/bcm/docs/assets/js/3.b7e3ed9b.js"><link rel="prefetch" href="/bcm/docs/assets/js/4.a9fabb22.js"><link rel="prefetch" href="/bcm/docs/assets/js/5.c4e576e9.js"><link rel="prefetch" href="/bcm/docs/assets/js/6.20bc67d7.js"><link rel="prefetch" href="/bcm/docs/assets/js/8.811d1729.js"><link rel="prefetch" href="/bcm/docs/assets/js/9.39c97814.js">
+    <link rel="preload" href="/bcm/docs/assets/css/0.styles.003a6a79.css" as="style"><link rel="preload" href="/bcm/docs/assets/js/app.ab264977.js" as="script"><link rel="preload" href="/bcm/docs/assets/js/2.3738927e.js" as="script"><link rel="preload" href="/bcm/docs/assets/js/7.f2fc667e.js" as="script"><link rel="prefetch" href="/bcm/docs/assets/js/3.b7e3ed9b.js"><link rel="prefetch" href="/bcm/docs/assets/js/4.a9fabb22.js"><link rel="prefetch" href="/bcm/docs/assets/js/5.c4e576e9.js"><link rel="prefetch" href="/bcm/docs/assets/js/6.20bc67d7.js"><link rel="prefetch" href="/bcm/docs/assets/js/8.811d1729.js"><link rel="prefetch" href="/bcm/docs/assets/js/9.39c97814.js">
     <link rel="stylesheet" href="/bcm/docs/assets/css/0.styles.003a6a79.css">
   </head>
   <body>
@@ -22,7 +22,7 @@ make install
 </code></pre></div><blockquote><p>3、修改PHP配置文件，加载安装的扩展</p></blockquote> <div class="language-c extra-class"><pre class="language-c"><code><span class="token punctuation">[</span>root@izwz92vqrxu3bz3edk0mytz iszmxw<span class="token punctuation">]</span># php <span class="token operator">--</span>ini
 Configuration File <span class="token punctuation">(</span>php<span class="token punctuation">.</span>ini<span class="token punctuation">)</span> Path<span class="token operator">:</span> <span class="token operator">/</span>www<span class="token operator">/</span>server<span class="token operator">/</span>php<span class="token operator">/</span><span class="token number">56</span><span class="token operator">/</span>etc
 Loaded Configuration File<span class="token operator">:</span>         <span class="token operator">/</span>www<span class="token operator">/</span>server<span class="token operator">/</span>php<span class="token operator">/</span><span class="token number">56</span><span class="token operator">/</span>etc<span class="token operator">/</span>php<span class="token punctuation">.</span>ini
-<span class="token punctuation">[</span>root@izwz92vqrxu3bz3edk0mytz iszmxw<span class="token punctuation">]</span># vim <span class="token operator">/</span>www<span class="token operator">/</span>server<span class="token operator">/</span>php<span class="token operator">/</span><span class="token number">56</span><span class="token operator">/</span>etc<span class="token operator">/</span>php<span class="token punctuation">.</span>ini # 修改配置文件
+<span class="token punctuation">[</span>root@izwz92vqrxu3bz3edk0mytz iszmxw<span class="token punctuation">]</span># vim <span class="token operator">/</span>www<span class="token operator">/</span>server<span class="token operator">/</span>php<span class="token operator">/</span><span class="token number">56</span><span class="token operator">/</span>etc<span class="token operator">/</span>php<span class="token punctuation">.</span>ini # 修改配置文件<span class="token punctuation">,</span>添加扩展引用
 <span class="token punctuation">[</span>root@izwz92vqrxu3bz3edk0mytz iszmxw<span class="token punctuation">]</span># <span class="token operator">/</span>etc<span class="token operator">/</span>init<span class="token punctuation">.</span>d<span class="token operator">/</span>php<span class="token operator">-</span>fpm<span class="token operator">-</span><span class="token number">56</span> restart # 重启php
 </code></pre></div><p><strong>最后编辑网站中的PHP文件使用该方法，尝一下，看是否可以运行。</strong></p> <div class="language-c extra-class"><pre class="language-c"><code><span class="token punctuation">[</span>root@izwz92vqrxu3bz3edk0mytz <span class="token number">119.23</span><span class="token number">.59</span><span class="token number">.129</span><span class="token punctuation">]</span># vim <span class="token operator">/</span>www<span class="token operator">/</span>wwwroot<span class="token operator">/</span><span class="token number">119.23</span><span class="token number">.59</span><span class="token number">.129</span><span class="token operator">/</span>index<span class="token punctuation">.</span>php 
 
@@ -60,11 +60,11 @@ Loaded Configuration File<span class="token operator">:</span>         <span cla
   <span class="token function">float</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 
-</code></pre></div><blockquote><p>看到上面的结果则证明大工告成了</p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div><blockquote><p>看到上面的结果则证明大工告成了顺便<code>phpinfo()</code>看一下扩展，扩展也加载成功</p></blockquote> <p><img src="http://iszmxw.github.io/bcm/file/images/QQ%E6%88%AA%E5%9B%BE20190926174132.png" alt="iszmxw" title="QQ截图20190926174132.png"></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
         ←
         <a href="/bcm/docs/bcmso.html" class="prev">
           动态库加载封装
         </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/bcm/docs/assets/js/app.3501d8a2.js" defer></script><script src="/bcm/docs/assets/js/2.3738927e.js" defer></script><script src="/bcm/docs/assets/js/7.fdffdec2.js" defer></script>
+    <script src="/bcm/docs/assets/js/app.ab264977.js" defer></script><script src="/bcm/docs/assets/js/2.3738927e.js" defer></script><script src="/bcm/docs/assets/js/7.f2fc667e.js" defer></script>
   </body>
 </html>

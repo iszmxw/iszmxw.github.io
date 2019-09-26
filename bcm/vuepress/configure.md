@@ -73,4 +73,4 @@ array(14) {
 
 > 看到上面的结果则证明大工告成了顺便`phpinfo()`看一下扩展，扩展也加载成功
 
-![iszmxw](http://iszmxw.github.io/bcm/file/images/QQ截图20190916164805.png "QQ截图20190916164805.png")
+![iszmxw](http://iszmxw.github.io/bcm/file/images/QQ截图20190926174132.png "QQ截图20190926174132.png")
