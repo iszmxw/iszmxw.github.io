@@ -24,14 +24,14 @@
 
 ```powershell
 # cd到PHP安装包的目录
-cd /www/server/php/72/src/ext/
+cd /www/server/php/56/src/ext/
 # 新增一个扩展初始结构目录
 ./ext_skel --extname=iszmxw
 # 进入到新增的扩展目录
 cd iszmxw/
 # 查看扩展目录所在位置
 pwd
-/www/server/php/72/src/ext/iszmxw
+/www/server/php/56/src/ext/iszmxw
 # 下面上传动态库文件到服务器中，使用xftp即可上传，这里不再赘述了。（上传到自己建立的一个目录即可）
 
 ```
@@ -61,7 +61,7 @@ drwxr-xr-x 4 root root 4096 Sep 16 16:45 ..
 
 ```powershell
 # cd到扩展目录
-cd /www/server/php/72/src/ext/iszmxw
+cd /www/server/php/56/src/ext/iszmxw
 # 查看扩展目录下有如下默认文件以及目录
 [root@izwz92vqrxu3bz3edk0mytz iszmxw]# ll -a
 total 44
@@ -163,7 +163,7 @@ phpize
 > 2、然后进行编译和安装
 
 ```c
-./configure --with-php-config=/www/server/php/72/bin/php-config
+./configure --with-php-config=/www/server/php/56/bin/php-config
 make LDFLAGS=-lbcm # 按照动态库安装
 make install
 ```
@@ -172,10 +172,10 @@ make install
 
 ```c
 [root@izwz92vqrxu3bz3edk0mytz iszmxw]# php --ini
-Configuration File (php.ini) Path: /www/server/php/72/etc
-Loaded Configuration File:         /www/server/php/72/etc/php.ini
-[root@izwz92vqrxu3bz3edk0mytz iszmxw]# vim /www/server/php/72/etc/php.ini # 修改配置文件
-[root@izwz92vqrxu3bz3edk0mytz iszmxw]# /etc/init.d/php-fpm-72 restart # 重启php
+Configuration File (php.ini) Path: /www/server/php/56/etc
+Loaded Configuration File:         /www/server/php/56/etc/php.ini
+[root@izwz92vqrxu3bz3edk0mytz iszmxw]# vim /www/server/php/56/etc/php.ini # 修改配置文件
+[root@izwz92vqrxu3bz3edk0mytz iszmxw]# /etc/init.d/php-fpm-56 restart # 重启php
 ```
 
 **最后编辑网站中的PHP文件使用该方法，尝一下，看是否可以运行。**
