@@ -9,7 +9,7 @@
 :::
 
 **文件地址.**
-> [http://iszmxw.github.io/bcm/file/so/bcm.so.zip](http://iszmxw.github.io/bcm/file/so/bcm.so.zip)
+> [http://iszmxw.github.io/bcm/file/so/BCM-SO.zip](http://iszmxw.github.io/bcm/file/so/BCM-SO.zip)
 
 **安装PHP运行环境所需要的软件.**
 > 这里我们所使用的是宝塔面板 `BT-Panel 5.2.0` </br>
