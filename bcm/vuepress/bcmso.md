@@ -3,9 +3,9 @@
 ## 对接前准备
 
 ::: tip 条件
-1、需要准备编译后的so文件libbcm.so，下面是准备好了的文件点击下载即可
+1、需要准备编译后的so动态库文件libbcm.so，下面是准备好了的文件点击下载即可
 2、linux服务器一台，我这里用的是阿里云服务器
-3、PHP运行环境准备一个，我这里用的是PHP7.2版本
+3、PHP运行环境准备一个，我这里用的是PHP5.6.40版本
 :::
 
 **文件地址.**
@@ -13,13 +13,12 @@
 
 **安装PHP运行环境所需要的软件.**
 > 这里我们所使用的是宝塔面板 `BT-Panel 5.2.0` </br>
-> Nginx使用的是`Nginx 1.12`, PHP安装的`PHP7.2`</br>
+> Nginx使用的是`Nginx 1.12`, PHP安装的`PHP5.6.40`</br>
 > 安装好后，我们创建一个站点，运用`phpinfo()`以及`php -m`检测php的扩展以及一些基本参数
 
 **效果如下.**
 
 ![iszmxw](http://iszmxw.github.io/bcm/file/images/QQ截图20190916164805.png "QQ截图20190916164805.png")
-![iszmxw](http://iszmxw.github.io/bcm/file/images/QQ截图20190916170144.png "QQ截图20190916170144.png")
 
 **根据动态库创建PHP扩展：**
 
