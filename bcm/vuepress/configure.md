@@ -21,7 +21,7 @@ make install
 [root@izwz92vqrxu3bz3edk0mytz iszmxw]# php --ini
 Configuration File (php.ini) Path: /www/server/php/56/etc
 Loaded Configuration File:         /www/server/php/56/etc/php.ini
-[root@izwz92vqrxu3bz3edk0mytz iszmxw]# vim /www/server/php/56/etc/php.ini # 修改配置文件
+[root@izwz92vqrxu3bz3edk0mytz iszmxw]# vim /www/server/php/56/etc/php.ini # 修改配置文件,添加扩展引用
 [root@izwz92vqrxu3bz3edk0mytz iszmxw]# /etc/init.d/php-fpm-56 restart # 重启php
 ```
 
@@ -71,4 +71,4 @@ array(14) {
 
 ```
 
-> 看到上面的结果则证明大工告成了
+> 看到上面的结果则证明大工告成了顺便看一写扩展
