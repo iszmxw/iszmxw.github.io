@@ -13,6 +13,7 @@ module.exports = {
         ],
         sidebar: [
             ['/', '首页'],
+            ['/extname', '准备工作'],
             ['/bcmso', '动态库加载封装']
         ]
     }
