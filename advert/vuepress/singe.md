@@ -17,7 +17,7 @@ $data['timestamp'] = "时间戳";
 $data['nonce'] = "随机字符串";
 sort($data, SORT_STRING);       // 对数组内元素按照字符串进行排序
 $str = implode($data);          // 将数组中元素拼接成一个字符串
-return (sha1($str));             // 最后sha1()加密得到签名
+return (sha1($str));            // 最后sha1()加密得到签名
 ```
 
 **Java示例。**
