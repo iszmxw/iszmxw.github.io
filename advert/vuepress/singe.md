@@ -9,7 +9,7 @@
 以下用PHP作为示例，仅供参考，其他语言可以自行封装
 :::
 
-**PHP示例：**
+**PHP的示例：**
 
 ``` php
 $data['appkey'] = "商户的appkey";
@@ -20,7 +20,7 @@ $str = implode($data);          // 将数组中元素拼接成一个字符串
 return (sha1($str));            // 最后sha1()加密得到签名
 ```
 
-**Java示例：**
+**Java的示例：**
 
 ``` java
 package com.test.main;
