@@ -23,7 +23,7 @@ return (sha1($str));             // 最后md5加密得到签名
 **Java示例。**
 
 ``` java
-package com.wangct.main;
+package com.test.main;
 
 import java.security.MessageDigest;
 import java.util.Arrays;
@@ -31,7 +31,7 @@ import java.util.Arrays;
 public class RtbUat {
     public static void main(String[] args) throws Exception {
 
-        String appkey = "fb56be4d66ec21342c9195897f2d6375";
+        String appkey = "fb56be4d6*******************5897f2d6375";
         String timestamp = "" + (System.currentTimeMillis()) / 1000;
         String nonce = "123";
 
@@ -67,7 +67,6 @@ public class RtbUat {
             shaStr = (hexstr.toString());
 
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return shaStr;
