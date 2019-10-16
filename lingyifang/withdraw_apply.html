@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>提现申请</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/public/light7.min.css">
+    <link rel="stylesheet" href="css/withdraw_apply.css">
+  </head>
+  <body>
+    <div class="page page-current">
+	    <div class="g-flexview">
+			<div class="g-scrollview" id="g-scrollview">
+				<div class="header">
+					<span class="icon_left"></span>
+					提现申请
+				</div>
+
+				<div class="withdraw_apply">
+						<div class="list-block">
+						    <ul>
+							      <li class="item-content bottom">
+							        <div class="item-inner">
+							          <div class="item-title">提现至微信零钱</div>
+							          <div class="item-after name">
+							          	<input type="text" name="name" value="" placeholder="请填写收款人">
+							          </div>
+							        </div>
+							      </li>
+						    </ul>
+						  </div>
+
+						  <div class="withdraw_apply_content">
+						  	<div class="item-title">提现金额</div>
+						  	<div class="input_amount">
+						  		<input type="number" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" value="1299" onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}" name="amount" id="amount" min="0" max="9" placeholder="请填写提现金额" class="amount">
+						  	</div>
+						  </div>
+
+
+						  <div class="list-block">
+						    <ul>
+							      <li class="item-content top">
+							        <div class="item-inner">
+							          <div class="item-title">当前余额 ￥52877</div>
+							          <div class="item-after">全部提现</div>
+							        </div>
+							      </li>
+						    </ul>
+						  </div>
+				</div>
+
+				<div class="safe_password">
+					<div class="list-block">
+					    <ul>
+					      <li>
+					        <div class="item-content">
+					          <div class="item-inner">
+					            <div class="item-title label">输入密码:</div>
+					            <div class="item-input">
+					              <input type="password" placeholder="请输入安全密码">
+					            </div>
+					          </div>
+					        </div>
+					       </li>
+					  	</ul>
+					</div>
+				</div>
+				<aside class="demo-tip">
+				  	<p>温馨提示：</p>
+					<p>1. 提现金额不能小于1元，且为整数；</p>
+					<p>2.提现方式均为T+1，即1天后到账（节假日延日）；</p>
+					<p>3.请填写您微信实名认证的真实收款人姓名（否无法成功）；</p>
+					<p>4.提现申请成功后请注意微信到账提醒，并于微信钱包查看。</p>
+				</aside>
+			  	<a href="#" class="button button-big button-fill button-danger">确认提现</a>
+			</div>
+	    </div>
+    </div>
+    <script type='text/javascript' src='js/public/jquery-3.3.1.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='js/public/light7.min.js' charset='utf-8'></script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>选择地址</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/public/light7.min.css">
+    <link rel="stylesheet" href="css/search_address.css">
+  </head>
+  <body>
+    <div class="page page-current">
+	    <div class="g-flexview">
+			<div class="g-scrollview" id="g-scrollview">
+				<div class="head">
+					<div class="cell_top">
+						<div class="item_left" >
+							<input type="text" id='city-picker'/>
+							<p>深圳市
+							</p>
+						</div>
+						<div class="item"><input type="search" name="" placeholder="请输入详细地址"></div>
+						<div class="item_right"><p>搜索</p></div>
+					</div>
+				</div>
+			</div>
+			<footer class="f_tabbar">
+			    <a href="javascript:;" class="tabbar_item tabbar_action">
+			        <span class="tabbar_icon tabbar_icon_shouye">
+			        </span>
+			        <span class="tabbar-txt">首页</span>
+			    </a>
+			    <a href="javascript:;" class="tabbar_item">
+			        <span class="tabbar_icon tabbar_icon_lianmeng">
+			        </span>
+			        <span class="tabbar-txt">精选</span>
+			    </a>
+			    <a href="javascript:;" class="tabbar_item">
+			        <span class="tabbar_icon tabbar_icon_tuiguang">
+			        </span>
+			        <span class="tabbar-txt">购物车</span>
+			    </a>
+			    <a href="javascript:;" class="tabbar_item">
+			        <span class="tabbar_icon tabbar_icon_geren">
+			        </span>
+			        <span class="tabbar-txt">我的</span>
+			    </a>
+			</footer>
+	    </div>
+    </div>
+    <script type='text/javascript' src='js/public/jquery-3.3.1.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='js/public/light7.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='js/public/light7-city-picker.js' charset='utf-8'></script>
+	<script>
+	  $("#city-picker").cityPicker({
+	    toolbarTemplate: '<header class="bar bar-nav">\
+	    <button class="button button-link pull-right close-picker">OK</button>\
+	    <h1 class="title">选择地址</h1>\
+	    </header>'
+	  });
+	</script>
+  </body>
+</html>

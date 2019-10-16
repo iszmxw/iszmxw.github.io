@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>店铺</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/public/light7.min.css">
+    <link rel="stylesheet" href="css/shop_info.css">
+    <link rel="stylesheet" href="css/sortable.min.css">  
+  </head>
+  <body>
+    <div class="page page-current">
+	    <div class="g-flexview">
+			<div class="g-scrollview" id="g-scrollview">
+				<div class="head">
+					<div class="head_bg" style="background: url('images/ceshituian.jpg');background-repeat: no-repeat;background-position: center;background-size: cover;">
+					</div>
+					<div class="head_top">
+						<div class="head_top_box">
+							<div class="head_top_left left_icon"></div>
+							<div class="head_top_shop">
+								<img src="images/biaoshi_logo@2x.png">
+							</div>
+							<div class="head_top_right right_icon"></div>
+						</div>
+						<h3 class="shop_info">零壹坊实体店</h3>
+						<p class="shop_jieshao">赚钱就做零壹人 消费就去零壹坊</p>
+						<div class="shop_btn_box">
+							<div class="btn_item active"><i class="i_btn_item btn_item1_icon"></i>逛店</div>
+							<div class="btn_item"><i class="i_btn_item btn_item2_icon"></i>商家介绍</div>
+							<div class="btn_item"><i class="i_btn_item btn_item3_icon"></i>消息</div>
+						</div>
+						<h3 class="shop_haodian">联盟好店</h3>
+					</div>
+				</div>
+				<div class="shop_xq">
+					<div class="xq_box">
+						<div class="xq_top">
+							<div class="top_item_wd">
+								<a href="javascript:;">深圳市深圳市</a>
+							</div>
+							<div class="top_item">
+								<div>
+									<span class="top_item_span">
+										<img src="images/ceshituian.jpg">
+									</span>
+									<span class="top_item_span">
+										<img src="images/ceshituian.jpg">
+									</span>
+									<span class="top_item_span">
+										<img src="images/ceshituian.jpg">
+									</span>
+									<span class="top_item_span">
+										<img src="images/ceshituian.jpg">
+									</span>
+								</div>
+								<span class="top_item_title">等923人刚刚来过</span>
+							</div>
+						</div>
+						<div class="shop_list_li">
+							<div class="shop_left">
+								<img src="images/ceshituian.jpg">
+							</div>
+							<div class="shop_right">
+								<section>
+									<p class="shop_name">希尔顿酒店（福田区）</p>
+								</section>
+								<section>
+									<p class="shop_address"><i class="shop_address_icon"></i> 福田区深南大道1003号大中华国际金融中心B座</p>
+								</section>
+								<section class="right_bottom">
+									<a href="javascript:;" class="shop_qu_btn shop_qu_btn_icon">333个粉丝</a>
+								</section>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="goods_box">
+					<div class="goods_title">
+						<h3>商品（<span>56</span>）</h3>
+					</div>
+					<div class="goods_class" id="fixedMenu">
+						<span class="item active">sdf</span>
+						<span class="item">sdsdfsdf</span>
+						<span class="item">水电费</span>
+						<span class="item">水电费</span>
+						<span class="item">水电费</span>
+						<span class="item">水电费</span>
+						<span class="item">水电费</span>
+						<span class="item">水电费</span>
+						<span class="item">水电费</span>
+						<span class="item">水电费</span>
+						<span class="item">水电费</span>
+						<span class="item">水电费</span>
+						<span class="item">水电费</span>
+						<span class="item">水电费</span>
+						<span class="item">水电费</span>
+					</div>
+				</div>
+				<div>
+					<div class="store">
+ 
+<!-- 3st step -->
+<div id="sortable" class="sjs-default">
+  <!-- 2nd step -->
+  <div data-sjsel="development" class="item_img"><img src="images/ceshituian.jpg"> </div>
+  <div data-sjsel="development" class="item_img"> <img src="images/ceshituian.jpg"> </div>
+</div>  
+                    </div>
+				</div>
+				<div class="daohan_box">
+					导航到店
+				</div>
+			</div>
+			<footer class="f_tabbar">
+			    <a href="javascript:;" class="tabbar_item_wd tabbar_item">
+			        <span class="tabbar_icon1">
+			        </span>
+			        <span class="tabbar-txt">私聊</span>
+			    </a>
+			    <a href="javascript:;" class="tabbar_item_wd tabbar_item tabbar_item_br">
+			        <span class="tabbar_icon2">
+			        </span>
+			        <span class="tabbar-txt">购物车</span>
+			    </a>
+			    <a href="javascript:;" class="tabbar_item_f1 tabbar_item">
+			        
+			        <span class="tabbar-txt">
+			        	<span class="tabbar_icon3"></span>
+			        	关注店铺
+				    </span>
+			    </a>
+			</footer>
+	    </div>
+    </div>
+    <script type='text/javascript' src='js/public/jquery-3.3.1.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='js/public/light7.min.js' charset='utf-8'></script>
+    <script src="js/sortable.min.js"></script>
+    <script type="text/javascript">
+    	document.querySelector('#sortable').sortablejs()
+		$(function () {
+			var ie6 = /msie 6/i.test(navigator.userAgent)
+		       , dv = $('#fixedMenu'), st;
+		       dv.attr('otop', dv.offset().top); //存储原来的距离顶部的距离
+		       $("#g-scrollview").scroll(function () {
+		           st = Math.max(document.body.scrollTop || $("#g-scrollview").scrollTop());
+		           
+		           if (st >= parseInt(dv.attr('otop'))) {
+		               if (ie6) {//IE6不支持fixed属性，所以只能靠设置position为absolute和top实现此效果
+		                   dv.css({ position: 'absolute', top: st });
+		               }
+		               else if (dv.css('position') != 'fixed') dv.css({ 'position': 'fixed', 'top': 0 ,'left':0});
+		           } else if (dv.css('position') != 'static') dv.css({ 'position': 'static' });
+		       });
+	    });
+        
+    </script>
+
+  </body>
+</html>

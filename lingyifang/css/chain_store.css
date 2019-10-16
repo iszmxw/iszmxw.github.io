@@ -1,0 +1,147 @@
+@charset "UTF-8";
+.page{
+  background: #f4f4f4;
+}
+.g-flexview{
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 750px;
+  min-width: 320px;
+}
+.g-scrollview{
+  width: 100%;
+  height: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+.g-scrollview {
+    width: 100%;
+    height: 100%;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+}
+/* 头部通用 */
+.header {
+    width: 100%;
+    background: #ffffff;
+    line-height: 0.95rem;
+    height: 2.35rem;
+    text-align: center;
+    color: #040404;
+    padding: 0.7rem 0;
+    position: relative;
+}
+.icon_left {
+    width: 0.95rem;
+    height: 0.95rem;
+    display: block;
+    position: absolute;
+    top: 0.625rem;
+    left: 0.8rem;
+}
+.icon_left::after{
+  content: '';
+  width: 0.95rem;
+  height: 0.95rem;
+  display: block;
+  background-image: url(../images/icon_left@2.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.chain_store{
+  width: 100%;
+  height: auto;
+  padding-top: 0.4rem;
+}
+.chain_store .list_store{
+  padding: 1.0rem 0.8rem;
+  margin-bottom: 0.55rem;
+  background: #ffffff;
+}
+.chain_store .list_store .store_tit{
+  width: 100%;
+  font-size: 0.7rem;
+  color: #040404;
+  padding-right: 1.1rem;
+  position: relative;
+}
+.chain_store .list_store .store_tit span.status{
+  font-size: 0.55rem;
+  color: #fd473c;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.chain_store .list_store p{
+  color: #909090;
+  font-size: 0.6rem;
+}
+.chain_store .list_store p.mobile{
+ padding-top: 1.2rem;
+}
+.chain_store .list_store p.address{
+ padding-top: 1.2rem;
+ padding-top: 0.8rem;
+ font-size: 0.65rem;
+}
+.chain_store .list_store .btn_item{
+  width: 100%;
+  padding: 0 2.6rem;
+  padding-top: 1rem;
+}
+.chain_store .list_store .btn_item .btn {
+  width: 50%;
+  color: #040404;
+  font-size: 0.65rem;
+  text-align: center;
+  float: left;
+}
+span.icon_lianxi {
+    width: 0.75rem;
+    height: 0.75rem;
+    position: relative;
+    left: 0;
+    top: 0.2rem;
+    display: inline-block;
+    background-image: url(../images/contact_icon@2x.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 0.8rem;
+}
+span.icon_daohang {
+    width: 0.75rem;
+    height: 0.75rem;
+    position: relative;
+    left: 0;
+    top: 0.2rem;
+    display: inline-block;
+    background-image: url(../images/navigation_icon@2x.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 0.8rem; 
+}
+.clear{
+  clear: both;
+}
