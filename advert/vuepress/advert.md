@@ -10,7 +10,7 @@
 :::
 
 **URL.**
-> 接口地址：http://127.0.0.1/api/open/developp/get_advert
+> 接口地址：http://127.0.0.1/api/open/develop/get_advert
 
 **请求方式.**
 > post | get
