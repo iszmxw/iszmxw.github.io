@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+
+.yitiaolong {
+    width: 100%;
+}
+div#divbox {
+    width: 98%;
+    margin: 5px 1%;
+}
+
+div#divbox ul {
+    width: 100%;
+}
+
+div#divbox ul a {
+    width: 48%;
+    float: left;
+    display: block;
+    line-height: 65px;
+    text-indent: 100px;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 2%;
+	transform-origin: center center
+}
+div#divbox ul a:hover{animation:rota 2s linear;}
+
+@keyframes rota{
+	0%{transform:rotate(0deg) scale(0.5);}
+	40%{transform:rotate(0deg) scale(0.8);}
+	100%{transform:rotate(360deg) scale(1.2);}
+	}
+
+div#divbox ul a li {
+    width: 100%;
+    height: 65px;
+    list-style: none;
+	text-indent: 80px;
+}
+

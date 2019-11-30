@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery换肤</title>
+<link rel="stylesheet" href="index.css" />
+</head>
+
+<body class="bgimg">
+<div class="btn-hf"><a href="javascript:;">换肤</a></div>
+<div class="hf-style">
+<ul>
+<li><img src="./images/bg_pic1.jpg" /><span class="icon" style="display:block"></span></li>
+<li><img src="./images/bg_pic2.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic3.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic4.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic5.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic6.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic7.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic8.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic9.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic10.jpg" /><span class="icon"></span></li>
+</ul>
+</div>
+<script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+<script type="text/javascript">
+var $li = $(".hf-style ul li")  //设置li
+$(".btn-hf a").click(function(e){
+	$(this).parent().hide();
+	$("div.hf-style").slideDown(1000);
+	e.stopPropagation();//阻止事件冒泡
+
+	})
+$li.click(function(){
+	var imgsrc = $(this).find("img").attr("src")//获取图片地址
+	$(".bgimg").css({"background-image":'url('+imgsrc+')'});
+	$(this).siblings().find("span.icon").hide();
+	$(this).find("span.icon").show();
+	});
+$(".hf-style").click(function(e){
+			e.stopPropagation();//阻止事件冒泡
+		});
+$(document).click(function(){
+			$(".hf-style").slideUp();
+			$(".btn-hf").show(1000);
+		})
+
+</script>
+</body>
+</html>

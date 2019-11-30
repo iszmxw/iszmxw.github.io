@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery学习之相册页面</title>
+<link rel="stylesheet" type="text/css" href="index.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+<div class="box">
+<img src="images/1.jpg" />
+<img src="images/2.jpg" />
+<img src="images/3.jpg" />
+<img src="images/4.jpg" />
+<img src="images/5.jpg" />
+<img src="images/6.jpg" />
+<img src="images/7.jpg" />
+<img src="images/8.jpg" />
+<img src="images/9.jpg" />
+</div>
+<div class="showimg"></div>
+
+
+<div class="imgbox">
+<div class="bigimg"><img src="images/1.jpg" /></div>
+<div class="shang"></div>
+<div class="xia"></div>
+</div>
+<script type="text/javascript">
+
+var _index = $(".box img").index()
+//点击图片放大
+$(".box img").click(function(){
+	$(".showimg").show()
+	$(".imgbox").show()
+	imgsrc = $(this).attr("src")
+	$(".bigimg img").attr("src",imgsrc)
+	});
+
+
+$(".showimg").click(function(){
+	$(this).hide()
+	$(".imgbox").hide()
+	});
+//按钮上一张
+$(".shang").click(function(){
+	_index--
+	if(_index<0){_index = 8}
+	var imgsrc = $(".box img").eq(_index).attr("src")
+	$(".bigimg img").attr("src",imgsrc)
+	});
+//按钮下一张
+$(".xia").click(function(){
+	
+	_index++
+	if(_index>8){_index = 0}
+	var imgsrc = $(".box img").eq(_index).attr("src")
+	$(".bigimg img").attr("src",imgsrc)
+	});
+</script>
+
+
+</body>
+</html>

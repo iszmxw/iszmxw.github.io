@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="index.css" />
+<title>jQuery学习之音乐播放器1</title>
+</head>
+
+<body onload="load()" class="bgimg">
+<!--页面加载中-->
+
+<div class="loading">
+<ul class="mubu">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li>追梦小窝</li>
+</ul>
+</div>
+
+<!--页面加载中-->
+
+<!--换肤特效-->
+<div class="btn-hf"><a href="javascript:;">换肤</a></div>
+<div class="hf-style">
+<ul>
+<li><img src="./images/bg_pic1.jpg" /><span class="icon" style="display:block"></span></li>
+<li><img src="./images/bg_pic2.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic3.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic4.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic5.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic6.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic7.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic8.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic9.jpg" /><span class="icon"></span></li>
+<li><img src="./images/bg_pic10.jpg" /><span class="icon"></span></li>
+</ul>
+</div>
+<!--换肤特效-->
+
+
+<div class="musicbody"></div>
+<!--音乐列表-->
+<div class="nav">
+<ul>
+<li class="img1" datasrc="mp3/1.mp3" title="林中鸟-葛林"><img src="./images/1.jpg" /></li>
+<li class="img2" datasrc="mp3/2.mp3" title="当你老了"><img src="./images/2.jpg" /></li>
+<li class="img3" datasrc="mp3/3.mp3" title="母亲"><img src="./images/3.jpg" /></li>
+<li class="img4" datasrc="mp3/4.mp3" title="相亲相爱的一家人"><img src="./images/4.jpg" /></li>
+<li class="img5" datasrc="mp3/5.mp3" title="雄心壮志"><img src="./images/5.jpg" /></li>
+</ul>
+</div>
+<!--悬浮播放器-->
+<div class="music" dataxuhao="">
+<img src="images/1.jpg" />
+<div class="tit">林中鸟-葛林</div>
+<div class="jdt"></div>
+<div class="jdj"></div>
+<div class="btn">
+<div class="shang"></div>
+<div id="anniu" class="play"></div>
+<div class="xia"></div>
+</div>
+<div class="close"></div>
+<div class="open"></div>
+<audio id="yinyue" src="mp3/1.mp3"></audio>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+//页面加载效果开始、、、、、、、、、、、、、、、、、、、
+$(document).ready(function(){
+    $("div.loading").fadeIn(800);
+});
+function load(){
+	$("div.loading").fadeOut(5000);
+	}
+//页面加载效果结束。。。。。。。。。。。。。。。。。。。
+
+
+function huanfu(){
+//换皮肤样式开始、、、、、、、、、、、、、、、、、、、、
+var $li = $(".hf-style ul li")  //设置li
+$(".btn-hf a").click(function(e){
+	$(this).parent().hide();
+	$("div.hf-style").slideDown(1000);
+	e.stopPropagation();//阻止事件冒泡
+
+	})
+$li.click(function(){
+	var imgsrc = $(this).find("img").attr("src")//获取图片地址
+	$(".bgimg").css({"background-image":'url('+imgsrc+')'});
+	$(this).siblings().find("span.icon").hide();
+	$(this).find("span.icon").show();
+	});
+$(".hf-style").click(function(e){
+			e.stopPropagation();//阻止事件冒泡
+		});
+$(document).click(function(){
+			$(".hf-style").slideUp();
+			$(".btn-hf").show(1000);
+		})
+//换皮肤样式结束。。。。。。。。。。。。。。。。。。。。
+};
+huanfu();
+
+
+
+
+
+
+
+function music(){
+//播放器插件效果开始、、、、、、、、、、、、、、、、、
+var $li = $(".nav ul li");   //li
+var index = 0;
+var mark = 1;
+$li.click(function(){
+	index = $(this).index();
+	getplay();	
+	});
+
+//播放,暂停按钮
+$("#anniu").click(function(){
+	if(mark){
+		$(this).addClass("stop").removeClass("play");
+		$("#yinyue").get(0).play();
+		mark = 0;
+		}else{
+		$(this).addClass("play").removeClass("stop");
+		$("#yinyue").get(0).pause();
+		mark = 1;
+		}
+	});	
+
+
+//上一曲
+$(".shang").click(function(){
+	index--
+	if(index<0){
+	index = 4	
+	}
+	getplay();
+	});
+//下一曲
+$(".xia").click(function(){
+	index++
+	if(index>4){
+	index = 0	
+	}
+	getplay();
+	});
+//关闭按钮
+$(".close").click(function(){
+	$(".music").animate({left:'-480px'},500);
+	$(this).hide();
+	$(".open").show();
+	});
+//打开按钮
+$(".open").click(function(){
+	$(".music").animate({left:'0px'},500);
+	$(this).hide();
+	$(".close").show();
+	$(".musicbody").fadeIn(1500);
+	$(".nav").addClass("navright").animate({left:"150px"},1);
+	$(".nav ul li img").addClass("imgdown");
+	});	
+//封装函数--音乐播放
+function getplay(){
+	$(".music img").addClass("rotate");
+	$li.eq(index).addClass("rotate").siblings().removeClass("rotate");
+	$(".music img").attr("src",'./images/'+(index+1)+'.jpg');
+	var title = $li.eq(index).attr("title");
+	$(".music .tit").text(title);
+	$("#anniu").addClass("stop").removeClass("play");
+	datasrc = $li.eq(index).attr("datasrc");
+	$("#yinyue").attr("src",datasrc).get(0).play();
+	setInterval(play_jdj,1000); //1秒钟执行一次进度军
+	mark = 1;
+	}
+
+//进度条，进度军
+function play_jdj(){
+	var yytime = $("#yinyue").get(0).currentTime //获取当前音乐播放的秒数
+    var yylong = $("#yinyue").get(0).duration //获取当前音乐的总秒数
+    var _width = (yytime/yylong)*340 <!--进度条的宽度-->
+    $(".music .jdj").css("width",_width);
+    }
+//播放器插件效果结束。。。。。。。。。。。。。。。。
+};
+music();
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>360音乐导航学习</title>
+<link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+
+<body>
+<div class="musicnav">
+<ul>
+<li class="tj"><a href="#">推荐网站</a><div class="bg" style="background:#633;"></div><audio src="music/a4.mp3"></audio></li>
+<li class="tt"><a href="#">新闻头条</a><div class="bg" style="background:#090;"></div><audio src="music/b4.mp3"></audio></li>
+<li class="ds"><a href="#">电 视 剧</a><div class="bg" style="background:#99F;"></div><audio src="music/c4.mp3"></audio></li>
+<li class="dy"><a href="#">最新电影</a><div class="bg" style="background:#069;"></div><audio src="music/d4.mp3"></audio></li>
+<li class="yx"><a href="#">小 游 戏</a><div class="bg" style="background:#0FC;"></div><audio src="music/e4.mp3"></audio></li>
+<li class="xs"><a href="#">小说大全</a><div class="bg" style="background:#9C0;"></div><audio src="music/f4.mp3"></audio></li>
+<li class="dj"><a href="#">旅游度假</a><div class="bg" style="background:#F00;"></div><audio src="music/g4.mp3"></audio></li>
+<li class="gw"><a href="#">网上购物</a><div class="bg" style="background:#C69;"></div><audio src="music/c5.mp3"></audio></li>
+<li class="bg"><a href="#">娱乐八卦</a><div class="bg" style="background:#FF0;"></div><audio src="music/d5.mp3"></audio></li>
+</ul>
+</div>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+$(".musicnav ul li").hover(function(){
+	$(this).find("div").stop(true,true).animate({top:'0px'},500);
+	$(this).find("audio").get(0).play();
+	},function(){
+	$(this).find("div").stop(true,true).animate({top:'40px'},500);
+	});
+</script>
+</body>
+</html>

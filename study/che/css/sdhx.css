@@ -1,0 +1,102 @@
+@charset "utf-8";
+/* CSS Document */
+
+.hexin {
+    width: 100%;
+    height: 300px;
+    background: #fff;
+    padding-top: 5px;
+}
+.hexin span {
+    width: 100%;
+    line-height: 40px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: block;
+    color: #369;
+}
+.hexin ul li{list-style:none;width: 49.5%;height: 150px;float: left;border-style: solid;border-color: #ccc;border-width:0px;}
+.hexin .hx-box1{
+	border-right-width:1px;
+	border-bottom-width:1px;
+	}
+.hexin .hx-box2{
+	border-left-width:1px;
+	border-bottom-width:1px;	
+	}
+.hexin .hx-box3{
+	border-right-width:1px;
+	border-top-width:1px;
+	}
+.hexin .hx-box4{
+	border-left-width:1px;
+	border-top-width:1px;
+	}
+.hexin a.zzyk {
+    width: 100%;
+    height: 150px;
+    background: url(../images/img/zzyk.png) no-repeat;
+    background-size: 30%;
+    background-position: 50% 25%;
+}
+.hexin a.jspx {
+    width: 100%;
+    height: 150px;
+    float: left;
+    background: url(../images/img/jspx.png) no-repeat;
+    background-size: 30%;
+    background-position: 50% 25%;
+}
+.hexin a.sxpl {
+    width: 100%;
+    height: 150px;
+    float: left;
+    background: url(../images/img/sxpl.png) no-repeat;
+    background-size: 30%;
+    background-position: 50% 25%;
+}
+.hexin a.ydks {
+    width: 100%;
+    height: 150px;
+    float: left;
+    background: url(../images/img/ydks.png) no-repeat;
+    background-size: 30%;
+    background-position: 50% 25%;
+}
+.hexin a {
+    width: 100%;
+    line-height: 220px;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    display: block;
+}
+
+
+
+.ptfw{width:100%;height:300px;background:#fff;padding-top:15px;}
+.ptfw span {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    display: block;
+    color: #009688;
+    background: #fff;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.ptfw ul li{width:50%;height:50px;float:left;list-style:none;margin-top:8px}
+.ptfw ul li a {
+    width: 90%;
+    line-height: 50px;
+    background: #2196F3;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+}
+.ptfw ul li a#zzks{background:#639;}
+.ptfw ul li a#xcxt{background:#369;}

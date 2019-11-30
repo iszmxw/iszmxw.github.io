@@ -1,0 +1,72 @@
+@charset "utf-8";
+/* CSS Document */
+
+.yuyue{width:100%;}
+div#selectList {
+    width: 96%;float:left;
+    margin: 10px 2%;padding-top: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 2px 5px #ccc;
+    border-radius: 4px;
+}
+dl {
+    width: 94%;
+    margin: 0 3%;
+}
+dt, dd {
+    width: 100%;float:left;
+    line-height: 20px;
+}
+dd{font-size:12px;}
+a#c {
+    width: 40px;
+    line-height: 20px;
+    display: block;
+    float: left;color:#000;
+}
+dd a {
+    line-height: 20px;
+    display: block;
+    float: left;
+    text-indent: 8px;
+    background: #fff;
+    border-left: 1px solid #ccc;
+    margin: 0 5px;
+	color: #c7bcbc;
+}
+dd#town {
+    margin-bottom: 20px;
+}
+
+#xxbox{width:100%;float: left;}
+.userlist {
+    width: 96%;
+    margin: 0 2%;
+    box-shadow: 0 0px 10px #ccc;
+}
+
+.userlist .user {
+    width: 50%;
+    height: 180px;
+    float: left;
+    margin: 8px auto;
+}
+.userlist .user a{float:left;width:96%;margin:0 2%;}
+
+.user a div img {
+    width: 100%;
+    height: 100px;
+}
+.user a div p {
+    width: 100%;
+    font-size: 12px;
+    line-height: 17px;
+    color: #000;
+    height: 55px;
+}
+a#jguhduhf {
+    width: 96%;
+    text-align: center;
+    line-height: 25px;
+    border: 1px solid;
+}

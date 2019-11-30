@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+body{background:#fff;}
+.contant .zzyk{width:100%;height:155px;}
+.contant .zzyk img{width:100%;height:140px;float:left}
+.contant .zzyk span {
+    width: 100%;
+	float:left;
+    line-height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    margin: -40px 0 0 0;
+    text-align: center;
+    display: block;
+}
+
+div.sxfw {
+    width: 100%;
+    line-height: 45px;
+    text-indent: 30px;
+    font-size: 18px;color:#fff;
+	background:url(../images/img/n_03.png) 0 repeat-x;
+    border-top: 1px solid #ccc;
+    box-shadow: 0 8px 18px #ccc;
+}
+div.sxsm{width:100%;margin:10px auto;}
+div.sxsm p{width:80%;line-height:25px;margin:0 auto;}
+
+
+div.boxyk{width:100%;background: #fff;}
+table {
+    width: 95%;
+    margin: 0 auto;
+    background: #e6e2e2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+tbody {
+    width: 90%;
+    height: 800px;
+    background: #fff;
+}
+tbody tr td {
+    text-align: center;
+}
+tbody tr td a {
+    text-decoration: none;
+    width: 28px;
+    text-align: center;
+    line-height: 20px;
+    background: #FFEB3B;
+    border: 1px solid #f00;
+    display: block;
+    margin: 0 auto;
+}
+
+tbody tr td input {
+    width: 80px;
+    height: 20px;
+    border: 1px solid #673AB7;
+}
+/**商家信息页面样式**/
+div.sjxxs {
+    width: 100%;
+}
+.sjxxs p {
+    width: 100%;
+    line-height: 26px;
+    display: block;
+    color: #666;
+    font-size: 14px;
+    text-indent: 25px;
+    border-bottom: 1px solid #ccc;
+}
+.sjxxs p strong {
+    margin-right: 10px;
+    color: #009688;
+}
+.sjxxs p a {
+    width: 50%;
+    line-height: 26px;
+    text-align: center;
+    background: #ccc;
+    color: #fff;
+    display: block;
+    float: right;
+}
+.sjxxs p a:hover{background:#00bcd4}

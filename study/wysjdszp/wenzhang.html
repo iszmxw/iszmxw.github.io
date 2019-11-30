@@ -1,0 +1,417 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>文章内容页面</title>
+<style>
+*{margin:0;padding:0}
+a{text-decoration:none;}
+ul,li{list-style: none;}
+body{background:#ececec;width:100%;min-width:1200px;}
+
+/*顶部公告开始*/
+.header_top {
+    height: 25px!important;
+    height: 24px;
+    line-height: 25px;
+    border-bottom: 1px solid #DBDBDB;
+    color: #676767;
+    overflow: hidden;
+    background: url("images/green_skin.png") repeat-x scroll 0 -188px transparent;
+}
+.header_top marquee {
+    float: left;
+    width: 300px;
+	color: #F44336;
+}
+.w960 {
+    width: 960px;
+    /* position: relative; */
+}
+.center {
+    margin: 0px auto;
+}
+.header_top .time {
+    float: left;
+    padding-left: 10px;
+}
+.header_top .toplinks {
+    float: right;
+    text-align: right;
+}
+.header_top .toplinks a {
+    margin: 0 5px;
+}
+.header_top .toplinks span {
+    margin-left: 15px;
+}
+.header_top .toplinks span a {
+    margin: 0 2px;
+}
+/*顶部公告结束*/
+
+
+/*公共部分头部导航开始*/
+.header{width:100%;height:60px;background:#000;border-top:3px solid #09c;}
+.header .nav{width:1200px;height:60px;margin:0 auto;}
+.header .nav .nav_logo{float:left;width:135px;height:60px;}
+.header .nav .nav_logo img{width:135px;height:60px;}
+.header .nav .nav_navs{float:left;width:600px;height:60px;background:#ccc;}
+.header .nav .nav_navs ul{width:600px;height:60px;background:#000;}
+.header .nav .nav_navs ul li{list-style:none;float:left;width:82px;height:60px;line-height:60px;text-align:center;}
+.header .nav .nav_navs ul li a{display:block;width:82px;height:57px;color:#FFF;text-decoration:none;}
+.header .nav .nav_navs ul li a:hover{background:#515050;border-bottom:3px solid #09c}
+.header .nav .nav_reg{float:right;width:140px;height:60px;}
+.header .nav .nav_reg span{width:70px;margin-top:12px;display:block;float:left;text-align:center;}
+.header .nav .nav_reg span a{color:#fff;width:60px;line-height:30px;display:block;text-decoration:none;border:1px solid #fff;border-radius:16px;}
+.header .nav .nav_reg span a:hover{background:#09c}
+/*公共部分头部导航结束*/
+.navs {
+    background: #FFFFFF;
+    padding-left: 20px;
+    width: 75%;
+    min-width: 1200px;
+    line-height: 50px;
+    margin: 0 auto;
+    margin-top: 5px;
+    color: #000;
+    border-radius: 8px;
+    box-shadow: 0px 8px 10px #000;
+    border-bottom: 4px solid #000;
+}
+.zhong {
+  width: 1170px;
+  margin: 0 auto;
+}
+.zhong .content {
+    float: left;
+    width: 798px;
+    background: #fff;
+    padding: 10px;
+    border-right: 2px dashed #F44336;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px #000;
+}
+.zhong .content .auth {
+    background: rgba(212, 210, 210, 0.79);
+    line-height: 45px;
+    padding-left: 20px;
+    margin-left: -10px;
+    width: 75%;
+    border-radius: 0px 20px 20px 0px;
+    border-bottom: 4px solid #090A0C;
+}
+.zhong .content .title {
+    line-height: 20px;
+    width: 100%;
+    background: #09c;
+    color: #fff;
+    padding: 16px;
+    margin-left: -15px;
+    margin-top: 10px;
+	font-size: 20px;
+    font-weight: bold;
+}
+.zhong .content .neirong {
+    margin-top: 20px;
+    line-height: 40px;
+    font-size: 20px;
+    padding: 10px;
+    color: #000;
+}
+.zhong .content .neirong img {
+    width: 100%;
+}
+.zhong .content .context {
+  width: 805px;
+  height: 80px;
+  background: #000;
+  margin-left: -10px;
+  padding-right: 15px;
+  margin-bottom: -10px;
+}
+.zhong .content .context ul {
+  width: 640px;
+  height: 80px;
+  margin: 0 auto;
+}
+.zhong .content .context ul li {
+  width: 300px;
+  line-height: 40px;
+  background: #C5CCD3;
+  padding-left: 15px;
+  margin-top: 20px;
+  border-radius: 20px;
+  float: left;
+}
+.zhong .content .context ul li.l{border-left: 5px solid #03A9F4;}
+.zhong .content .context ul li.r{border-right: 5px solid #03A9F4;}
+.zhong .content .context ul li:hover{background:#768DA5;}
+.zhong .cebian {
+  float: right;
+  width: 350px;
+  height: 1500px;
+  background: #fff;
+  box-shadow: 3px 0px 10px #000;
+}
+.zhong .cebian .tuijian{width:100%;list-style:none;}
+.zhong .cebian .tuijian span {
+    display: block;
+    width: 100%;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #FF0000;
+    border-bottom: 2px solid #09c;
+}
+.zhong .cebian .tuijian span:before {
+    content: '';
+    width: 25px;
+    float: left;
+    height: 25px;
+    background: #F44336;
+    border-radius: 25px;
+    display: block;
+    margin-top: 12px;
+    margin-right: 10px;
+    margin-left: 30px;
+}
+.zhong .cebian .tuijian li {
+    width: 100%;
+    line-height: 50px;
+    background: #FFFFFF;
+    border-bottom: 2px solid #ccc;
+}
+.zhong .cebian .tuijian li:hover {
+    width: 100%;
+    line-height: 50px;
+    background: #FFFFFF;
+    border-bottom: 2px solid #ccc;
+    border-left: 10px solid #09c;
+}
+
+
+.clr{clear:both}
+/*底部版权开始*/
+.zm_footer {
+  background: #2d3237;
+  height: 220px;
+  margin-top: 25px;
+  min-width: 1200px;
+  overflow: hidden;
+  width: 100%;
+  color:#fff;
+}
+.zm_fshang {
+  height: 170px;
+  margin: 0 auto;
+  min-width: 1200px;
+  text-align: center;
+  width: 100%;
+}
+.zm_fshang .fabout {
+  border-right: 1px solid #575b5f;
+  float: left;
+  height: 115px;
+  padding-left: 35px;
+  width: 280px;
+}
+.zm_fshang .fabout dt {
+  line-height: 35px;
+  text-indent: 25px;
+}
+.zm_fshang .ftousu dt {
+  line-height: 35px;
+  text-indent: 25px;
+}
+.zm_fshang dd {
+  color: #aba6a6;
+  font-size: 14px;
+  line-height: 28px;
+}
+.zm_fshang dd a {
+  color: #aba6a6;
+  font-size: 14px;
+  padding: 0 7px;
+}
+
+.zm_fshang .ftousu {
+  border-right: 1px solid #575b5f;
+  float: left;
+  height: 115px;
+  padding-left: 35px;
+  width: 275px;
+}
+.zm_fshang .flianxi {
+  border-right: 1px solid #575b5f;
+  float: left;
+  height: 115px;
+  padding-left: 45px;
+  width: 220px;
+}
+.zm_fshang .flianxi dt {
+  line-height: 35px;
+  text-indent: 25px;
+}
+.zm_fshangw {
+  height: 145px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-top: 25px;
+  text-align: center;
+  width: 1200px;
+}
+.zm_fshangl {
+  float: left;
+}
+.fshangr {
+  float: left;
+  height: 145px;
+  overflow: hidden;
+  width: 300px;
+}
+.fshangr li {
+  float: left;
+  height: 145px;
+  overflow: hidden;
+  text-align: right;
+  width: 150px;
+}
+.fshangr li img{
+	width:120px;
+    height:120px;
+}
+.fby {
+  width: 100%;
+  min-width: 1200px;
+  background: #23282d;
+  height: 50px;
+}
+.fby .by {
+  width: 30%;
+  line-height: 50px;
+  float: left;
+  color: #909090;
+}
+.fby .time {
+  width: 30%;
+  line-height: 50px;
+  float: right;
+  text-align: center;
+  color: #909090;
+}
+/*底部版权结束*/
+</style>
+</head>
+
+<body>
+<!--顶部公告-->
+<div class="header_top">  
+    <div class="w960 center">  
+     <span id="time" class="time">追梦社区，因为有你，所以有梦！</span>
+     <div class="toplinks">
+	 <marquee onmouseout="this.start()" onmouseover="this.stop()" direction="left">咸宁职业技术学院信息工程系计算机应用技术二班叶志明</marquee>
+	 <span>[<a href="" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.54zm.cn');">设为首页</a>] [<a href="javascript:window.external.AddFavorite('http://www.54zm.cn','追梦社区')">加入收藏</a>]</span></div>
+    </div> 
+</div>
+<!--     公共部分头部导航开始       -->
+<div class="header">
+	<div class="nav">
+		<div class="nav_logo"><img src="images/logo.png" /></div>
+		<div class="nav_navs">
+			<ul>
+			<li><a href="index.html">追梦首页</a></li>
+			<li><a href="tuwen.html">图文列表</a></li>
+			<li><a href="wenzhang.html">文章页面</a></li>
+			<li><a href="tag_list.html">TAG标签</a></li>
+			<li><a href="tag.html">标签集合</a></li>
+			<li><a href="#">关于我们</a></li>
+			</ul>
+        </div>
+		<div class="nav_reg">
+			<span><a href="#">注册</a></span>
+			<span><a href="#">登录</a></span>
+		</div>
+	</div>
+</div>
+<!--     公共部分头部导航结束       -->
+
+
+
+<div class="navs">主页 > 最新资讯 ></div>
+<div class="zhong">
+  <div class="content">
+	  <div class="title">做人，永远不要看不起任何人（深度好文）</div>
+	  <div class="auth">时间:2016-04-22 22:56来源:未知 作者:admin 点击: 167 次</div>
+	  
+	  <div class="neirong">
+	  <img src="images/002.jpg" />
+	  不要看不起任何一个人，他现在混的不好，不代表将来就不好，你混的好，不一定你永远都这么好，世界一直在变，人生的起落沉浮谁都无法预料。 　　 　　在这个世界上，会有很多人没你混的好，但是也许还有很多人比你厉害。所以如果你没有那个资本的话，就不要看不起人，包括那些没你混的好的人们！ 　　要尊重任何一个人，不管他们生活的多么差，不管他们生活的多么＂低级＂。哪怕是一个精神病人或者是疯子，也不要轻易去厌恶他们，就算他们的精神再不＂正常＂，至少他们知道还有亲情的存在。而有些正常人却不知道这些。正如那句话：有的人活着，但是他已经死了；有的人死了，但是他还活着。 　　每个人有每个人的生活方式，也许只是他们的生活方式让你接受不了而已。时间长了你会接受的。 　　只要他们是善良的，只要他们有爱心和孝心，哪怕他们是个我们所认为的小混混都无所谓。不管别人怎么想，怎么做，都不要看不起他们，应该以同样的方式把他们当做朋友看待。 　　看一个人，不要因为他没有本事就看不起他。更不要因为他很有本事就看得起他。你要告诉自己：不能去小看任何一个人．不管他现在混的怎么样，现在混的不好，不代表将来就不好，现在就算是混的很不错的，也不一定将来他就比现在好。所以人在眼中都是一样的。 　　就算有钱，走在大街上时，也请尊重那些清洁工们．因为清洁是他们给的！虽然你很富有，但是也不要看不起他们。因为，也许他们的物质生活远远比不上你，但是那并不代表他们的精神生活就不如你．不要看不起任何人，别人的某方面不如你不代表都不如你，也许有一天，他们的生活也会和你一样强。 　　一个人的物质生活可以是辛苦的，但是只要他在精神上是富有的，就够了。因为你不知道，也许无意中你和他们说的那么一句话，可能就会影响到你的一生。 　　有些人在外人看来不是好人，不是他不好，而是他的好只是针对小部分人，只是很抱歉，你不是那小部分人而已，所以你没发现而已。所以不要轻易看不起任何人，试着去尊重他们，也许你会有意想不到的发现。　 　　就算你很有钱，就算你再有本事，你也不要看不起任何一个人，毕竟在这个世界上，比你强的大有人在。不要为你现在取得的一点点成果而沾沾自喜，因为社会永远都是前进的！现在看起来很富有的人们，不见得将来还会富有。现在看起来很穷的人们，不一定他们永远都是穷的。世界在变，我们也在变，但是不管这个世界怎么改变，希望不要轻易去看不起一个人。 　　每个人的身上都有值得你去学习的地方，哪怕他们连书都没读过。不要以为你现在是什么研究生，或者是什么博士，或是什么高官你就可以以为你什么都知道了．一个真正成功的人，决不会看不起任何人。成功的人都没有看不起别人，何况我们只是普通人。所以永远不要看不起任何人。 　　看看你脚下干净的路，你要想到这都是环保工人的功劳。感受你住着的房，你要想到这都是建筑工人的功劳。再品品你桌上的饭菜，你要想到这都是那些在田间劳作的农民的功劳。也许他们会比你们低一档次，可是也不能瞧不起他们，他们都是对社会最有贡献的人。今天的你们无论多有钱，但是你们的钱变不了物质，它是需要交易的，而你们认为那些举手之劳可以得到的物质，却是需要你们眼中那些常常会"瞧不起的人们"耕耘出来的。 　　你永远没有理由或者权利去看不起你身边的每一个人，因为每一个人都有他在社会的价值。每一个都有属于他们的自尊，今天的你也许是董事长，但如果没有比你低层的人帮你打工，你这个董事又怎么能坐得稳稳的？今天的你也许特有权威，可是如果大家都不服从你，你又怎么拿着高高的权威去抬高自己？在这个世界上总会有一些人活得最开心，而他们却多数只是那些谦虚和善良的人们。 　　想得到别人的尊重，想让别人看得起你，首先你要先尊重别人，看得起别人．并不是每一个人生下来就是富豪之子,就是权势贵族，地球这么大，总是会有一些人是要做平民与穷人的。所以不要去看不起别人。 　　不管在什么时候，什么地方，都请你记得：不要试图去看不起任何一个人(只要他们不是大奸大恶道德沦丧的人），让世界充满一点爱的味道。贫富差距不是一朝一夕能消除的，所以只要我们都怀着一颗感恩的心去面对生活，面对所有人，只有这样我们的生活才会越变越美好。 (责任编辑：admin)</div>
+	  
+      <div class="context">
+	  <ul>
+	  <li class="l">上一篇：心若向阳，便无畏悲伤</li><li class="r">下一篇：人生学会随缘，才能活得自在</li>
+	  </ul>
+	  </div>
+  </div>
+  
+  <div class="cebian">
+    <ul class="tuijian">
+	<span>热门推荐</span>
+		<li>&nbsp;&nbsp;<a href="#">饿了么与口碑的深度融合，背后阿</a></li>
+		<li>&nbsp;&nbsp;<a href="#">落笔为念，执着为你</a></li>
+		<li>&nbsp;&nbsp;<a href="#">心若向阳，便无畏悲伤</a></li>
+		<li>&nbsp;&nbsp;<a href="#">做人，永远不要看不起任何人（深</a></li>
+		<li>&nbsp;&nbsp;<a href="#">换个角度，挫折不再是挫折</a></li>
+		<li>&nbsp;&nbsp;<a href="#">人生学会随缘，才能活得自在</a></li>
+		<li>&nbsp;&nbsp;<a href="#">世界不曾亏待每个努力的人</a></li>
+		<li>&nbsp;&nbsp;<a href="#">等了一场春迟未，爱上梨花蕊中凉</a></li>
+	</ul>
+  </div>
+</div>
+<div class="clr"></div>
+<!--底部版权开始-->
+<div class="zm_footer">
+
+  <div class="zm_fshang">
+    <div class="zm_fshangw">
+      <div class="zm_fshangl">
+        <div class="fabout">
+          <dl>
+            <dt>追梦网，有态度的科技媒体！</dt>
+            <dd><a href="">关于我们</a> | <a href="">联系我们</a> | <a href="">商务合作</a></dd>
+            <dd><a href="">寻求报道</a> | <a href="">投稿须知</a> | <a href="">网站地图</a></dd>
+            <dd><a href="">滚动新闻</a> | <a href="">专栏作者</a> | <a href="">专题汇总</a></dd>
+          </dl>
+        </div>
+        <div class="ftousu">
+          <dl>
+            <dt>投诉建议</dt>
+            <dd>通过E-mail将您的想法和建议发给我们</dd>
+            <dd>稿件投诉：mail@54zm.com</dd>
+            <dd>版权建议：543619552@qq.com</dd>
+          </dl>
+        </div>
+        <div class="flianxi">
+          <dl>
+            <dt>联系我们</dt>
+            <dd>联系电话：18872849065</dd>
+            <dd>官方客服QQ：543619552</dd>
+            <dd>QQ公众号：aszmxw</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="fshangr">
+        <ul>
+          <li><img src="images/aszmxw.png"></li>
+          <li><img src="images/aszmxw.png"></li>
+        </ul>
+      </div>
+  </div>
+<div class="fby">
+<div class="by">Powered by DDeeCMS! V5.7</div>
+<div class="time">Copyright &copy; 2016</div>
+</div>
+<!--底部版权结束-->
+</body>
+</html>

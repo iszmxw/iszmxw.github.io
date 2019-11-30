@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>婚纱摄影网站</title>
+<style>
+*{margin:0;padding:0}
+body{background:#F2F2F2;font-size:16px;width:100%;}
+#w1100{width:1100px;}
+.clr{clear:both;}
+#header{background:#FFFFFF;height:627px;}
+#header .nav{width:100%;float:left;height:72px;width:100%;background:#FFFFFF}
+#header .nav .logo{float:left;width:290px;height:72px;}
+#header .nav .logo img {margin-top: 5px;margin-left: 105px;}
+#header .nav .navs{float:right;width:810px;height:72px;}
+#header .nav .navs li{float:left;list-style:none;width:135px;height:72px;line-height:72px;text-align:center;}
+#header .nav .navs li a{color:#000000;text-decoration:none;}
+#header .pic{float:left;height:495px;width:100%;;background:#0066CC;}
+#header .pic img{height:495px;width:100%;}
+#header .lxfs{float:left;background:#ffffff;width:100%;height:60px;}
+#header .lxfs ul{background:#ffffff;width:1170px;height:60px;margin:0 auto;}
+#header .lxfs ul li{line-height:60px;text-align:center;list-style:none;float:right;font-size:16px;}
+#header .lxfs ul .qq,.wx,.wb,.dh{width:250px;height:60px;margin-left:5px;}
+#header .lxfs ul .qq img,.wx img,.wb img,.dh img{width:60px;height:60px;float:left;}
+#header .lxfs ul .qq span,.wx span,.wb span,.dh span{display:block;float:left}
+#header .lxfs ul .wx{width:250px;height:60px;margin-left:5px;}
+#header .lxfs ul .wb{width:250px;height:60px;margin-left:5px;}
+#header .lxfs ul .dh{width:250px;height:60px;margin-left:5px;}
+
+#container{background:#f2f2f2;height:1005px;width:100%;}
+#container .ppl{height:855px;width:100%;}
+#container .ppl h1{width:100%;height:60px;text-align:center;margin-top:65px;}
+#container .ppl .tupian{width:1164px;margin:0 auto;}
+#container .ppl .tupian .tu1,.tu2{float:left;width:372px;margin-right:12px;}
+#container .ppl .tupian .tu1 img{width:372px;float:left;margin-bottom:12px;}
+#container .ppl .tupian .tu2 img{width:372px;float:left;margin-bottom:12px;}
+#container .ppl .tupian .tu3{float:left;width:35px;}
+#container .ppl .tupian .tu3 .h265{height:265px;width:372px;margin-bottom:12px;}
+#container .ppl .tupian .tu3 img{width:372px;float:left;}
+
+#container .ppm{width:100%;height:780px;background:#ffffff;margin-top:55px;}
+#container .ppm h1{width:100%;height:60px;text-align:center;padding-top:65px;}
+#container .ppm .ppbox{width:1200px;;height:600px;margin:0 auto;text-align:center;}
+#container .ppm .ppbox .zuotu{float:left;width:480px;height:580px;margin-right:10px;}
+#container .ppm .ppbox .zuotu img{float:left;width:480px;height:570px;margin:5px;}
+#container .ppm .ppbox .youtu{float:left;width:680px;height:580px;}
+#container .ppm .ppbox .youtu img{float:left;width:325px;height:280px;margin:5px;}
+
+#container .ppn{background:#f2f2f2;width:100%;height:540px;text-align:center;margin:0 auto;}
+#container .ppn h1{width:100%;height:60px;text-align:center;margin-top:65px;}
+#container .ppn .lei{width:1190px;height:445px;background:#f2f2f2;margin:0 auto;}
+#container .ppn .lei li{width:285px;height:440px;background:#FFFFFF;list-style:none;float:left;margin-right:10px;border:1px solid #CCCCCC}
+#container .ppn .lei li h1{margin-top: 20px;font-size: 25px;}
+#container .ppn .lei li img{width:250px;height:250px;}
+#container .ppn .lei li span{display: block;color: #FF0000;font-size: 25px;font-weight: bold;margin-top: 20px;}
+#container .ppn .lei li a{display: block;background:#d9534f;width:250px;height:35px;line-height:35px;margin-left:15px;margin-top:15px;color:#FFF;text-decoration:none;}
+
+#container .news{width:100%;height:780px;background:#ffffff;margin-top:55px;}
+#container .news h1{width:100%;height:60px;text-align:center;padding-top:65px;}
+#container .news .box{width:1170px;height:525px;background:#fff;margin:0 auto;}
+#container .news .box a{background:#5bc0de;display:block;width:1140px;line-height:34px;float:left;text-align:center;text-decoration:none;color:#fff;margin-left: 10px;}
+#container .news .box a:hover{background:#0099CC;}
+#container .news .box .list{list-style:none;width:585px;height:131px;background:#FFFFFF;float:left}
+#container .news .box .list a{padding: 10px;display:block;text-align:left;text-decoration:none;float:left;width:535px;line-height:120px;margin-left:10px;background:#fff}
+#container .news .box .list a:hover{background:#efefef}
+#container .news .box .list a img{display:block;width:90px;height:90px;float:left;}
+#container .news .box .list a h4{display:block;width:435px;height:26px;float:left;color:#000000;margin-top:-45px;margin-left:2px}
+#container .news .box .list a p{display:block;width:435px;height:60px;float:left;color: #888;overflow: hidden;font-size:15px;line-height: 20px;margin-top:30px;margin-left:2px}
+
+#footer{margin-top:45px;width:100%;height:120px;background:#000000;color:#FFFFFF}
+#footer .by{float:left;height:68px;margin-left:100px;padding-top:30px;}
+#footer .by p{line-height:25px;font-size: 14px;}
+#footer .tallk{float:right;height:40px;margin-top:30px;padding-right:100px;}
+#footer .tallk img{float:left;margin-left:40px;width:22px;height:22px;}
+</style>
+</head>
+
+<body>
+
+<div id="header">
+    <div class="nav">
+        <div class="logo"><img src="images/logo.png" /></div>
+        <ul class="navs">
+			<li><a href="#">首页</a></li>
+			<li><a href="#">婚礼案例</a></li>
+			<li><a href="#">服务套餐</a></li>
+			<li><a href="#">酒店信息</a></li>
+			<li><a href="news.html">新闻资讯</a></li>
+			<li><a href="#">关于我们</a></li>
+        </ul>
+    </div>
+    <div class="pic"><img src="images/01.jpg" /></div>  
+    <div class="lxfs">
+		<ul>
+			<li class="dh"><img src="images/dh.png" /><span>000-0000-0000</span></li>
+			<li class="wb"><img src="images/wb.png" /><span>官方微博</span></li>
+                        <li class="wx"><img src="images/wx.png" /><span>关注微信</span></li>
+			<li class="qq"><img src="images/qq.png" /><span>在线咨询</span></li>
+
+		</ul>
+	</div>
+</div>
+
+
+<div id="container">
+	<div class="ppl">
+		<h1>REAL CASE <font style="color:#FF0000">& </font> 最新案例展示</h1>
+		<div class="tupian">
+			<div class="tu1">
+				<img src="images/08.jpg" />
+				<img src="images/06.jpg" />
+			</div>
+			<div class="tu2">
+				<img src="images/02.jpg" />
+				<img src="images/04.jpg" />
+				<img src="images/07.jpg" />
+			</div>
+			<div class="tu3">
+				<img class="h265" src="images/03.jpg" />
+				<img src="images/05.jpg" />
+			</div>
+		</div>
+	</div>
+        <div class="clr"></div>
+	<div class="ppm">
+		<h1>WEDDING VIDEO <font style="color:#FF0000">& </font> 婚礼视频</h1>
+		<div class="ppbox">
+			<div class="zuotu">
+				<img src="images/09.jpg" />
+			</div>
+			<div class="youtu">
+				<img src="images/10.jpg" />
+				<img src="images/11.jpg" />
+				<img src="images/12.jpg" />
+				<img src="images/13.jpg" />
+			</div>
+		</div>
+	</div>
+	<div class="ppn">
+		<h1>SERVICE QUOTATION <font style="color:#FF0000">& </font> 服务套餐</h1>
+		<ul class="lei">
+			<li><h1>基础型</h1><img src="images/17.jpg" /><span>3680元</span><a href="#">立即预定</a></li>
+			<li><h1>标准型</h1><img src="images/16.jpg" /><span>5280元</span><a href="#">立即预定</a></li>
+			<li><h1>豪华型</h1><img src="images/15.jpg" /><span>8900元</span><a href="#">立即预定</a></li>
+			<li><h1>完美型</h1><img src="images/14.jpg" /><span>14880元</span><a href="#">立即预定</a></li>
+		</ul>	
+	</div>
+    <div class="news">
+	<h1>NEWS INFORMATION <font style="color:#FF0000">& </font> 新闻动态</h1>
+		<ul class="box">
+		<li class="list">
+		<a href="#"><img src="images/18.jpg" /><h4>2015年必知婚庆典礼注意事项</h4><p>结婚是件又累人又幸福的事情，忙忙碌碌筹备婚礼，婚礼的各项准备都提前做好，就等着穿上婚纱嫁给心目中的他。婚礼从开始到结束，亲朋好友来来往...</p>
+		</a>
+		</li>
+		<li class="list">
+		<a href="#"><img src="images/19.jpg" /><h4>准新娘试穿婚纱功课要做足</h4><p>在每个婚庆典礼上一般都会有新郎与新娘的婚纱照，而婚纱照是在举办结婚典礼之前就已经拍好的，新娘要想挑到最满意的婚纱，试穿婚纱是非常重要的，下面.....</p>
+		</a>
+		</li>
+		<li class="list">
+		<a href="#"><img src="images/20.jpg" /><h4>婚礼蛋糕桌小细节大学问</h4><p>一场完美的婚礼，少不了甜甜蜜蜜的婚礼蛋糕，婚礼上的蛋糕一般是订购2个或是3个多层的蛋糕，除了蛋糕，新人们如果还想用不同的比较大的配件来装饰的.....</p>
+		</a>
+		</li>
+		<li class="list">
+		<a href="#"><img src="images/21.jpg" /><h4>如何挑选婚礼跟拍摄影师</h4><p>结婚，是新人开始一起生活的起点，为了记录这一天，婚礼摄影师是不可或缺的，选择一个好的婚宴典礼跟拍摄影师更是非常重要。拍摄婚纱照可以使用后期适.....</p>
+		</a>
+		</li>
+		<li class="list">
+		<a href="#"><img src="images/22.jpg" /><h4>新人不适合拍摄外景婚纱照的因素</h4><p>现代社会新人拍摄婚纱照一般选择拍摄外景，因为外景的光线柔和，拍出来的画面感比较自然。即使是冬季，也有很多新人不惧严寒拍摄外景婚纱照。其实，除.....</p>
+		</a>
+		</li>
+		<li class="list">
+		<a href="#"><img src="images/23.jpg" /><h4>婚庆网之新娘外景拍摄婚纱照必备单品</h4><p>结婚是一对新人一生值得回忆的事情，为了留住回忆，拍摄婚纱照是必不可少的，既然决定拍摄婚纱照了，当然不能浪费好不容易赚来的金钱了。为了能够拍摄.....</p>
+		</a>
+		</li>
+		<li class="list">
+		<a href="#"><img src="images/24.jpg" /><h4>婚庆典礼实用着装搭配技巧</h4><p>婚宴典礼当中，新人是绝对的主角，其次就是新人的父母与伴娘、伴郎。在整个婚庆典礼当中，新人一般会换2到4套的婚纱礼服，那么小编来为大家介绍一下.....</p>
+		</a>
+		</li>
+		<li class="list">
+		<a href="#"><img src="images/25.jpg" /><h4>婚庆公司教你夏日婚礼避暑小妙招</h4><p>新时代的潮男潮女们，结婚大部分都喜欢西式户外婚礼，可以穿上代表纯洁的婚纱。然而，炎热的夏季，又让新人们担心是否会热到宾客们，从而让自己的婚礼.....</p>
+		</a>
+		</li>
+		<a href="news.html">查看更多</a>
+		</ul>
+	</div>
+</div>
+<div class="clr"></div>
+
+
+
+<div id="footer">
+<div class="by">
+<p>我的网站 版权所有 2014-2015 鄂ICP备14019660号-1</p>
+<p>本页面内容为网站演示数据，前台页面内容都可以在后台修改。</p>
+<p>Powered by Qn54zm @2012--2015 www.54zm.com</p>
+</div>
+<div class="tallk"><img src="images/wb.png" /><img src="images/wx.png" />
+<img src="images/qq.png" /></div>
+</div>
+</body>
+</html>

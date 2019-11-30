@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 视频和音频的 DOM 参考手册</title>
+
+<style>
+p#ps{width: 100%;border-radius: 8px;border: 2px solid #39c;background: #3374b5;color: #ffffff;line-height: 30px;}
+table.box,tbody.box {width: 100%;height: 100%;background: #333;border-radius: 4px;}
+tbody.box tr {width: 100px;height: 30px;background: #847979;}
+</style>
+</head>
+
+<body>
+<div id="intro">
+  <h2>HTML5 视频和音频的 DOM 参考手册</h2>
+  <p>HTML5 DOM 为 &lt;audio&gt; 和 &lt;video&gt; 元素提供了方法、属性和事件。</p>
+  <p id="ps">这些方法、属性和事件允许您使用 JavaScript 来操作 &lt;audio&gt; 和 &lt;video&gt; 元素。</p>
+</div>
+<div>
+  <h2>HTML5 Audio/Video 方法</h2>
+  <table class="box">
+    <tbody class="box">
+      <tr>
+        <th>方法</th>
+        <th>描述</th>
+      </tr>
+      <tr>
+        <td>addTextTrack()</td>
+        <td>向音频/视频添加新的文本轨道</td>
+      </tr>
+      <tr>
+        <td>canPlayType()</td>
+        <td>检测浏览器是否能播放指定的音频/视频类型</td>
+      </tr>
+      <tr>
+        <td>load()</td>
+        <td>重新加载音频/视频元素</td>
+      </tr>
+      <tr>
+        <td>play()</td>
+        <td>开始播放音频/视频</td>
+      </tr>
+      <tr>
+        <td>pause()</td>
+        <td>暂停当前播放的音频/视频</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <h2>HTML5 Audio/Video 属性</h2>
+  <table class="box">
+    <tbody class="box">
+      <tr>
+        <th>属性</th>
+        <th>描述</th>
+      </tr>
+      <tr>
+        <td>audioTracks</td>
+        <td>返回表示可用音轨的 AudioTrackList 对象</td>
+      </tr>
+      <tr>
+        <td>autoplay</td>
+        <td>设置或返回是否在加载完成后随即播放音频/视频</td>
+      </tr>
+      <tr>
+        <td>buffered</td>
+        <td>返回表示音频/视频已缓冲部分的 TimeRanges 对象</td>
+      </tr>
+      <tr>
+        <td>controller</td>
+        <td>返回表示音频/视频当前媒体控制器的 MediaController 对象</td>
+      </tr>
+      <tr>
+        <td>controls</td>
+        <td>设置或返回音频/视频是否显示控件（比如播放/暂停等）</td>
+      </tr>
+      <tr>
+        <td>crossOrigin</td>
+        <td>设置或返回音频/视频的 CORS 设置</td>
+      </tr>
+      <tr>
+        <td>currentSrc</td>
+        <td>返回当前音频/视频的 URL</td>
+      </tr>
+      <tr>
+        <td>currentTime</td>
+        <td>设置或返回音频/视频中的当前播放位置（以秒计）</td>
+      </tr>
+      <tr>
+        <td>defaultMuted</td>
+        <td>设置或返回音频/视频默认是否静音</td>
+      </tr>
+      <tr>
+        <td>defaultPlaybackRate</td>
+        <td>设置或返回音频/视频的默认播放速度</td>
+      </tr>
+      <tr>
+        <td>duration</td>
+        <td>返回当前音频/视频的长度（以秒计）</td>
+      </tr>
+      <tr>
+        <td>ended</td>
+        <td>返回音频/视频的播放是否已结束</td>
+      </tr>
+      <tr>
+        <td>error</td>
+        <td>返回表示音频/视频错误状态的 MediaError 对象</td>
+      </tr>
+      <tr>
+        <td>loop</td>
+        <td>设置或返回音频/视频是否应在结束时重新播放</td>
+      </tr>
+      <tr>
+        <td>mediaGroup</td>
+        <td>设置或返回音频/视频所属的组合（用于连接多个音频/视频元素）</td>
+      </tr>
+      <tr>
+        <td>muted</td>
+        <td>设置或返回音频/视频是否静音</td>
+      </tr>
+      <tr>
+        <td>networkState</td>
+        <td>返回音频/视频的当前网络状态</td>
+      </tr>
+      <tr>
+        <td>paused</td>
+        <td>设置或返回音频/视频是否暂停</td>
+      </tr>
+      <tr>
+        <td>playbackRate</td>
+        <td>设置或返回音频/视频播放的速度</td>
+      </tr>
+      <tr>
+        <td>played</td>
+        <td>返回表示音频/视频已播放部分的 TimeRanges 对象</td>
+      </tr>
+      <tr>
+        <td>preload</td>
+        <td>设置或返回音频/视频是否应该在页面加载后进行加载</td>
+      </tr>
+      <tr>
+        <td>readyState</td>
+        <td>返回音频/视频当前的就绪状态</td>
+      </tr>
+      <tr>
+        <td>seekable</td>
+        <td>返回表示音频/视频可寻址部分的 TimeRanges 对象</td>
+      </tr>
+      <tr>
+        <td>seeking</td>
+        <td>返回用户是否正在音频/视频中进行查找</td>
+      </tr>
+      <tr>
+        <td>src</td>
+        <td>设置或返回音频/视频元素的当前来源</td>
+      </tr>
+      <tr>
+        <td>startDate</td>
+        <td>返回表示当前时间偏移的 Date 对象</td>
+      </tr>
+      <tr>
+        <td>textTracks</td>
+        <td>返回表示可用文本轨道的 TextTrackList 对象</td>
+      </tr>
+      <tr>
+        <td>videoTracks</td>
+        <td>返回表示可用视频轨道的 VideoTrackList 对象</td>
+      </tr>
+      <tr>
+        <td>volume</td>
+        <td>设置或返回音频/视频的音量</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <h2>HTML5 Audio/Video 事件</h2>
+  <table class="box">
+    <tbody class="box">
+      <tr>
+        <th>事件</th>
+        <th>描述</th>
+      </tr>
+      <tr>
+        <td>abort</td>
+        <td>当音频/视频的加载已放弃时</td>
+      </tr>
+      <tr>
+        <td>canplay</td>
+        <td>当浏览器可以播放音频/视频时</td>
+      </tr>
+      <tr>
+        <td>canplaythrough</td>
+        <td>当浏览器可在不因缓冲而停顿的情况下进行播放时</td>
+      </tr>
+      <tr>
+        <td>durationchange</td>
+        <td>当音频/视频的时长已更改时</td>
+      </tr>
+      <tr>
+        <td>emptied</td>
+        <td>当目前的播放列表为空时</td>
+      </tr>
+      <tr>
+        <td>ended</td>
+        <td>当目前的播放列表已结束时</td>
+      </tr>
+      <tr>
+        <td>error</td>
+        <td>当在音频/视频加载期间发生错误时</td>
+      </tr>
+      <tr>
+        <td>loadeddata</td>
+        <td>当浏览器已加载音频/视频的当前帧时</td>
+      </tr>
+      <tr>
+        <td>loadedmetadata</td>
+        <td>当浏览器已加载音频/视频的元数据时</td>
+      </tr>
+      <tr>
+        <td>loadstart</td>
+        <td>当浏览器开始查找音频/视频时</td>
+      </tr>
+      <tr>
+        <td>pause</td>
+        <td>当音频/视频已暂停时</td>
+      </tr>
+      <tr>
+        <td>play</td>
+        <td>当音频/视频已开始或不再暂停时</td>
+      </tr>
+      <tr>
+        <td>playing</td>
+        <td>当音频/视频在已因缓冲而暂停或停止后已就绪时</td>
+      </tr>
+      <tr>
+        <td>progress</td>
+        <td>当浏览器正在下载音频/视频时</td>
+      </tr>
+      <tr>
+        <td>ratechange</td>
+        <td>当音频/视频的播放速度已更改时</td>
+      </tr>
+      <tr>
+        <td>seeked</td>
+        <td>当用户已移动/跳跃到音频/视频中的新位置时</td>
+      </tr>
+      <tr>
+        <td>seeking</td>
+        <td>当用户开始移动/跳跃到音频/视频中的新位置时</td>
+      </tr>
+      <tr>
+        <td>stalled</td>
+        <td>当浏览器尝试获取媒体数据，但数据不可用时</td>
+      </tr>
+      <tr>
+        <td>suspend</td>
+        <td>当浏览器刻意不获取媒体数据时</td>
+      </tr>
+      <tr>
+        <td>timeupdate</td>
+        <td>当目前的播放位置已更改时</td>
+      </tr>
+      <tr>
+        <td>volumechange</td>
+        <td>当音量已更改时</td>
+      </tr>
+      <tr>
+        <td>waiting</td>
+        <td>当视频由于需要缓冲下一帧而停止</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

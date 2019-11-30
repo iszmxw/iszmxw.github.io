@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=2.0" /> 
+<link rel="stylesheet" type="text/css" href="css/iconfont.css">
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/zzyk.css" />
+<link rel="stylesheet" href="css/form.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<title>微信-广成学车--报名订单页面</title>
+</head>
+
+<body id="cehual">
+<header>
+<a href="javascript:void(0);" id="navmenu"><img src="images/nav_menu.png" /></a>
+<a class="title" href="index.html">微信-广成学车-报名订单</a>
+<a id="sdhx" class="iconfont icon-hexin" href="sdhx.html"></a>
+</header>
+
+<!--侧边菜单栏-->
+   <div id="cbl-style">
+      <ul id="cbl-nav">
+<li class="iconfont icon-kemu"><a href="index.html">模拟考试</a></li>
+<li class="iconfont icon-kemu"><a href="sdhx.html">网站首页</a></li>
+<li class="iconfont icon-kemu"><a href="denglu.html">登录注册</a></li>
+<li class="iconfont icon-kemu"><a href="jishipeixun.html">计时培训</a></li>
+<li class="iconfont icon-kemu"><a href="sanxuepeilian.html">散学陪练</a></li>
+<li class="iconfont icon-kemu"><a href="yuyuexueche.html">预约学车</a></li>
+<li class="iconfont icon-kemu"><a href="zizhuyuekao.html">自主约考</a></li>
+<li class="iconfont icon-kemu"><a href="yidikaoshi.html">异地考试</a></li>
+<li class="iconfont icon-kemu"><a href="baoming.html">报名页面</a></li>
+<li class="iconfont icon-kemu"><a href="shangjiaxiangqing.html">商家详情</a></li>
+<li class="iconfont icon-kemu"><a href="yitiaolong.html">全套系统</a></li>
+<li class="iconfont icon-kemu"><a href="ytl_list.html">全套列表</a></li>
+<li class="iconfont icon-kemu"><a href="zixun.html">学车资讯</a></li>
+<li class="iconfont icon-kemu"><a href="wenzhang.html">文章页面</a></li>
+</ul>
+   </div>
+
+<div class="contant">
+<div class="zzyk">
+<img src="images/zizhu.png" />
+<span>计时培训</span>
+</div>
+<div class="boxyk">
+
+<form name="Main" method="post" action="Index.php">
+            <input type="hidden" value="zxbm" name="do">
+            <input type="hidden" value="58" name="TrainID">
+            <input type="hidden" value="C1经济班" name="Caption">
+            <input type="hidden" value="1" name="cID">
+            <input type="hidden" value="" name="CarType">
+            <input type="hidden" value="4" name="TrainType">
+            <input type="hidden" value="" name="Hours">
+            
+            <input type="hidden" value="bmxf" name="Step">
+			<div class="col-sm-12" style="margin-top: 10px;">
+              <div class="col6 tablerow">
+                <label class="col2">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+                <div class="col8">
+				  <input class="form-control" placeholder="&nbsp;请输入联系人姓名" name="UserName" type="text" onchange="SetBtn();" value="">
+			    </div>
+                
+              </div>
+			  <div class="col6 tablerow">
+                <label class="col3 text-center">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</label>
+                <div class="col8">
+				  <div class="text-center dshfajha">
+					<input type="radio" checked="checked" name="Sex" value="1">男
+					<input type="radio" name="Sex" value="0" style="margin-left: 20px;">女
+				  </div>
+                </div>
+                <div class="col1"></div>
+              </div>
+			</div>
+			<div class="col12">
+              <div class="col6 tablerow">
+			    <label class="col2">身份证号</label>
+                <div class="col8">
+				  <input class="form-control" placeholder="请输入证件号码" name="IDNo" type="text" onchange="SetBtn();isok(this);" value="" autocomplete="on">
+			    </div>
+                
+              </div>
+              <div class="col6 tablerow">
+			    <label class="col3 text-center">手机号码</label>
+                <div class="col8">
+				  <input class="form-control" placeholder="请输入手机号码" name="Number" type="text" onchange="SetBtn();isphone2(this);" value="" autocomplete="on">
+			    </div>
+                
+              </div>
+			</div>
+			<div class="col12">
+              <div class="col6 tablerow">
+			    <label class="col2">QQ&nbsp;号码</label>
+                <div class="col8">
+				  <input class="form-control" placeholder="请输入QQ号码" name="QQ" type="text" value="">
+                </div>
+              </div>
+              <div class="col6 tablerow">
+			    <label class="col3 text-center">联系地址</label>
+                <div class="col8">
+				  <input class="form-control" placeholder="请输入联系地址" name="address" type="text" value="">
+                </div>
+                <div class="col1"></div>
+              </div>
+              			</div>
+            
+            
+            <div class="col12">
+              <div class="col6 tablerow">
+                <div class="col12">
+                <label class="col2">区&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;县</label>
+                  <div class="col8">
+                  <select class="form-control" name="RegisterPointID" onchange="SetBtn();">
+<option value="罗湖区">罗湖区</option>
+<option value="福田区">福田区</option>
+<option value="南山区">南山区</option>
+<option value="宝安区">宝安区</option>
+<option value="龙岗区">龙岗区</option>
+                  </select>
+	              </div>
+                  <div class="col2"></div>
+                </div>
+              </div>
+              <div class="col6 tablerow">
+                <div class="col12">
+                  <label class="col3 text-center">报&nbsp;&nbsp;名&nbsp;&nbsp;点</label>
+                  <div class="col8 text-left">
+                  <select class="form-control" name="RegisterPointID" onchange="SetBtn();">
+<option value="1">西乡[宝安区西乡固戍]</option>
+<option value="2">流塘[宝安区流塘]</option>
+<option value="3">南山[南山区科技园]</option>
+<option value="4">福田[福田区福田福田]</option>
+<option value="5">龙岗[龙岗区龙岗]</option>
+<option value="6">布吉[罗湖区布吉]</option>
+				  </select>
+                  </div>
+                  <div class="col1"></div>
+                </div>
+              </div>
+            </div>
+                        <div class="col-sm-12 text-center ">
+              <label class="col12 text-center" style="margin-top: 10px;margin-bottom: 10px;">
+              C1经济班学车协议              </label>
+              <div class="col12">
+              <textarea cols="30" rows="30" class="form-control" wrap="virtual" readonly="readonly" maxlength="100">              
+甲方：广成学车
+乙方：学员
+
+甲、乙双方本着公平、自愿、诚信的原则，就学车培训相关事宜签订如下合同：
+第一条  乙方选择参加培训班别费用为￥6880元 ；课程培训以该班别所对应的项目服务内容为准，因缺考产生的费用乙方自行承担。
+第二条  乙方按网上支付功能支付培训费用，学费分2期付清，首付500元，余款在考完科目一后付清，学费付清后安排练车。
+第三条  甲乙双方的权利义务和责任
+（一）甲方严格履行合同义务，妥善安排乙方的培训工作。
+（二）甲方设立专人受理乙方在培训过程中存在的问题。
+（三）乙方确保报名资料相关信息真实有效，当联系信息变更时，应及时联系甲方更改，否则承担因此而造成的后果。
+（四）乙方按时缴纳相关费用，否则甲方有权终止对乙方的相关培训。
+（五）乙方在培训及考试过程中，如隐瞒身体不适（如女性孕期）、不服从教练指导造成安全事故、饮酒、在无教练指导下擅自操作教练车、有违反考试纪律等行为时，由乙方个人承担因此造成的一切后果，包括经济及法律责任。
+第四条  发生下列情形之一的，经双方同意允许解除合同： 
+（一）在乙方无过错情况下，甲方无法安排乙方培训时间连续超过一年以上，甲方应退还全部培训费，并赔偿乙方培训费的30%作为违约金。
+（二）乙方提供的学车申请不符合条件的，甲方扣除报名工本费100元后退还乙方的培训费。
+（三）乙方因个人原因申请解除合同的，乙方需支付全额培训费30%金额违约金，再根据乙方的培训进度扣除相关费用：。 
+第五条 发生下列情形之一的，合同自动终止：
+（一）乙方取得了驾驶证后，本合同自动终止。
+（二）乙方如在本合同签订之日起三年内因自身原因未参加完或未能通过所有科目考试，培训费不予退还，本合同自动终止。
+（三）在本合同有效期内，乙方科目二和科目三考试次数各超过规定5次仍不合格，所有科目成绩作废，本合同自动终止，甲方无需退还乙方缴纳的培训费用。
+第六条  甲、乙双方就本合同发生纠纷，应通过协商解决，协商不成的，可向有管辖权的人民法院提请诉讼。  
+第七条  本合同有效期三年，自签订之日起生效。              </textarea>
+              </div>
+              <!--div class="col1"></div-->
+			<div class="col11 -jgurjgje" style="margin-top: 10px;margin-bottom: 10px;">
+              <span>
+              <input type="button" class="btn btn-warning" value="同意协议并继续" name="bt" id="bnext" onclick="nextpage();" disabled="">
+              </span>
+              
+			</div>
+            </div>
+          </form>
+
+</div>
+
+<div class="sxfw">备注及说明：</div>
+<div class="sxsm">
+  <p>1、请务必填写真实资料，以便付款后及时核对本人，如有疑问，请致电4008869202。 <br />
+  2、请认真查看学车协议内容，协议内容规范了双方权益，双方按此协议履行相应义务。<br />
+  3、网上支付学费可支持支付宝和微信扫码方式支付，支付金额可选择全款或分两期付清（分两期则首付500元，余款在考试完科目一后立即付清）。<br />
+  4、支付完成后，则完成整个网上报名学车流程，系统会自动生成一个电子订单。点击&ldquo;发送订单&quot;后电子订单和协议会发送到学员QQ邮箱，方便学员保存依据。<br />
+  5、完成报名后3天内，广成客服工作人员与学员联系，收集学员相关受理资料(身份证复印件、居住证复印件、体检表及体检回执、照片及照相回执等），安排相关学车事宜。</p>
+
+</div>
+
+
+
+
+</div>
+
+<script type="text/javascript" src="js/zmxw.js"></script>
+</body>
+</html>
