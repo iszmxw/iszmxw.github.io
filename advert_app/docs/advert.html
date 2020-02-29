@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <link rel="icon" href="/advert_app/docs/logo.png">
     
-    <link rel="preload" href="/advert_app/docs/assets/css/0.styles.300ae1d6.css" as="style"><link rel="preload" href="/advert_app/docs/assets/js/app.41a2d538.js" as="script"><link rel="preload" href="/advert_app/docs/assets/js/2.aa93e82f.js" as="script"><link rel="preload" href="/advert_app/docs/assets/js/6.d28b9d83.js" as="script"><link rel="prefetch" href="/advert_app/docs/assets/js/3.551503fb.js"><link rel="prefetch" href="/advert_app/docs/assets/js/4.5b3b168b.js"><link rel="prefetch" href="/advert_app/docs/assets/js/5.3c7b3842.js"><link rel="prefetch" href="/advert_app/docs/assets/js/7.0fb20a68.js"><link rel="prefetch" href="/advert_app/docs/assets/js/8.ec434c26.js"><link rel="prefetch" href="/advert_app/docs/assets/js/9.da92577e.js">
+    <link rel="preload" href="/advert_app/docs/assets/css/0.styles.300ae1d6.css" as="style"><link rel="preload" href="/advert_app/docs/assets/js/app.e3368386.js" as="script"><link rel="preload" href="/advert_app/docs/assets/js/2.aa93e82f.js" as="script"><link rel="preload" href="/advert_app/docs/assets/js/6.b1af013e.js" as="script"><link rel="prefetch" href="/advert_app/docs/assets/js/3.551503fb.js"><link rel="prefetch" href="/advert_app/docs/assets/js/4.5b3b168b.js"><link rel="prefetch" href="/advert_app/docs/assets/js/5.3c7b3842.js"><link rel="prefetch" href="/advert_app/docs/assets/js/7.0fb20a68.js"><link rel="prefetch" href="/advert_app/docs/assets/js/8.ec434c26.js"><link rel="prefetch" href="/advert_app/docs/assets/js/9.da92577e.js">
     <link rel="stylesheet" href="/advert_app/docs/assets/css/0.styles.300ae1d6.css">
   </head>
   <body>
@@ -52,9 +52,9 @@
         <span class="token property">&quot;end_time&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-01-18 00:00:00&quot;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre></div><hr> <h2 id="广告点击上报接口"><a href="#广告点击上报接口" aria-hidden="true" class="header-anchor">#</a> 广告点击上报接口</h2> <p><strong>URL.</strong></p> <blockquote><p>接口地址：http://127.0.0.1/api/app/advert/advert_click</p></blockquote> <p><strong>请求方式.</strong></p> <blockquote><p>post | get</p></blockquote> <p><strong>请求参数.</strong></p> <table><thead><tr><th>字段名</th> <th>变量名</th> <th>必填</th> <th>类型</th> <th>说明</th></tr></thead> <tbody><tr><td>token</td> <td>token</td> <td>否</td> <td>string</td> <td>用户token</td></tr> <tr><td>广告id</td> <td>id</td> <td>否</td> <td>string</td> <td>当前用户点击的广告id</td></tr></tbody></table> <p><strong>请求实例：：</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+</code></pre></div><hr> <h2 id="广告点击上报接口"><a href="#广告点击上报接口" aria-hidden="true" class="header-anchor">#</a> 广告点击上报接口</h2> <p><strong>URL.</strong></p> <blockquote><p>接口地址：http://127.0.0.1/api/app/advert/advert_click</p></blockquote> <p><strong>请求方式.</strong></p> <blockquote><p>post | get</p></blockquote> <p><strong>请求参数.</strong></p> <table><thead><tr><th>字段名</th> <th>变量名</th> <th>必填</th> <th>类型</th> <th>说明</th></tr></thead> <tbody><tr><td>token</td> <td>token</td> <td>否</td> <td>string</td> <td>用户token</td></tr> <tr><td>点击上报id</td> <td>id_click</td> <td>否</td> <td>string</td> <td>当前用户点击的广告上报id</td></tr></tbody></table> <p><strong>请求实例：：</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
   <span class="token property">&quot;token&quot;</span><span class="token operator">:</span><span class="token string">&quot;1dc747de308d11ea8f1f7470fdcb52a0&quot;</span><span class="token punctuation">,</span>
-  <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+  <span class="token property">&quot;id_click&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
 <span class="token punctuation">}</span>
 </code></pre></div><p><strong>响应参数：</strong></p> <table><thead><tr><th>字段名</th> <th>变量名</th> <th>类型</th> <th>实例值</th></tr></thead> <tbody><tr><td>返回码</td> <td>code</td> <td>int</td> <td>200/500</td></tr> <tr><td>返回码含义</td> <td>message</td> <td>varchar</td> <td>success/error/数据传输错误！</td></tr></tbody></table> <p><strong>响应实例：：</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
     <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
@@ -65,6 +65,6 @@
         <a href="/advert_app/docs/news.html" class="prev">
           新闻中心
         </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/advert_app/docs/assets/js/app.41a2d538.js" defer></script><script src="/advert_app/docs/assets/js/2.aa93e82f.js" defer></script><script src="/advert_app/docs/assets/js/6.d28b9d83.js" defer></script>
+    <script src="/advert_app/docs/assets/js/app.e3368386.js" defer></script><script src="/advert_app/docs/assets/js/2.aa93e82f.js" defer></script><script src="/advert_app/docs/assets/js/6.b1af013e.js" defer></script>
   </body>
 </html>
