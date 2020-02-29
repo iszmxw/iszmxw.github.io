@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <link rel="icon" href="/advert_app/docs/logo.png">
     
-    <link rel="preload" href="/advert_app/docs/assets/css/0.styles.300ae1d6.css" as="style"><link rel="preload" href="/advert_app/docs/assets/js/app.82981acf.js" as="script"><link rel="preload" href="/advert_app/docs/assets/js/2.aa93e82f.js" as="script"><link rel="preload" href="/advert_app/docs/assets/js/6.4c6ca117.js" as="script"><link rel="prefetch" href="/advert_app/docs/assets/js/3.551503fb.js"><link rel="prefetch" href="/advert_app/docs/assets/js/4.5b3b168b.js"><link rel="prefetch" href="/advert_app/docs/assets/js/5.3c7b3842.js"><link rel="prefetch" href="/advert_app/docs/assets/js/7.0fb20a68.js"><link rel="prefetch" href="/advert_app/docs/assets/js/8.04b6df7c.js"><link rel="prefetch" href="/advert_app/docs/assets/js/9.da92577e.js">
+    <link rel="preload" href="/advert_app/docs/assets/css/0.styles.300ae1d6.css" as="style"><link rel="preload" href="/advert_app/docs/assets/js/app.0d9afe8c.js" as="script"><link rel="preload" href="/advert_app/docs/assets/js/2.aa93e82f.js" as="script"><link rel="preload" href="/advert_app/docs/assets/js/6.c9d23fa2.js" as="script"><link rel="prefetch" href="/advert_app/docs/assets/js/3.551503fb.js"><link rel="prefetch" href="/advert_app/docs/assets/js/4.5b3b168b.js"><link rel="prefetch" href="/advert_app/docs/assets/js/5.3c7b3842.js"><link rel="prefetch" href="/advert_app/docs/assets/js/7.2147f4d0.js"><link rel="prefetch" href="/advert_app/docs/assets/js/8.04b6df7c.js"><link rel="prefetch" href="/advert_app/docs/assets/js/9.da92577e.js">
     <link rel="stylesheet" href="/advert_app/docs/assets/css/0.styles.300ae1d6.css">
   </head>
   <body>
@@ -52,7 +52,8 @@
         <span class="token property">&quot;end_time&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2020-01-18 00:00:00&quot;</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
-</code></pre></div><hr> <h2 id="多条广告获取"><a href="#多条广告获取" aria-hidden="true" class="header-anchor">#</a> 多条广告获取</h2> <p><strong>URL.</strong></p> <blockquote><p>接口地址：http://127.0.0.1/api/app/advert/get_list_advert</p></blockquote> <p><strong>请求方式.</strong></p> <blockquote><p>post | get</p></blockquote> <p><strong>请求参数.</strong></p> <table><thead><tr><th>字段名</th> <th>变量名</th> <th>必填</th> <th>类型</th> <th>说明</th></tr></thead> <tbody><tr><td>token</td> <td>token</td> <td>否</td> <td>string</td> <td>用户token</td></tr> <tr><td>文章id</td> <td>news_id</td> <td>否</td> <td>string</td> <td>文章页面当前文章的id</td></tr> <tr><td>栏目id</td> <td>category_id</td> <td>否</td> <td>string</td> <td>栏目页面当前栏目的id</td></tr> <tr><td>请求类型</td> <td>type</td> <td>是</td> <td>string</td> <td>栏目列表页面传：1 文章详情页面传：2</td></tr></tbody></table> <p><strong>请求实例：：</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+</code></pre></div><hr> <h2 id="多条广告获取"><a href="#多条广告获取" aria-hidden="true" class="header-anchor">#</a> 多条广告获取</h2> <p><strong>URL.</strong></p> <blockquote><p>接口地址：http://127.0.0.1/api/app/advert/get_list_advert</p></blockquote> <p><strong>请求方式.</strong></p> <blockquote><p>post | get</p></blockquote> <p><strong>请求参数.</strong></p> <table><thead><tr><th>字段名</th> <th>变量名</th> <th>必填</th> <th>类型</th> <th>说明</th></tr></thead> <tbody><tr><td>limit</td> <td>limit</td> <td>否</td> <td>int</td> <td>获取条数，不传默认返回3条</td></tr> <tr><td>token</td> <td>token</td> <td>否</td> <td>string</td> <td>用户token</td></tr> <tr><td>文章id</td> <td>news_id</td> <td>否</td> <td>string</td> <td>文章页面当前文章的id</td></tr> <tr><td>栏目id</td> <td>category_id</td> <td>否</td> <td>string</td> <td>栏目页面当前栏目的id</td></tr> <tr><td>请求类型</td> <td>type</td> <td>是</td> <td>string</td> <td>栏目列表页面传：1 文章详情页面传：2</td></tr></tbody></table> <p><strong>请求实例：：</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;limit&quot;</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
   <span class="token property">&quot;token&quot;</span><span class="token operator">:</span><span class="token string">&quot;1dc747de308d11ea8f1f7470fdcb52a0&quot;</span><span class="token punctuation">,</span>
   <span class="token property">&quot;news_id&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
   <span class="token property">&quot;category_id&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
@@ -145,6 +146,6 @@
         <a href="/advert_app/docs/news.html" class="prev">
           新闻中心
         </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/advert_app/docs/assets/js/app.82981acf.js" defer></script><script src="/advert_app/docs/assets/js/2.aa93e82f.js" defer></script><script src="/advert_app/docs/assets/js/6.4c6ca117.js" defer></script>
+    <script src="/advert_app/docs/assets/js/app.0d9afe8c.js" defer></script><script src="/advert_app/docs/assets/js/2.aa93e82f.js" defer></script><script src="/advert_app/docs/assets/js/6.c9d23fa2.js" defer></script>
   </body>
 </html>

@@ -113,6 +113,7 @@
 
 | 字段名   | 变量名      | 必填 | 类型   | 说明                                |
 |----------|-------------|------|--------|-------------------------------------|
+| limit    | limit       | 否   | int    | 获取条数，不传默认返回3条           |
 | token    | token       | 否   | string | 用户token                           |
 | 文章id   | news_id     | 否   | string | 文章页面当前文章的id                |
 | 栏目id   | category_id | 否   | string | 栏目页面当前栏目的id                |
@@ -122,6 +123,7 @@
 
 ```json
 {
+  "limit": 3,
   "token":"1dc747de308d11ea8f1f7470fdcb52a0",
   "news_id": 1,
   "category_id": 1,
